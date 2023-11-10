@@ -67,18 +67,64 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddBook.aspx" />
+    <Content Include="AddBranch.aspx" />
+    <Content Include="AddPublication.aspx" />
+    <Content Include="AddStudent.aspx" />
+    <Content Include="Admin.aspx" />
     <Content Include="BookReport.aspx" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Home.aspx" />
+    <Content Include="IssueBook.aspx" />
+    <Content Include="IssueBookReport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
     <Content Include="myreport.aspx" />
     <Content Include="Penalty.aspx" />
+    <Content Include="PenaltyAdmin.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="ReturnBook.aspx" />
+    <Content Include="StudentReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBook.aspx.cs">
+      <DependentUpon>AddBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBook.aspx.designer.cs">
+      <DependentUpon>AddBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddBranch.aspx.cs">
+      <DependentUpon>AddBranch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBranch.aspx.designer.cs">
+      <DependentUpon>AddBranch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPublication.aspx.cs">
+      <DependentUpon>AddPublication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPublication.aspx.designer.cs">
+      <DependentUpon>AddPublication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddStudent.aspx.cs">
+      <DependentUpon>AddStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddStudent.aspx.designer.cs">
+      <DependentUpon>AddStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BookReport.aspx.cs">
       <DependentUpon>BookReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,6 +138,20 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssueBook.aspx.cs">
+      <DependentUpon>IssueBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IssueBook.aspx.designer.cs">
+      <DependentUpon>IssueBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IssueBookReport.aspx.cs">
+      <DependentUpon>IssueBookReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IssueBookReport.aspx.designer.cs">
+      <DependentUpon>IssueBookReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -121,7 +181,35 @@
     <Compile Include="Penalty.aspx.designer.cs">
       <DependentUpon>Penalty.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PenaltyAdmin.aspx.cs">
+      <DependentUpon>PenaltyAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PenaltyAdmin.aspx.designer.cs">
+      <DependentUpon>PenaltyAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnBook.aspx.cs">
+      <DependentUpon>ReturnBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReturnBook.aspx.designer.cs">
+      <DependentUpon>ReturnBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentReport.aspx.cs">
+      <DependentUpon>StudentReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentReport.aspx.designer.cs">
+      <DependentUpon>StudentReport.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\FontAwesome.otf" />
@@ -139,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Book Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

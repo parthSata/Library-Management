@@ -22,7 +22,7 @@ namespace Library_Management
         {
            
 
-            if (text_usename.Text != "" && text_pass.Text != "")
+            if (text_usename.Value != "" && text_pass.Value != "")
             {
                 string str = "select * from Login  ";
                 SqlDataAdapter da = new SqlDataAdapter(str, cn);
@@ -31,7 +31,7 @@ namespace Library_Management
                 if (dt.Rows.Count > 0)
                 {
                     Session["User_Id"] = text_usename;
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("Admin.aspx");
                 }
                 else
                 {

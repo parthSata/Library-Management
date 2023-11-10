@@ -11,7 +11,7 @@ namespace Library_Management
 {
 
 
-    public partial class BookReport
+    public partial class StudentReport
     {
 
         /// <summary>
@@ -60,13 +60,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// TextBox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
 
         /// <summary>
         /// Button2 control.
