@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management
 {
-    public partial class AddBranch : System.Web.UI.Page
+    public partial class BookReportClient : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Add_NewBranch_Click(object sender, EventArgs e)
         {
 
         }

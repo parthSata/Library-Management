@@ -73,6 +73,7 @@
     <Content Include="AddStudent.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="BookReport.aspx" />
+    <Content Include="BookReportClient.aspx" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -131,6 +132,13 @@
     </Compile>
     <Compile Include="BookReport.aspx.designer.cs">
       <DependentUpon>BookReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookReportClient.aspx.cs">
+      <DependentUpon>BookReportClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookReportClient.aspx.designer.cs">
+      <DependentUpon>BookReportClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -228,6 +236,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Book Images\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

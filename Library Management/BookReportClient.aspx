@@ -1,15 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Penalty.aspx.cs" Inherits="Library_Management.Penalty" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookReportClient.aspx.cs" Inherits="Library_Management.BookReportClient" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-          <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
 <body>
-    <form id="form1" runat="server">
+  <form id="form1" runat="server">
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
@@ -27,9 +25,9 @@
 
 
 
-            <asp:Button ID="Btn_login" runat="server" Text="Login" class="mr-2 inline-flex items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0"  />
+            <asp:Button ID="Btn_login" runat="server" Text="Login" class="mr-2 inline-flex items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0" OnClick="Btn_login_Click" />
 
-            <asp:Button ID="btn_logout" runat="server" Text="Log Out"  OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-white rounded text-base mt-4 md:mt-0"  />
+            <asp:Button ID="btn_logout" runat="server" Text="Log Out"  OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-white rounded text-base mt-4 md:mt-0" OnClick="btn_logout_Click" />
             <asp:HiddenField ID="HiddenField1" runat="server" />
 
 

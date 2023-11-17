@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace Library_Management
 {
@@ -20,18 +21,17 @@ namespace Library_Management
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-           
 
-            if (text_usename.Value != "" && text_pass.Value != "")
+            if (text_username.Value != "" && text_pass.Value != "")
             {
-                string str = "select * from Login  ";
+                string str = "select * from Addstudent  where Email='" + text_username.Value + "'and Password='" + text_pass.Value + "'";
                 SqlDataAdapter da = new SqlDataAdapter(str, cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    Session["User_Id"] = text_usename;
-                    Response.Redirect("Admin.aspx");
+                    Session["User_Id"] = text_username;
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {
@@ -44,5 +44,6 @@ namespace Library_Management
 
             }
         }
+
     }
 }
