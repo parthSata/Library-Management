@@ -44,7 +44,7 @@
 
                 <div>
                     <label class="block font-semibold" for="name">Branch Name</label>
-                    <asp:TextBox ID="TextBox1" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_Branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
 
 

@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="flex items-center justify-between mt-8">
-                    <asp:Button ID="Add_Publication" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Add Publication" />
+                    <asp:Button ID="Add_Publication" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Add Publication" OnClick="Add_Publication_Click" />
                 </div>
             </div>
         </div>

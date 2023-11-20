@@ -53,8 +53,8 @@
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="email">Branch</label>
-                    <%--<asp:DropDownList ID="text_branch" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server"></asp:DropDownList>--%>
-                    <asp:TextBox ID="text_branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:DropDownList ID="text_branch" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" ></asp:DropDownList>
+                    <%--<asp:TextBox ID="text_branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%>
 
                 </div>
 

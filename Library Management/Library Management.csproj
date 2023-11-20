@@ -72,6 +72,10 @@
     <Content Include="AddPublication.aspx" />
     <Content Include="AddStudent.aspx" />
     <Content Include="Admin.aspx" />
+    <Content Include="App_Data\Library Management.mdf" />
+    <Content Include="App_Data\Library Management_log.ldf">
+      <DependentUpon>Library Management.mdf</DependentUpon>
+    </Content>
     <Content Include="BookReport.aspx" />
     <Content Include="BookReportClient.aspx" />
     <Content Include="Content\font-awesome.css" />
@@ -234,7 +238,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Book Images\" />
     <Folder Include="images\" />
   </ItemGroup>

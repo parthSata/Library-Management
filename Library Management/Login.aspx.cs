@@ -13,7 +13,7 @@ namespace Library_Management
 {
     public partial class Login : System.Web.UI.Page
     {
-        SqlConnection cn= new SqlConnection("Data Source=DESKTOP-UN8MBH0\\SQLEXPRESS;Initial Catalog=\"Library Manage\";Integrated Security=True");  
+        SqlConnection cn= new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Parth Sata\\Library Management\\Library Management\\App_Data\\Library Management.mdf\";Integrated Security=True");  
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,7 +24,7 @@ namespace Library_Management
 
             if (text_username.Value != "" && text_pass.Value != "")
             {
-                string str = "select * from Addstudent  where Email='" + text_username.Value + "'and Password='" + text_pass.Value + "'";
+                string str = "select * from AddStudent where Email='" + text_username.Value + "'and Password='" + text_pass.Value + "'";
                 SqlDataAdapter da = new SqlDataAdapter(str, cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
