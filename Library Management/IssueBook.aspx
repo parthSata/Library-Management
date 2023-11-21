@@ -40,17 +40,19 @@
             </div>
         </header>
         <div class="p-10">
-            <h1 class="mb-8 font-extrabold text-4xl">Add New Publication</h1>
+            <h1 class="mb-8 font-extrabold text-4xl">Book Issue Form</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <div>
                     <label class="block font-semibold" for="name">Select Branch</label>
-                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
                 </div>
 
                 <div>
                     <label class="block font-semibold" for="name">Select Publication</label>
-                    <asp:DropDownList ID="DropDownList2" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownList2" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="Publication" DataValueField="Publication"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [Publication] FROM [AddPublication]"></asp:SqlDataSource>
                 </div>
 
                 <div class="flex items-center justify-between mt-8">
@@ -59,5 +61,6 @@
             </div>
         </div>
     </form>
+
 </body>
 </html>

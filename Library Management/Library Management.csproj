@@ -86,11 +86,13 @@
     <Content Include="IssueBookReport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
+    <Content Include="MyAccount.aspx" />
     <Content Include="myreport.aspx" />
     <Content Include="Penalty.aspx" />
     <Content Include="PenaltyAdmin.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ReturnBook.aspx" />
+    <Content Include="Sample.aspx" />
     <Content Include="StudentReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -179,6 +181,13 @@
     <Compile Include="LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="myreport.aspx.cs">
       <DependentUpon>myreport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,6 +223,13 @@
     </Compile>
     <Compile Include="ReturnBook.aspx.designer.cs">
       <DependentUpon>ReturnBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sample.aspx.cs">
+      <DependentUpon>Sample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sample.aspx.designer.cs">
+      <DependentUpon>Sample.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentReport.aspx.cs">
       <DependentUpon>StudentReport.aspx</DependentUpon>

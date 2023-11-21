@@ -31,7 +31,7 @@ namespace Library_Management
                 if (dt.Rows.Count > 0)
                 {
                     Session["User_Id"] = text_username;
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("AddPublication.aspx");
                 }
                 else
                 {

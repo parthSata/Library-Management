@@ -26,7 +26,7 @@ namespace Library_Management
             if (text_nm.Text != "" && text_branch.Text != "" && text_gender.Text != "" && text_birthdate.Text != "" && text_mo.Text != "" && text_address.Text != "" && text_city.Text != "" && text_pin.Text != "" && text_email.Text != "" && text_pass.Text != "")
             {
                 //string strpass = encryptpass(text_pass.Text);
-                string sql = "insert into Addstudent values('" + text_nm.Text + "','" + text_branch.Text + "','" + text_gender.Text + "','" + text_birthdate.Text + "','" + text_mo.Text + "','" + text_address.Text + "','" + text_city.Text + "','" + text_pin.Text + "','" + text_email.Text + "','" + text_pass.Text + "')";
+                string sql = "insert into Addstudent values('" + text_nm.Text + "','" + text_branch.SelectedValue + "','" + text_gender.SelectedValue + "','" + text_birthdate.Text + "','" + text_mo.Text + "','" + text_address.Text + "','" + text_city.Text + "','" + text_pin.Text + "','" + text_email.Text + "','" + text_pass.Text + "')";
                 SqlDataAdapter da = new SqlDataAdapter(sql, cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -62,8 +62,7 @@ namespace Library_Management
         public void clear()
         {
             text_nm.Text = "";
-            text_branch.Text = "";
-            text_gender.Text = "";
+          
             text_birthdate.Text = "";
             text_mo.Text = "";
             text_address.Text = "";

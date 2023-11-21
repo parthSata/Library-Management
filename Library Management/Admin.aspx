@@ -44,6 +44,7 @@
 
             </div>
         </header>
+        <asp:Label ID="Label1" runat="server" Text="This Is Admin Page"></asp:Label>
     </form>
 </body>
 </html>

@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Library_Management
 {
-    public partial class IssueBook : System.Web.UI.Page
+    public partial class Sample : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Select_Click(object sender, EventArgs e)
         {
 
         }

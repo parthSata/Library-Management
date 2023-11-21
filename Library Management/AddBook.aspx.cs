@@ -57,8 +57,7 @@ namespace Library_Management
             text_BookName.Text = "";
             text_Detail.Text = "";
             text_Author.Text = "";
-            text_Publication.Text = "";
-            text_Branch.Text = "";
+          
             text_Price.Text = "";
             text_Quantity.Text = "";
         

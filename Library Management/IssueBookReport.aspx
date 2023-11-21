@@ -26,6 +26,7 @@
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="AddStudent.aspx">Add Student</a>
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="StudentReport.aspx">Student Report</a>
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="IssueBook.aspx">Issue Book</a>
+                    <a class="mr-5 hover:t-gray-900 cursor-pointer" href="IssueBookReport.aspx">Issue BookReport</a>
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="ReturnBook.aspx">Return Book</a>
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="PenaltyAdmin.aspx">Penalty</a>
                 </nav>
@@ -38,21 +39,21 @@
             </div>
         </header>
         <div class="p-10">
-            <h1 class="mb-8 font-extrabold text-4xl">Student Report</h1>
+            <h1 class="mb-8 font-extrabold text-4xl">Book Issue Report</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <div>
                     <label class="block font-semibold" for="name">Select Branch</label>
-                    <asp:TextBox ID="TextBox1" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_Branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="email">Select Student</label>
-                    <asp:TextBox ID="TextBox2" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_Student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                     <asp:Button ID="Button1" class=" mt-3 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" runat="server" Text="View" />
 
                 </div>
-             
+
             </div>
         </div>
     </form>

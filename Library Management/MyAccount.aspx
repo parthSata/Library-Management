@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Library_Management.Home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="Library_Management.MyAccount" %>
 
 <!DOCTYPE html>
 
@@ -37,17 +37,18 @@
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="Penalty.aspx">Penalty Report</a>
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="BookReportClient.aspx">Book Report</a>
                 </nav>
-
-
-
                 <asp:Button ID="Btn_login" runat="server" Text="Login" class="mr-2 inline-flex items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0" />
 
-                <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-white rounded text-base mt-4 md:mt-0"  />
+                <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-red-200 text-white rounded text-base mt-4 md:mt-0" />
                 <asp:HiddenField ID="HiddenField1" runat="server" />
 
 
             </div>
         </header>
+        <asp:Button ID="Btn_View" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0"  runat="server" Text="View Account" />
+        <asp:Button ID="Btn_Edit" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0"  runat="server" Text="Edit Account" />
+        <%--<asp:Button ID="Btn_change" runat="server" Text="Change Password" />--%>
+
     </form>
 </body>
 </html>
