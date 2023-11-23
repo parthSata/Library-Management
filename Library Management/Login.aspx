@@ -72,9 +72,11 @@
                         <label class="block font-semibold" for="password">Password :</label>
                         <input class="block w-full p-4 text-lg rounded-sm bg-black" id="text_pass" runat="server" type="password" name="password" placeholder="Password" />
                     </div>
-                    <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
-                        <a href="#">Forgot your password?</a>
+                    <div class="flex justify-evenly pb-2 pt-4">
+                        <asp:RadioButton ID="RadioButton1" class="" runat="server" Text="Admin" GroupName="gender" Checked="True" />
+                        <asp:RadioButton ID="RadioButton2" class="" runat="server" Text="Student" GroupName="gender" />
                     </div>
+
                     <div class="px-4 pb-2 pt-4">
 
                         <asp:Button ID="Button1" class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none" runat="server" Text="Log in" OnClick="Button1_Click" />

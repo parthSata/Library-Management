@@ -45,10 +45,161 @@
 
             </div>
         </header>
-        <asp:Button ID="Btn_View" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0"  runat="server" Text="View Account" />
-        <asp:Button ID="Btn_Edit" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0"  runat="server" Text="Edit Account" />
+        <asp:Button ID="Btn_View" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0" runat="server" Text="View Account" OnClick="Btn_View_Click" />
+        <asp:Button ID="Btn_Edit" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0" runat="server" Text="Edit Account" OnClick="Btn_Edit_Click" />
         <%--<asp:Button ID="Btn_change" runat="server" Text="Change Password" />--%>
 
+
+        <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
+            <asp:View ID="View1" runat="server">
+                <asp:View ID="View4" runat="server">
+                    <table align="center" class="style1" style="border: thin solid #9b9b9b">
+                        <tr>
+                            <td class="tblhead" colspan="2">MY Account Detail</td>
+                        </tr>
+                        <tr>
+                            <td class="lbl">Name :</td>
+                            <td align="left">
+                                <asp:Label ID="lblnam" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lbl">Mobile :</td>
+                            <td align="left">
+                                <asp:Label ID="lblmobile" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lbl">Address :</td>
+                            <td align="left">
+                                <asp:Label ID="lbladd" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lbl">City :</td>
+                            <td align="left">
+                                <asp:Label ID="lblcity" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lbl">Pincode :</td>
+                            <td align="left">
+                                <asp:Label ID="lblpincode" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="lbl">Email :
+                            </td>
+                            <td align="left">
+                                <asp:Label ID="lblemail" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:View>
+            </asp:View>
+            <asp:View ID="View2" runat="server">
+                <section class="text-gray-400 bg-white-900 body-font overflow-hidden">
+                    <div class="container px-5 py-24 mx-auto">
+                        <div class="lg:w-2/3 mx-auto flex flex-wrap">
+                            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400">
+                            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                                <h1 class="text-black text-3xl title-font font-medium mb-1">Hello ,</h1>
+                                <div class="flex mb-4">
+                                </div>
+                                <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-800 mb-5">
+
+                                    <div class="flex ml-6 items-center">
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </asp:View>
+            <asp:View ID="View3" runat="server">
+                <div class="p-10">
+                    <h1 class="mb-8 font-extrabold text-4xl">Add New Student</h1>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                        <div>
+                            <label class="block font-semibold" for="name">Student Name</label>
+                            <asp:TextBox ID="text_nm" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="email">Branch</label>
+                            <asp:DropDownList ID="text_branch" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
+                            <%--<asp:TextBox ID="text_branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="password">Gender</label>
+                            <asp:DropDownList ID="text_gender" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server">
+                                <asp:ListItem>Male</asp:ListItem>
+                                <asp:ListItem>Female</asp:ListItem>
+                                <asp:ListItem>Other</asp:ListItem>
+                            </asp:DropDownList>
+                            <%--<asp:TextBox ID="text_gender" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="password">Birthdate :</label>
+                            <asp:TextBox ID="text_birthdate" runat="server" type="date" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="password">Mobile No :</label>
+                            <asp:TextBox ID="text_mo" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                        </div>
+
+                        <div>
+                            <label class="block font-semibold" for="name">Address :</label>
+                            <asp:TextBox ID="text_address" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="password">City :</label>
+                            <%--<asp:DropDownList ID="text_city" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server"></asp:DropDownList>--%>
+                            <asp:TextBox ID="text_city" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="password">Pincode :</label>
+                            <asp:TextBox ID="text_pin" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="password">Email :</label>
+                            <asp:TextBox ID="text_email" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block font-semibold" for="password">Password :</label>
+                            <asp:TextBox ID="text_pass" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                        </div>
+
+                        <div class="flex items-center justify-between mt-8">
+                            <asp:Button ID="Btn_Update" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Update" OnClick="Btn_Update_Click" />
+
+                        </div>
+                    </div>
+                </div>
+            </asp:View>
+
+        </asp:MultiView>
     </form>
 </body>
 </html>
