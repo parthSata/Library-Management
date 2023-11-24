@@ -111,16 +111,41 @@
                         <div class="lg:w-2/3 mx-auto flex flex-wrap">
                             <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400">
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                                <h1 class="text-black text-3xl title-font font-medium mb-1">Hello ,</h1>
                                 <div class="flex mb-4">
                                 </div>
                                 <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-800 mb-5">
 
                                     <div class="flex ml-6 items-center">
+                                        <h1 class="text-black text-3xl title-font font-medium mb-1">Hello ,</h1>
+                                        <asp:Label ID="Label1" runat="server" class="block text-black text-3xl pl-2 font-extrabold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Name"></asp:Label>
+
                                     </div>
                                 </div>
-                                <div class="flex">
+                                <div class="flex pb-5">
+                                    <asp:Label ID="Label2" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Student Name :"></asp:Label>
+                                    <asp:Label ID="lbl_nm" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Student Name :"></asp:Label>
                                 </div>
+                                <div class="flex pb-5">
+                                    <asp:Label ID="Label3" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Mobile No :"></asp:Label>
+                                    <asp:Label ID="lbl_mo" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Mobile No :"></asp:Label>
+                                </div>
+                                <div class="flex pb-5">
+                                    <asp:Label ID="Label4" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Address :"></asp:Label>
+                                    <asp:Label ID="lbl_Address" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Address :"></asp:Label>
+                                </div>
+                                <div class="flex pb-5">
+                                    <asp:Label ID="Label5" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="City :"></asp:Label>
+                                    <asp:Label ID="lbl_City" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="City :"></asp:Label>
+                                </div>
+                                <div class="flex pb-5">
+                                    <asp:Label ID="Label6" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Pincode :"></asp:Label>
+                                    <asp:Label ID="lbl_Pin" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Pincode :"></asp:Label>
+                                </div>
+                                <div class="flex pb-5">
+                                    <asp:Label ID="Label7" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Email :"></asp:Label>
+                                    <asp:Label ID="lbl_Email" runat="server" class="block text-black-700 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name" Text="Email :"></asp:Label>
+                                </div>
+
                             </div>
                         </div>
                     </div>

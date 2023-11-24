@@ -18,9 +18,22 @@ namespace Library_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label1.Text = "";
             MultiView1.Visible = true;
             MultiView1.SetActiveView(View2);
+            string sql = "select * from Addstudent";
+            SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Label1.Text = dt.Rows[0]["StudentName"].ToString();
+            lbl_nm.Text = dt.Rows[0]["StudentName"].ToString();
+            lbl_mo.Text = dt.Rows[0]["Mobile"].ToString();
+            lbl_Address.Text = dt.Rows[0]["Address"].ToString();
+            lbl_City.Text = dt.Rows[0]["City"].ToString();
+            lbl_Pin.Text = dt.Rows[0]["Pincode"].ToString();
+            lbl_Email.Text = dt.Rows[0]["Email"].ToString();
         }
+
 
         protected void Btn_View_Click(object sender, EventArgs e)
         {

@@ -73,8 +73,8 @@
                         <input class="block w-full p-4 text-lg rounded-sm bg-black" id="text_pass" runat="server" type="password" name="password" placeholder="Password" />
                     </div>
                     <div class="flex justify-evenly pb-2 pt-4">
-                        <asp:RadioButton ID="RadioButton1" class="" runat="server" Text="Admin" GroupName="gender" Checked="True" />
-                        <asp:RadioButton ID="RadioButton2" class="" runat="server" Text="Student" GroupName="gender" />
+                        <asp:RadioButton ID="RdoAdmin" class="" runat="server" Text="Admin" GroupName="gender" Checked="True" />
+                        <asp:RadioButton ID="RdoStudent" class="" runat="server" Text="Student" GroupName="gender" />
                     </div>
 
                     <div class="px-4 pb-2 pt-4">
