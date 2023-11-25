@@ -13,6 +13,17 @@
             hdnfld.value = flag ? '1' : '0';
         }
     </script>
+    <script>
+        function ShowPreview() {
+            let fileInput = document.getElementById("FileUpload1");
+            let filePath = fileInput.value; // Retrieve the file path
+            // Get the image element by ID
+            let imageElement = document.getElementById("Image1");
+
+            // Set the source attribute of the image element
+            imageElement.src = window.URL.createObjectURL(fileInput.files[0]);
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -109,7 +120,8 @@
                 <section class="text-gray-400 bg-white-900 body-font overflow-hidden">
                     <div class="container px-5 py-24 mx-auto">
                         <div class="lg:w-2/3 mx-auto flex flex-wrap">
-                            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400">
+                            <%--<img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400">--%>
+                            <asp:Image ID="Image1" runat="server"  onchange="ShowPreview(this)" alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <div class="flex mb-4">
                                 </div>

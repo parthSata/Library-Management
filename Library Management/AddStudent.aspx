@@ -53,21 +53,19 @@
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="email">Branch</label>
-                    <asp:DropDownList ID="text_branch" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName" ></asp:DropDownList>
+                    <asp:DropDownList ID="text_branch" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
                     <%--<asp:TextBox ID="text_branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%>
-
                 </div>
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Gender</label>
-                    <asp:DropDownList ID="text_gender" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"  runat="server">
+                    <asp:DropDownList ID="text_gender" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server">
                         <asp:ListItem>Male</asp:ListItem>
                         <asp:ListItem>Female</asp:ListItem>
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
                     <%--<asp:TextBox ID="text_gender" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%>
-
                 </div>
 
                 <div class="mt-4">
@@ -105,6 +103,10 @@
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Password :</label>
                     <asp:TextBox ID="text_pass" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                </div>
+                <div class="mt-4">
+                    <label class="block font-semibold" for="password">Upload Photo :</label>
+                    <asp:FileUpload ID="text_photo" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" />
                 </div>
 
                 <div class="flex items-center justify-between mt-8">

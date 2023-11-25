@@ -32,7 +32,9 @@ namespace Library_Management
                     da.Fill(dt);
                     if (dt.Rows.Count > 0)
                     {
-                        Session["User_Id"] = text_username;
+                        Session["aid"] = dt.Rows[0]["AID"].ToString();
+                        Session["email"] = text_username.Value;
+                        Session["name"] = dt.Rows[0]["Name"].ToString();
                         Response.Redirect("AddPublication.aspx");
                     }
                     else
@@ -56,8 +58,9 @@ namespace Library_Management
                     da.Fill(dt);
                     if (dt.Rows.Count > 0)
                     {
-                        Session["User_Id"] = text_username;
-                        Response.Redirect("Home.aspx");
+                        Session["sid"] = dt.Rows[0]["SID"].ToString();
+                        Session["email"] = text_username.Value;
+                        Response.Redirect("Student/MyAccount.aspx");
                     }
                     else
                     {
