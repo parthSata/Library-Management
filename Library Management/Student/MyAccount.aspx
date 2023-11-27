@@ -15,7 +15,7 @@
     </script>
     <script>
         function ShowPreview() {
-            let fileInput = document.getElementById("FileUpload1");
+            let fileInput = document.getElementById("text_photo");
             let filePath = fileInput.value; // Retrieve the file path
             // Get the image element by ID
             let imageElement = document.getElementById("Image1");
@@ -52,15 +52,13 @@
 
                 <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-red-200 text-white rounded text-base mt-4 md:mt-0" />
                 <asp:HiddenField ID="HiddenField1" runat="server" />
-
-
             </div>
         </header>
-        <asp:Button ID="Btn_View" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0" runat="server" Text="View Account" OnClick="Btn_View_Click" />
-        <asp:Button ID="Btn_Edit" class="inline-flex items-center cursor-pointer  bg-red-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0" runat="server" Text="Edit Account" OnClick="Btn_Edit_Click" />
-        <%--<asp:Button ID="Btn_change" runat="server" Text="Change Password" />--%>
-
-
+        <div class="flex justify-evenly  justify-items-center">
+            <asp:Button ID="Btn_View" class="inline-flex pl-3 items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base  mt-4 md:mt-0" runat="server" Text="View Account" OnClick="Btn_View_Click" />
+            <asp:Button ID="Btn_Edit" class="inline-flex pl-3 items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base  mt-4 md:mt-0" runat="server" Text="Edit Account" OnClick="Btn_Edit_Click" />
+            <%--<asp:Button ID="Btn_change" runat="server" Text="Change Password" />--%>
+        </div>
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
             <asp:View ID="View1" runat="server">
                 <asp:View ID="View4" runat="server">
@@ -121,7 +119,7 @@
                     <div class="container px-5 py-24 mx-auto">
                         <div class="lg:w-2/3 mx-auto flex flex-wrap">
                             <%--<img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400">--%>
-                            <asp:Image ID="Image1" runat="server"  onchange="ShowPreview(this)" alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
+                            <asp:Image ID="Image1" runat="server" onchange="ShowPreview(this)" alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <div class="flex mb-4">
                                 </div>

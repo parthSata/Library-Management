@@ -13,7 +13,6 @@ namespace Library_Management
 {
     public partial class AddStudent : System.Web.UI.Page
     {
-        SqlConnection cn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Parth Sata\\Library Management\\Library Management\\App_Data\\Library Management.mdf\";Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,8 +28,8 @@ namespace Library_Management
                 if (text_nm.Text != "" && text_branch.Text != "" && text_gender.Text != "" && text_birthdate.Text != "" && text_mo.Text != "" && text_address.Text != "" && text_city.Text != "" && text_pin.Text != "" && text_email.Text != "" && text_pass.Text != "" && text_photo.FileName != "")
                 {
                     //string strpass = encryptpass(text_pass.Text);
-                    string sql = "insert into Addstudent values('" + text_nm.Text + "','" + text_branch.SelectedValue + "','" + text_gender.SelectedValue + "','" + text_birthdate.Text + "','" + text_mo.Text + "','" + text_address.Text + "','" + text_city.Text + "','" + text_pin.Text + "','" + text_email.Text + "','" + text_pass.Text + "','"+ text_photo.FileName+ "')";
-                    SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                    string sql = "insert into Addstudent values('" + text_nm.Text + "','" + text_branch.SelectedValue + "','" + text_gender.SelectedValue + "','" + text_birthdate.Text + "','" + text_mo.Text + "','" + text_address.Text + "','" + text_city.Text + "','" + text_pin.Text + "','" + text_email.Text + "','" + text_pass.Text + "','" + text_photo.FileName + "')";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     show();
@@ -44,38 +43,38 @@ namespace Library_Management
                 }
             }
 
-            }
-            /*  public string encryptpass(string password)
-              {
-                  string msg = "";
-                  byte[] encode = new byte[password.Length];
-                  encode = Encoding.UTF8.GetBytes(password);
-                  msg = Convert.ToBase64String(encode);
-                  return msg;
-              }*/
-            public void show()
-            {
+        }
+        /*  public string encryptpass(string password)
+          {
+              string msg = "";
+              byte[] encode = new byte[password.Length];
+              encode = Encoding.UTF8.GetBytes(password);
+              msg = Convert.ToBase64String(encode);
+              return msg;
+          }*/
+        public void show()
+        {
 
 
-                string sql = "select * from Addstudent";
-                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-            }
-            public void clear()
-            {
-                text_nm.Text = "";
-
-                text_birthdate.Text = "";
-                text_mo.Text = "";
-                text_address.Text = "";
-                text_city.Text = "";
-                text_pin.Text = "";
-                text_email.Text = "";
-                text_pass.Text = "";
-                text_nm.Focus();
-            }
+            string sql = "select * from Addstudent";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
         }
+        public void clear()
+        {
+            text_nm.Text = "";
+
+            text_birthdate.Text = "";
+            text_mo.Text = "";
+            text_address.Text = "";
+            text_city.Text = "";
+            text_pin.Text = "";
+            text_email.Text = "";
+            text_pass.Text = "";
+            text_nm.Focus();
+        }
+
     }
+}

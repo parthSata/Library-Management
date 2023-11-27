@@ -11,7 +11,6 @@ namespace Library_Management
 {
     public partial class AddBook : System.Web.UI.Page
     {
-        SqlConnection cn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Parth Sata\\Library Management\\Library Management\\App_Data\\Library Management.mdf\";Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +24,7 @@ namespace Library_Management
                 {
                     FileUpload1.SaveAs(Server.MapPath("images/" + FileUpload1.FileName));
                     string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','" + FileUpload1.FileName + "')";
-                    SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                    SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
@@ -39,7 +38,7 @@ namespace Library_Management
         {
 
             string sql = "select * from AddPublication";
-            SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
 

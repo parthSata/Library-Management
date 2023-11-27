@@ -86,6 +86,7 @@
     <Content Include="IssueBookReport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
+    <Content Include="Student\HomeMaster.aspx" />
     <Content Include="Student\MyAccount.aspx" />
     <Content Include="Student\myreport.aspx" />
     <Content Include="Student\Penalty.aspx" />
@@ -132,6 +133,13 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Master.Master.cs">
+      <DependentUpon>Admin_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Master.Master.designer.cs">
+      <DependentUpon>Admin_Master.Master</DependentUpon>
+    </Compile>
     <Compile Include="BookReport.aspx.cs">
       <DependentUpon>BookReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,6 +147,7 @@
     <Compile Include="BookReport.aspx.designer.cs">
       <DependentUpon>BookReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Student\BookReportClient.aspx.cs">
       <DependentUpon>BookReportClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,6 +189,20 @@
     </Compile>
     <Compile Include="LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\HomeMaster.aspx.cs">
+      <DependentUpon>HomeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\HomeMaster.aspx.designer.cs">
+      <DependentUpon>HomeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Home_Master.Master.cs">
+      <DependentUpon>Home_Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Home_Master.Master.designer.cs">
+      <DependentUpon>Home_Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Student\MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
@@ -245,7 +268,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Admin_Master.Master" />
     <None Include="packages.config" />
+    <Content Include="Student\Home_Master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

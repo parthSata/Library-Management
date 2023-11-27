@@ -40,9 +40,13 @@
 
             </div>
         </header>
-
+        <div class="flex justify-evenly  align-center  ">
+            <asp:Button ID="Btn_Borrow" class="inline-flex pl-3 items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base  mt-4 md:mt-0" runat="server" Text="Borrow Book" OnClick="Btn_Borrow_Click" />
+            <asp:Button ID="Btn_Return" class="inline-flex pl-3 items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base  mt-4 md:mt-0" runat="server" Text="Return Book" OnClick="Btn_Return_Click" />
+            <%--<asp:Button ID="Btn_change" runat="server" Text="Change Password" />--%>
+        </div>
 
     </form>
-
+        
 </body>
 </html>
