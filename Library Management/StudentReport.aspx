@@ -45,18 +45,130 @@
 
                 <div>
                     <label class="block font-semibold" for="name">Select Branch</label>
-                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server"></asp:DropDownList>
-                    <asp:Button ID="Button1" runat="server" class="mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" />
+                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
+                    <asp:Button ID="Button1" runat="server" class="mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Button1_Click" />
 
                 </div>
 
                 <div>
                     <label class="block font-semibold" for="name">Student Name</label>
-                    <asp:TextBox ID="TextBox4" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                    <asp:Button ID="Button2" runat="server" class=" mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" />
+                    <asp:TextBox ID="text_Search" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:Button ID="Button2" runat="server" class=" mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Button2_Click" />
                 </div>
             </div>
         </div>
+        <asp:Label ID="ErrorMsg" runat="server" ForeColor="Red"></asp:Label>
+
+        <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
+            <asp:View ID="View1" runat="server">
+                <table class="tbl">
+                    <tr>
+                        <td class="tblhead">
+                            <asp:Label ID="lbl" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            </asp:GridView>
+                        </td>
+                    </tr>
+                </table>
+            </asp:View>
+            <asp:View ID="View2" runat="server">
+                <table class="tbl">
+                    <tr>
+                        <td class="tblhead">Student Details</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table align="center" class="style4">
+                                <tr>
+                                    <td class="style5">Student ID : </td>
+                                    <td>
+                                        <asp:Label ID="Stud_Id" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">StudentName: </td>
+                                    <td>
+                                        <asp:Label ID="Stud_nm" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">Mobile :</td>
+                                    <td>
+                                        <asp:Label ID="Stud_Mo" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">Address: </td>
+                                    <td>
+                                        <asp:Label ID="Stud_Address" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">City :</td>
+                                    <td>
+                                        <asp:Label ID="Stud_City" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">Pincode : </td>
+                                    <td>
+                                        <asp:Label ID="Stud_Pin" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">BirthDate : </td>
+                                    <td>
+                                        <asp:Label ID="Stud_Date" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">Branch : </td>
+                                    <td>
+                                        <asp:Label ID="Stud_Branch" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style5">Email :
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="Stud_Email" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="lbl">Password&nbsp; :
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="Stud_Pass" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="lbl">&nbsp;</td>
+                                    <td>
+                                        <asp:Button ID="Btn_Back" runat="server" Text="Back" OnClick="Btn_Back_Click" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </asp:View>
+        </asp:MultiView>
     </form>
 </body>
 </html>
