@@ -15,17 +15,6 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ErrorMsg.Text = "";
-           /* {
-
-                BDT = BAdapter.SelectBranch();
-                drpbranch.DataSource = BDT;
-                drpbranch.DataTextField = "Branchname";
-                drpbranch.DataValueField = "Branchid";
-                drpbranch.DataBind();
-                drpbranch.Items.Insert(0, "SELECT");
-                MultiView1.ActiveViewIndex = -1;
-            }*/
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -36,7 +25,7 @@ namespace Library_Management
             }
             else
             {
-                string sql = "select Branch from Addstudent";
+                string sql = "select * from Addstudent ";
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -50,21 +39,20 @@ namespace Library_Management
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedIndex == 0)
+            if (DropDownList1.SelectedIndex == 2)
             {
                 ErrorMsg.Text = "Select Branch first";
-                MultiView1.ActiveViewIndex = -1;
             }
             else
             {
-                string sql = "select * from Addstudent";
+                string sql = "select * from Addstudent where Branch='" + DropDownList1.SelectedValue + "'";
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
                 MultiView1.Visible = true;
-                MultiView1.SetActiveView(View1);
+                MultiView1.SetActiveView(View2);
                 lbl.Text = GridView1.Rows.Count.ToString() + " Student Found";
             }
         }
@@ -73,8 +61,33 @@ namespace Library_Management
         {
             MultiView1.ActiveViewIndex = 0;
         }
+
+       
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            string id = Session["sid"].ToString();
+            MultiView1.Visible = true;
+            MultiView1.SetActiveView(View1);
+            string sql = "select * from Addstudent where SID='" + id + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Stud_Id.Text = dt.Rows[0]["sid"].ToString();
+            Stud_nm.Text = dt.Rows[0]["studentname"].ToString();
+            Stud_Branch.Text = dt.Rows[0]["branchname"].ToString();
+            Stud_Mo.Text = dt.Rows[0]["mobile"].ToString();
+            Stud_Address.Text = dt.Rows[0]["address"].ToString();
+            Stud_City.Text = dt.Rows[0]["city"].ToString();
+            Stud_Pin.Text = dt.Rows[0]["pincode"].ToString();
+            DateTime dobb = Convert.ToDateTime(dt.Rows[0]["dob"].ToString());
+            Stud_Date.Text = dobb.GetDateTimeFormats()[7].ToString();
+            Stud_Email.Text = dt.Rows[0]["email"].ToString();
+            Stud_Pass.Text = dt.Rows[0]["password"].ToString();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
             string id = Session["sid"].ToString();
             MultiView1.Visible = true;
             MultiView1.SetActiveView(View1);

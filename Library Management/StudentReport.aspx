@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StudentReport.aspx.cs" Inherits="Library_Management.StudentReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StudentReport.aspx.cs" Inherits="Library_Management.StudentReport" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -82,7 +82,16 @@
                                 <SortedAscendingHeaderStyle BackColor="#506C8C" />
                                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="View">
+                                        <ItemTemplate>
+                                            <asp:Button ID="Button3" runat="server" Text="Button" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+
                             </asp:GridView>
+
                         </td>
                     </tr>
                 </table>
