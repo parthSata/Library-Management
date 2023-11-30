@@ -60,13 +60,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// Button1 control.
+        /// Btn_Branch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Btn_Branch;
 
         /// <summary>
         /// text_Search control.
@@ -78,13 +78,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.TextBox text_Search;
 
         /// <summary>
-        /// Button2 control.
+        /// Btn_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button Btn_Name;
 
         /// <summary>
         /// ErrorMsg control.
@@ -220,15 +220,6 @@ namespace Library_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Stud_Email;
-
-        /// <summary>
-        /// Stud_Pass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Stud_Pass;
 
         /// <summary>
         /// Btn_Back control.

@@ -19,28 +19,26 @@ namespace Library_Management
 
         protected void Btn_AddBook_Click(object sender, EventArgs e)
         {
-            string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName);
+            if (text_BookName.Text != "" && text_Detail.Text != "" && text_Author.Text != "" && text_Publication.Text != "" && text_Branch.Text != "" && text_Price.Text != "" && text_Quantity.Text != "" && text_Available.Text != "" && FileUpload1.FileName != "" )
+            {
+
+                string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName);
                 if (fileExtension == ".pdf" || fileExtension == ".jpg")
                 {
                     FileUpload1.SaveAs(Server.MapPath("images/" + FileUpload1.FileName));
-                    string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','" + FileUpload1.FileName + "')";
+                    string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','" + text_Available.Text + "','" + FileUpload1.FileName + "')";
                     SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
                     clear();
-           
                 }
-         
-        }
-
-        public void show()
-        {
-
-            string sql = "select * from AddPublication";
-            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            }
+            else
+            {
+                Response.Write("<script LANGUAGE='JavaScript' >alert('No Empty Value Allowed ')</script>");
+                clear();
+            }
 
         }
         public void clear()
@@ -48,10 +46,9 @@ namespace Library_Management
             text_BookName.Text = "";
             text_Detail.Text = "";
             text_Author.Text = "";
-          
             text_Price.Text = "";
             text_Quantity.Text = "";
-        
+            text_Available.Text = "";
             text_BookName.Focus();
         }
     }

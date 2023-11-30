@@ -61,65 +61,63 @@
         </div>
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
             <asp:View ID="View1" runat="server">
-                <asp:View ID="View4" runat="server">
-                    <table align="center" class="style1" style="border: thin solid #9b9b9b">
-                        <tr>
-                            <td class="tblhead" colspan="2">MY Account Detail</td>
-                        </tr>
-                        <tr>
-                            <td class="lbl">Name :</td>
-                            <td align="left">
-                                <asp:Label ID="lblnam" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lbl">Mobile :</td>
-                            <td align="left">
-                                <asp:Label ID="lblmobile" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lbl">Address :</td>
-                            <td align="left">
-                                <asp:Label ID="lbladd" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lbl">City :</td>
-                            <td align="left">
-                                <asp:Label ID="lblcity" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lbl">Pincode :</td>
-                            <td align="left">
-                                <asp:Label ID="lblpincode" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="lbl">Email :
-                            </td>
-                            <td align="left">
-                                <asp:Label ID="lblemail" runat="server"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                </asp:View>
+                <table align="center" class="style1" style="border: thin solid #9b9b9b">
+                    <tr>
+                        <td class="tblhead" colspan="2">MY Account Detail</td>
+                    </tr>
+                    <tr>
+                        <td class="lbl">Name :</td>
+                        <td align="left">
+                            <asp:Label ID="lblnam" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl">Mobile :</td>
+                        <td align="left">
+                            <asp:Label ID="lblmobile" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl">Address :</td>
+                        <td align="left">
+                            <asp:Label ID="lbladd" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl">City :</td>
+                        <td align="left">
+                            <asp:Label ID="lblcity" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl">Pincode :</td>
+                        <td align="left">
+                            <asp:Label ID="lblpincode" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl">Email :
+                        </td>
+                        <td align="left">
+                            <asp:Label ID="lblemail" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
             </asp:View>
             <asp:View ID="View2" runat="server">
                 <section class="text-gray-400 bg-white-900 body-font overflow-hidden">
                     <div class="container px-5 py-24 mx-auto">
                         <div class="lg:w-2/3 mx-auto flex flex-wrap">
                             <%--<img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400">--%>
-                            <asp:Image ID="Image1" runat="server" onchange="ShowPreview(this)" alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
+                            <asp:Image ID="Image1" runat="server" onchange="ShowPreview(this)" alt="ecommerce" class=" rounded-full w-96 h-96 lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <div class="flex mb-4">
                                 </div>

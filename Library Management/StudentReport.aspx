@@ -47,14 +47,14 @@
                     <label class="block font-semibold" for="name">Select Branch</label>
                     <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
-                    <asp:Button ID="Button1" runat="server" class="mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Button1_Click" />
+                    <asp:Button ID="Btn_Branch" name="0" runat="server" class="mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Btn_Branch_Click" />
 
                 </div>
 
                 <div>
                     <label class="block font-semibold" for="name">Student Name</label>
                     <asp:TextBox ID="text_Search" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                    <asp:Button ID="Button2" runat="server" class=" mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Button2_Click" />
+                    <asp:Button ID="Btn_Name" runat="server" class=" mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Btn_Name_Click" />
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                 <EditRowStyle BackColor="#999999" />
                                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -85,97 +85,90 @@
                                 <Columns>
                                     <asp:TemplateField HeaderText="View">
                                         <ItemTemplate>
-                                            <asp:Button ID="Button3" runat="server" Text="Button" />
+                                            <asp:Button ID="Btn_View" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" runat="server" Text="View" OnClick="Btn_View_Click" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
-
                             </asp:GridView>
-
                         </td>
                     </tr>
                 </table>
             </asp:View>
             <asp:View ID="View2" runat="server">
-                <table class="tbl">
-                    <tr>
-                        <td class="tblhead">Student Details</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table align="center" class="style4">
-                                <tr>
-                                    <td class="style5">Student ID : </td>
-                                    <td>
-                                        <asp:Label ID="Stud_Id" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">StudentName: </td>
-                                    <td>
-                                        <asp:Label ID="Stud_nm" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">Mobile :</td>
-                                    <td>
-                                        <asp:Label ID="Stud_Mo" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">Address: </td>
-                                    <td>
-                                        <asp:Label ID="Stud_Address" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">City :</td>
-                                    <td>
-                                        <asp:Label ID="Stud_City" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">Pincode : </td>
-                                    <td>
-                                        <asp:Label ID="Stud_Pin" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">BirthDate : </td>
-                                    <td>
-                                        <asp:Label ID="Stud_Date" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">Branch : </td>
-                                    <td>
-                                        <asp:Label ID="Stud_Branch" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="style5">Email :
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="Stud_Email" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="lbl">Password&nbsp; :
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="Stud_Pass" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="lbl">&nbsp;</td>
-                                    <td>
-                                        <asp:Button ID="Btn_Back" runat="server" Text="Back" OnClick="Btn_Back_Click" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                <div class="">
+                    <table class="flex justify-center text-4xl rounded-lg font-bold text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <tr>
+                            <td class="text-gray-500 text-center  font-bold">Student Details</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table class="flex text-sm   text-left rtl:text-right text-gray-500 dark:text-black-400">
+                                    <tr>
+                                        <td class="text-xl mb-2">Student ID : </td>
+                                        <td>
+                                            <asp:Label ID="Stud_Id" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">Student Name: </td>
+                                        <td>
+                                            <asp:Label ID="Stud_nm" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">Mobile :</td>
+                                        <td>
+                                            <asp:Label ID="Stud_Mo" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">Address: </td>
+                                        <td>
+                                            <asp:Label ID="Stud_Address" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">City :</td>
+                                        <td>
+                                            <asp:Label ID="Stud_City" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">Pincode : </td>
+                                        <td>
+                                            <asp:Label ID="Stud_Pin" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">BirthDate : </td>
+                                        <td>
+                                            <asp:Label ID="Stud_Date" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">Branch : </td>
+                                        <td>
+                                            <asp:Label ID="Stud_Branch" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-xl">Email :
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="Stud_Email" class="text-xl" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lbl">&nbsp;</td>
+                                        <td>
+                                            <asp:Button ID="Btn_Back" class="py-2.5 px-5 me-2 mb-2 mt-2 text-xl font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" runat="server" Text="Back" OnClick="Btn_Back_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </asp:View>
         </asp:MultiView>
     </form>

@@ -16,28 +16,11 @@ namespace Library_Management
         protected void Page_Load(object sender, EventArgs e)
         {
         }
-
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Btn_Back_Click(object sender, EventArgs e)
         {
-            if (text_Search.Text == "")
-            {
-                ErrorMsg.Text = "Enter Student Name ";
-            }
-            else
-            {
-                string sql = "select * from Addstudent ";
-                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-                MultiView1.Visible = true;
-                MultiView1.SetActiveView(View1);
-                lbl.Text = GridView1.Rows.Count.ToString() + " Student Found";
-            }
+            MultiView1.ActiveViewIndex = 0;
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Btn_Branch_Click(object sender, EventArgs e)
         {
             if (DropDownList1.SelectedIndex == 2)
             {
@@ -52,60 +35,47 @@ namespace Library_Management
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
                 MultiView1.Visible = true;
-                MultiView1.SetActiveView(View2);
+                MultiView1.SetActiveView(View1);
+                lbl.Text = GridView1.Rows.Count.ToString() + "Student Found";
+            }
+        }
+        protected void Btn_Name_Click(object sender, EventArgs e)
+        {
+            if (text_Search.Text == "")
+            {
+                ErrorMsg.Text = "Enter Student Name ";
+            }
+            else
+            {
+                string sql = "select * from Addstudent where StudentName='"+text_Search.Text+"'";
+                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+                MultiView1.Visible = true;
+                MultiView1.SetActiveView(View1);
                 lbl.Text = GridView1.Rows.Count.ToString() + " Student Found";
             }
         }
-
-        protected void Btn_Back_Click(object sender, EventArgs e)
+        protected void Btn_View_Click(object sender, EventArgs e)
         {
-            MultiView1.ActiveViewIndex = 0;
-        }
-
-       
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            string id = Session["sid"].ToString();
-            MultiView1.Visible = true;
-            MultiView1.SetActiveView(View1);
-            string sql = "select * from Addstudent where SID='" + id + "'";
+            string sql = "select * from Addstudent where StudentName='" + text_Search.Text + "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            Stud_Id.Text = dt.Rows[0]["sid"].ToString();
-            Stud_nm.Text = dt.Rows[0]["studentname"].ToString();
-            Stud_Branch.Text = dt.Rows[0]["branchname"].ToString();
-            Stud_Mo.Text = dt.Rows[0]["mobile"].ToString();
-            Stud_Address.Text = dt.Rows[0]["address"].ToString();
-            Stud_City.Text = dt.Rows[0]["city"].ToString();
-            Stud_Pin.Text = dt.Rows[0]["pincode"].ToString();
-            DateTime dobb = Convert.ToDateTime(dt.Rows[0]["dob"].ToString());
-            Stud_Date.Text = dobb.GetDateTimeFormats()[7].ToString();
-            Stud_Email.Text = dt.Rows[0]["email"].ToString();
-            Stud_Pass.Text = dt.Rows[0]["password"].ToString();
-        }
-
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Home.aspx");
-            string id = Session["sid"].ToString();
             MultiView1.Visible = true;
-            MultiView1.SetActiveView(View1);
-            string sql = "select * from Addstudent where SID='" + id + "'";
-            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            Stud_Id.Text = dt.Rows[0]["sid"].ToString();
-            Stud_nm.Text = dt.Rows[0]["studentname"].ToString();
-            Stud_Branch.Text = dt.Rows[0]["branchname"].ToString();
-            Stud_Mo.Text = dt.Rows[0]["mobile"].ToString();
-            Stud_Address.Text = dt.Rows[0]["address"].ToString();
-            Stud_City.Text = dt.Rows[0]["city"].ToString();
-            Stud_Pin.Text = dt.Rows[0]["pincode"].ToString();
-            DateTime dobb = Convert.ToDateTime(dt.Rows[0]["dob"].ToString());
+            MultiView1.SetActiveView(View2);
+            Stud_Id.Text = dt.Rows[0]["SID"].ToString();
+            Stud_nm.Text = dt.Rows[0]["StudentName"].ToString();
+            Stud_Branch.Text = dt.Rows[0]["Branch"].ToString();
+            Stud_Mo.Text = dt.Rows[0]["Mobile"].ToString();
+            Stud_Address.Text = dt.Rows[0]["Address"].ToString();
+            Stud_City.Text = dt.Rows[0]["City"].ToString();
+            Stud_Pin.Text = dt.Rows[0]["Pincode"].ToString();
+            DateTime dobb = Convert.ToDateTime(dt.Rows[0]["Birthdate"].ToString());
             Stud_Date.Text = dobb.GetDateTimeFormats()[7].ToString();
-            Stud_Email.Text = dt.Rows[0]["email"].ToString();
-            Stud_Pass.Text = dt.Rows[0]["password"].ToString();
+            Stud_Email.Text = dt.Rows[0]["Email"].ToString();
         }
     }
 }
