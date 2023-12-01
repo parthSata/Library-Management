@@ -6,7 +6,6 @@
 <head runat="server">
     <title></title>
           <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -23,7 +22,7 @@
                 <a class="mr-5 hover:text-gray-900 cursor-pointer" href="MyAccount.aspx">My Account</a>
                 <a class="mr-5 hover:text-gray-900 cursor-pointer" href="myreport.aspx">My Report</a>
                 <a class="mr-5 hover:text-gray-900 cursor-pointer" href="Penalty.aspx">Penalty Report</a>
-                <a class="mr-5 hover:text-gray-900 cursor-pointer" href="BookReport.aspx">Book Report</a>
+                <a class="mr-5 hover:text-gray-900 cursor-pointer" href="BookReportClient.aspx">Book Report</a>
             </nav>
 
 
