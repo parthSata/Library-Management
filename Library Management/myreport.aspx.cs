@@ -13,7 +13,11 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["sid"] == null)
+            {
+                Session.Clear();
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void Btn_Borrow_Click(object sender, EventArgs e)
@@ -51,6 +55,18 @@ namespace Library_Management
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
+
+        }
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+
+        }
+
+        protected void Btn_login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LogOut.aspx");
 
         }
     }

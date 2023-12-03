@@ -14,7 +14,11 @@ namespace Library_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["AID"] == null)
+            {
+                Session.Clear();
+                Response.Redirect("Login.aspx");
+            }
         }
        
 

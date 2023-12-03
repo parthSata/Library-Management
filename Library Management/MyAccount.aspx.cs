@@ -57,6 +57,11 @@ namespace Library_Management
             Response.Write("updated");
 
         }
-      
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LogOut.aspx");
+
+        }
     }
 }

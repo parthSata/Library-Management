@@ -39,26 +39,125 @@
             </div>
         </header>
         <div class="p-10">
-            <h1 class="mb-8 font-extrabold text-4xl">Book Return</h1>
+            <h1 class="mb-8 font-extrabold text-4xl">Book Return Form</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <div>
                     <label class="block font-semibold" for="name">Select Student</label>
-                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
+                    <asp:DropDownList ID="Select_Student" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
                 </div>
 
                 <div>
                     <label class="block font-semibold" for="name">Select Book</label>
-                    <asp:DropDownList ID="DropDownList2" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="BookName" DataValueField="BookName"></asp:DropDownList>
+                    <asp:DropDownList ID="Select_Book" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="BookName" DataValueField="BookName"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BookName] FROM [AddBook]"></asp:SqlDataSource>
                 </div>
 
-               <div class="flex items-center justify-between mt-8">
-                    <asp:Button ID="Select" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Select" />
+                <div class="flex items-center justify-between mt-8">
+                    <asp:Button ID="Select" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Select" OnClick="Select_Click" />
                 </div>
             </div>
+            <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
         </div>
+        <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
+            <asp:View ID="View1" runat="server">
+                <table class="tbl">
+                    <tr>
+                        <td class="tblhead">View Book Detail </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="style4">
+                                <tr>
+                                    <td class="style5" colspan="2">Book Name :
+                             <asp:Label ID="Book_nm" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="style6">
+                                        <asp:Image ID="Image2" runat="server" Height="211px" Width="207px"
+                                            BorderColor="#009933" BorderStyle="Dotted" BorderWidth="1px" />
+                                    </td>
+                                    <td class="style8" valign="top">
+                                        <table class="style7">
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Author :</td>
+                                                <td>
+                                                    <asp:Label ID="Book_Author" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Publication :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="Book_Publication" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Branch :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="Book_Branch" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Price :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="Book_Price" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Student Name : </td>
+                                                <td>
+                                                    <asp:Label ID="Stud_nm" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Days :</td>
+                                                <td>
+                                                    <asp:Label ID="text_days" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Issue Date :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="Book_IssueDate" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">Penalty Status :
+                                                </td>
+                                                <td>
+                                                    <asp:Label ID="Stud_Penalty" runat="server"></asp:Label>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style16" style="font-size: medium">&nbsp;</td>
+                                                <td>
+                                                    <asp:Button ID="Book_Return" runat="server" CssClass="btn" Text="Return Book" Width="90px" OnClick="Book_Return_Click" />
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </asp:View>
+        </asp:MultiView>
     </form>
 </body>
 </html>

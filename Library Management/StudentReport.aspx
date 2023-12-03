@@ -47,7 +47,7 @@
                     <label class="block font-semibold" for="name">Select Branch</label>
                     <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
-                    <asp:Button ID="Btn_Branch" name="0" runat="server" class="mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Btn_Branch_Click" />
+                    <asp:Button ID="Btn_Branch" name="0" runat="server" class="mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" OnClick="Btn_Branch_Click" Visible="False" />
 
                 </div>
 
@@ -83,9 +83,6 @@
                                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 <Columns>
-                                    <asp:BoundField DataField="StudentName" HeaderText="Student Name" />
-                                    <asp:BoundField DataField="Branch" HeaderText="Branch" />
-                                    <asp:BoundField DataField="Mobile" HeaderText="Mobile" />
                                     <asp:TemplateField HeaderText="View">
                                         <ItemTemplate>
                                             <asp:Button ID="Btn_View" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" runat="server" Text="View" OnClick="Btn_View_Click" />

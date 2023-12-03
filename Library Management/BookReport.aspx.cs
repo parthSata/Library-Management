@@ -13,5 +13,16 @@ namespace Library_Management
         {
 
         }
+
+        protected void Btn_login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LogOut.aspx");
+
+        }
     }
 }

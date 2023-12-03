@@ -89,7 +89,7 @@ namespace Library_Management
 
         protected void lnkview_Click1(object sender, EventArgs e)
         {
-            string sql = "select * from AddBook where Branch='" + DropDownList1.SelectedValue + "'";
+            string sql = "select * from AddBook where Branch='" + DropDownList1.SelectedValue + "' and ID='" + Session["sid"].ToString() +"'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             MultiView1.Visible = true;
@@ -103,6 +103,12 @@ namespace Library_Management
             Book_Quantity.Text = dt.Rows[0]["Quantity"].ToString();
             Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
             Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
+        }
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LogOut.aspx");
+
         }
     }
 }

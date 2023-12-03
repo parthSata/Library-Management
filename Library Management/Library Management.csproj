@@ -77,7 +77,7 @@
       <DependentUpon>Library Management.mdf</DependentUpon>
     </Content>
     <Content Include="BookReport.aspx" />
-    <Content Include="Student\BookReportClient.aspx" />
+    <Content Include="BookReportClient.aspx" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -86,10 +86,9 @@
     <Content Include="IssueBookReport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
-    <Content Include="Student\HomeMaster.aspx" />
-    <Content Include="Student\MyAccount.aspx" />
-    <Content Include="Student\myreport.aspx" />
-    <Content Include="Student\Penalty.aspx" />
+    <Content Include="MyAccount.aspx" />
+    <Content Include="myreport.aspx" />
+    <Content Include="Penalty.aspx" />
     <Content Include="PenaltyAdmin.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ReturnBook.aspx" />
@@ -148,11 +147,11 @@
       <DependentUpon>BookReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="Student\BookReportClient.aspx.cs">
+    <Compile Include="BookReportClient.aspx.cs">
       <DependentUpon>BookReportClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Student\BookReportClient.aspx.designer.cs">
+    <Compile Include="BookReportClient.aspx.designer.cs">
       <DependentUpon>BookReportClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
@@ -190,39 +189,25 @@
     <Compile Include="LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Student\HomeMaster.aspx.cs">
-      <DependentUpon>HomeMaster.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Student\HomeMaster.aspx.designer.cs">
-      <DependentUpon>HomeMaster.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Student\Home_Master.Master.cs">
-      <DependentUpon>Home_Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Student\Home_Master.Master.designer.cs">
-      <DependentUpon>Home_Master.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Student\MyAccount.aspx.cs">
+    <Compile Include="MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Student\MyAccount.aspx.designer.cs">
+    <Compile Include="MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Student\myreport.aspx.cs">
+    <Compile Include="myreport.aspx.cs">
       <DependentUpon>myreport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Student\myreport.aspx.designer.cs">
+    <Compile Include="myreport.aspx.designer.cs">
       <DependentUpon>myreport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Student\Penalty.aspx.cs">
+    <Compile Include="Penalty.aspx.cs">
       <DependentUpon>Penalty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Student\Penalty.aspx.designer.cs">
+    <Compile Include="Penalty.aspx.designer.cs">
       <DependentUpon>Penalty.aspx</DependentUpon>
     </Compile>
     <Compile Include="PenaltyAdmin.aspx.cs">
@@ -270,7 +255,6 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Admin_Master.Master" />
     <None Include="packages.config" />
-    <Content Include="Student\Home_Master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -281,6 +265,9 @@
   <ItemGroup>
     <Folder Include="Book Images\" />
     <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -91,6 +91,10 @@
                     <asp:TextBox ID="text_Available" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
                 <div class="mt-4">
+                    <label class="block font-semibold" for="password">Rent Quantity</label>
+                    <asp:TextBox ID="text_Rent" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                </div>
+                <div class="mt-4">
                     <label class="block font-semibold" for="password">Book Photo</label>
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </div>

@@ -47,7 +47,7 @@ namespace Library_Management
             }
             else
             {
-                string sql = "select * from Addstudent where StudentName='"+text_Search.Text+"'";
+                string sql = "select * from Addstudent where StudentName='" + text_Search.Text + "'and Branch='"+DropDownList1.SelectedValue+"'";
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -60,7 +60,7 @@ namespace Library_Management
         }
         protected void Btn_View_Click(object sender, EventArgs e)
         {
-            string sql = "select * from Addstudent where StudentName='" + text_Search.Text + "'";
+            string sql = "select * from Addstudent where Branch='" + DropDownList1.SelectedValue+ "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
