@@ -82,7 +82,7 @@ namespace Library_Management
 
         protected void btnpaypanalty_Click(object sender, EventArgs e)
         {
-            if (txtpanalty.Text == "")
+            /*if (txtpanalty.Text == "")
             {
                 lblpay.Text = "Enter amount";
             }
@@ -102,7 +102,7 @@ namespace Library_Management
                 Select_Student.DataSource = dataTable;
                 Select_Student.DataTextField = "StudentName";
                 Select_Student.DataValueField = "sid";
-            }
+            }*/
         }
     }
 }

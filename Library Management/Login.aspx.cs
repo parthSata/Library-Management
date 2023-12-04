@@ -59,7 +59,7 @@ namespace Library_Management
                     {
                         Session["sid"] = dt.Rows[0]["SID"].ToString();
                         Session["email"] = text_username.Value;
-                        Response.Redirect("Student/MyAccount.aspx");
+                        Response.Redirect("MyAccount.aspx");
                     }
                     else
                     {

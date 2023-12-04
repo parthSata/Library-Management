@@ -41,21 +41,46 @@
         <div class="p-10">
             <h1 class="mb-8 font-extrabold text-4xl">Book Issue Report</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
                 <div>
                     <label class="block font-semibold" for="name">Select Branch</label>
-                    <asp:TextBox ID="text_Branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:DropDownList ID="Select_Branch" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
                 </div>
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="email">Select Student</label>
-                    <asp:TextBox ID="text_Student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                    <asp:Button ID="Button1" class=" mt-3 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" runat="server" Text="View" />
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"  DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
+                    <asp:Button ID="Select" class=" mt-3 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" runat="server" Text="Select" OnClick="Select_Click"  />
 
                 </div>
 
             </div>
         </div>
+        <tr>
+            <td style="text-align: center">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
+                    BackColor="#EAEAEA" BorderColor="#D9D9D9" BorderWidth="1px"
+                    CellPadding="2" ForeColor="Black" GridLines="None" Style="text-align: center"
+                    Width="750px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                    <AlternatingRowStyle BackColor="lightgrey" />
+                    <Columns>
+                        <asp:BoundField DataField="bookname" HeaderText="Book Name" />
+                        <asp:BoundField DataField="issuedate" HeaderText="Issue Date" />
+                        <asp:BoundField DataField="days" HeaderText="Days" />
+                    </Columns>
+                    <FooterStyle BackColor="Tan" />
+                    <HeaderStyle BackColor="lightgrey" Font-Bold="True" />
+                    <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue"
+                        HorizontalAlign="Center" />
+                    <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+                    <SortedAscendingCellStyle BackColor="#FAFAE7" />
+                    <SortedAscendingHeaderStyle BackColor="#DAC09E" />
+                    <SortedDescendingCellStyle BackColor="#E1DB9C" />
+                    <SortedDescendingHeaderStyle BackColor="#C2A47B" />
+                </asp:GridView>
+            </td>
+        </tr>
     </form>
 </body>
 </html>

@@ -114,13 +114,22 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.View View1;
 
         /// <summary>
-        /// BookId control.
+        /// Image2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BookId;
+        protected global::System.Web.UI.WebControls.Image Image2;
+
+        /// <summary>
+        /// Book_Id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Book_Id;
 
         /// <summary>
         /// Book_nm control.
@@ -130,15 +139,6 @@ namespace Library_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Book_nm;
-
-        /// <summary>
-        /// Image2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
 
         /// <summary>
         /// Book_Detail control.
@@ -213,22 +213,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.Label Book_Rent;
 
         /// <summary>
-        /// lbldetail control.
+        /// Stud_Detail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldetail;
-
-        /// <summary>
-        /// lblissue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblissue;
+        protected global::System.Web.UI.WebControls.Label Stud_Detail;
 
         /// <summary>
         /// RangeValidator1 control.

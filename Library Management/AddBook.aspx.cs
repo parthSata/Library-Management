@@ -23,11 +23,10 @@ namespace Library_Management
             {
 
                 string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName);
-                if (fileExtension == ".pdf" || fileExtension == ".jpg")
+                if (fileExtension == ".png" || fileExtension == ".jpg")
                 {
-                    FileUpload1.SaveAs(Server.MapPath("images/" + FileUpload1.FileName));
+                    FileUpload1.SaveAs(Server.MapPath("Book images/" + FileUpload1.FileName));
                     string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','" + text_Available.Text + "','"+ text_Rent.Text + "','" + FileUpload1.FileName + "')";
-                    Response.Write(sql);
                     SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
