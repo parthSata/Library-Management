@@ -147,7 +147,7 @@
                                                 <td>
                                                     <asp:Button ID="Book_Return" runat="server" CssClass="btn" Text="Return Book" Width="90px" OnClick="Book_Return_Click" />
                                                 </td>
-                                                <td>&nbsp;</td>
+                                                <td>&nbsp;<asp:Label ID="lblbook" runat="server" Font-Size="10pt"></asp:Label></td>
                                             </tr>
                                         </table>
                                     </td>

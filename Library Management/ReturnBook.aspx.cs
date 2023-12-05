@@ -18,13 +18,13 @@ namespace Library_Management
 
         protected void Select_Click(object sender, EventArgs e)
         {
-            if (Select_Student.SelectedIndex == 0)
+            if (Select_Student.SelectedIndex == 1)
             {
 
                 ErrorMsg.Text = "Select Student";
                 ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
             }
-            else if (Select_Book.SelectedIndex == 0)
+            else if (Select_Book.SelectedIndex == 4)
             {
                 ErrorMsg.Text = "Select Book";
                 ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
@@ -39,7 +39,7 @@ namespace Library_Management
                 da.Fill(dt);
                 MultiView1.Visible = true;
                 MultiView1.SetActiveView(View1);
-                Book_nm.Text = dt.Rows[0]["Bookname"].ToString();
+                Book_nm.Text = dt.Rows[0]["BookName"].ToString();
                 Book_Author.Text = dt.Rows[0]["Author"].ToString();
                 Book_Branch.Text = dt.Rows[0]["Branch"].ToString();
                 Book_Publication.Text = dt.Rows[0]["Publication"].ToString();
@@ -48,7 +48,7 @@ namespace Library_Management
 
                 //SELECT STUDENT
 
-                string Querry = "select * from Addstudent where SID='" + Select_Student.SelectedValue + "' and BookName='" + Select_Book.SelectedItem + "'";
+                string Querry = "select * from Addstudent where SID='" + Select_Student.SelectedValue + "'";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(Querry, Class1.cn);
                 DataTable data = new DataTable();
                 da.Fill(dt);
@@ -56,6 +56,15 @@ namespace Library_Management
                 text_days.Text = data.Rows[0]["Days"].ToString();
                 Book_IssueDate.Text = data.Rows[0]["IssueDate"].ToString();
 
+
+
+                string qry = "select * from AddPenalty where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'";
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
+                DataTable dataTable = new DataTable();
+                da.Fill(dt);
+                text_days.Text = dataTable.Rows[0]["Days"].ToString();
+                Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
+                ViewState["RRID"] = dataTable.Rows[0]["rid"].ToString();
                 int iday = Convert.ToDateTime(data.Rows[0]["IssueDate"].ToString()).Day;
                 int rday = System.DateTime.Now.Day;
 
@@ -74,7 +83,52 @@ namespace Library_Management
 
         protected void Book_Return_Click(object sender, EventArgs e)
         {
+            if (Stud_Penalty.Text == "Yes")
+            {
+                lblbook.Text = "Please, first pay Penalty";
+                lblbook.ForeColor = System.Drawing.Color.Red;
 
+                string sql = "select * from AddPenalty where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'";
+                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count == 0)
+                {
+                    string qry = "insert into AddPenalty values('" + Select_Student.Text + "','"+Book_nm.Text+"','"+Book_Price.Text+"')";
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, Class1.cn);
+                    DataTable data = new DataTable();
+                    adapter.Fill(data);
+                    Response.Write("Inserted");
+                }
+                else
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+
+                        if (dt.Rows[i]["Penalty"].ToString() != "0")
+                        {
+                            string qry = "insert into AddPenalty values('" + Select_Student.Text + "','" + Book_nm.Text + "','" + Book_Price.Text + "')";
+                            SqlDataAdapter adapter = new SqlDataAdapter(sql, Class1.cn);
+                            DataTable data = new DataTable();
+                            adapter.Fill(data);
+                            Response.Write("Inserted Penalty");
+                            break;
+                        }
+                    }
+
+
+                }
+            }
+            else
+            {
+                string sql = "select * from AddRent where BBID='" + Convert.ToInt32(ViewState["BBID"].ToString()) + "' and RRID='" + Convert.ToInt32(ViewState["RRID"].ToString()) + "'";
+                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                lblbook.Text = "Book Return Successfully";
+                lblbook.ForeColor = System.Drawing.Color.Green;
+
+            }
         }
     }
 }

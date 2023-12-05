@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +13,7 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void Btn_login_Click(object sender, EventArgs e)
@@ -22,6 +24,10 @@ namespace Library_Management
         protected void btn_logout_Click(object sender, EventArgs e)
         {
             Response.Redirect("LogOut.aspx");
+
+        }
+        protected void lnkview_Click(object sender, EventArgs e)
+        {
 
         }
     }

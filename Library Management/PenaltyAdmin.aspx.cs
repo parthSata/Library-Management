@@ -18,13 +18,13 @@ namespace Library_Management
 
         protected void Select_Click(object sender, EventArgs e)
         {
-            if (Select_Student.SelectedIndex == 0)
+            if (Select_Student.SelectedIndex == 5)
             {
 
                 ErrorMsg .Text = "Select Student";
                 ErrorMsg .ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
             }
-            else if (Select_Book.SelectedIndex == 0)
+            else if (Select_Book.SelectedIndex == 5)
             {
                 ErrorMsg .Text = "Select Book";
                 ErrorMsg .ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
@@ -35,13 +35,12 @@ namespace Library_Management
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
                 MultiView1.ActiveViewIndex = 0;
-                Book_nm.Text = dt.Rows[0]["Bookname"].ToString();
-                Book_Author.Text = dt.Rows[0]["author"].ToString();
-                Book_Branch.Text = dt.Rows[0]["branch"].ToString();
-                Book_Publication.Text = dt.Rows[0]["publication"].ToString();
-                Book_Price.Text = dt.Rows[0]["price"].ToString();
+                Book_nm.Text = dt.Rows[0]["BookName"].ToString();
+                Book_Author.Text = dt.Rows[0]["Author"].ToString();
+                Book_Branch.Text = dt.Rows[0]["Branch"].ToString();
+                Book_Publication.Text = dt.Rows[0]["Publication"].ToString();
+                Book_Price.Text = dt.Rows[0]["Price"].ToString();
 
                 Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
 
@@ -50,7 +49,7 @@ namespace Library_Management
                 SqlDataAdapter adapter = new SqlDataAdapter(qry, Class1.cn);
                 DataTable dataTable = new DataTable();
                 da.Fill(dt);
-                Stud_nm.Text = dataTable.Rows[0]["Studentname"].ToString();
+                Stud_nm.Text = dataTable.Rows[0][0].ToString();
 
 
 
@@ -82,27 +81,27 @@ namespace Library_Management
 
         protected void btnpaypanalty_Click(object sender, EventArgs e)
         {
-            /*if (txtpanalty.Text == "")
+            if (Stud_PenaltyAmount.Text == "")
             {
-                lblpay.Text = "Enter amount";
+                Stud_Pay.Text = "Enter amount";
             }
-            else if (txtdetail.Text == "")
+            else if (Stud_PenaltyReason.Text == "")
             {
-                lblpay.Text = "Enter detail";
+                Stud_Pay.Text = "Enter detail";
             }
             else
             {
-                PAdapter.PENALTY_PAY_NOW(Convert.ToDouble(txtpanalty.Text), txtdetail.Text, Convert.ToInt32(Select_Book.SelectedValue));
-                ErrorMsg .Text = "Amount paid successfully";
-                RAdapter.RENT_SELECT_RETURN(Convert.ToInt32(ViewState["RRID"].ToString()), 1, Convert.ToInt32(ViewState["BBID"].ToString()));
-                txtdetail.Text = "";
-                txtpanalty.Text = "";
+                string sql = "select * from AddRent where RetunDate='" + Convert.ToInt32(ViewState["RRID"].ToString()) + "'";
+                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                Stud_PenaltyReason.Text = "";
+                Stud_PenaltyAmount.Text = "";
                 MultiView1.ActiveViewIndex = -1;
-                dataTable = SAdapter.Select_Student_for_panalty();
-                Select_Student.DataSource = dataTable;
+                Select_Student.DataSource = dt;
                 Select_Student.DataTextField = "StudentName";
                 Select_Student.DataValueField = "sid";
-            }*/
+            }
         }
     }
 }

@@ -69,9 +69,10 @@ namespace Library_Management
             MultiView1.ActiveViewIndex = 0;
         }
 
-       /* protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+       protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             string sql = "select * from AddBook where ID='" + e.CommandArgument.ToString()+ "'";
+            Response.Write(sql);
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             MultiView1.Visible = true;
@@ -85,11 +86,20 @@ namespace Library_Management
             Book_Quantity.Text = dt.Rows[0]["Quantity"].ToString();
             Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
             Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
-        }*/
 
-        protected void lnkview_Click1(object sender, EventArgs e)
+
+        }
+
+
+        protected void btn_logout_Click(object sender, EventArgs f , GridViewCommandEventArgs e)
         {
-            string sql = "select * from AddBook where Branch='" + DropDownList1.SelectedValue + "' and ID='" + Session["sid"].ToString() +"'";
+            Response.Redirect("LogOut.aspx");
+
+        }
+
+        protected void lnkview_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from AddBook where Branch='" + DropDownList1.SelectedValue + "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             MultiView1.Visible = true;
@@ -103,12 +113,6 @@ namespace Library_Management
             Book_Quantity.Text = dt.Rows[0]["Quantity"].ToString();
             Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
             Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
-        }
-
-        protected void btn_logout_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("LogOut.aspx");
-
         }
     }
 }

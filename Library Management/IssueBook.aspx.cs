@@ -86,7 +86,7 @@ namespace Library_Management
                             }
                             else
                             {
-                                string qry = "insert into AddRent values('" + text_student.SelectedValue + "')";
+                                string qry = "insert into AddPenalty values('" + text_student.SelectedValue + "')";
                                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
                                 DataTable data = new DataTable();
                                 sqlDataAdapter.Fill(data);
@@ -99,7 +99,7 @@ namespace Library_Management
                                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
                                 DataTable dataTable1 = new DataTable();
                                 sqlDataAdapter.Fill(dataTable1);
-                                Book_Id.Text = dataTable1.Rows[0]["ID"].ToString();
+                                ViewState["BBID"] = dataTable1.Rows[0]["ID"].ToString();
                                 Book_nm.Text = dataTable1.Rows[0]["Bookname"].ToString();
                                 Book_Detail.Text = dataTable1.Rows[0]["Detail"].ToString();
                                 Book_Author.Text = dataTable1.Rows[0]["Author"].ToString();

@@ -72,7 +72,7 @@
                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
                                 Width="748px" BackColor="#EAEAEA" BorderColor="#D9D9D9"
                                 BorderWidth="1px" CellPadding="2" ForeColor="Black" GridLines="None"
-                                 Style="text-align: center">
+                                Style="text-align: center" OnRowCommand="GridView1_RowCommand">
                                 <AlternatingRowStyle BackColor="#cecece" />
                                 <Columns>
                                     <asp:BoundField DataField="BookName" HeaderText="BookName" />
@@ -81,7 +81,7 @@
                                     <asp:BoundField DataField="AvailableQuantity" HeaderText="Availabale" />
                                     <asp:TemplateField HeaderText="View">
                                         <ItemTemplate>
-                                            <asp:LinkButton runat="server" ID="lnkview" Text="View" CommandArgument='<%#Eval("ID") %>' CssClass="lnk" OnClick="lnkview_Click1"></asp:LinkButton>
+                                            <asp:LinkButton runat="server" ID="lnkview" Text="View" CommandArgument='<%#Eval("ID") %>' CssClass="lnk"></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
