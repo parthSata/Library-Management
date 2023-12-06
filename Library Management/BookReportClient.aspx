@@ -34,10 +34,8 @@
 
 
 
-                <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-white rounded text-base mt-4 md:mt-0" OnClick="btn_logout_Click" />
+                <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-white rounded text-base mt-4 md:mt-0" />
                 <asp:HiddenField ID="HiddenField1" runat="server" />
-
-
             </div>
         </header>
         <div class=" container grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -81,7 +79,7 @@
                                     <asp:BoundField DataField="AvailableQuantity" HeaderText="Availabale" />
                                     <asp:TemplateField HeaderText="View">
                                         <ItemTemplate>
-                                            <asp:LinkButton runat="server" ID="lnkview" Text="View" CommandArgument='<%#Eval("ID") %>' CssClass="lnk"></asp:LinkButton>
+                                            <asp:Button ID="Btn_View" CommandArgument='<%#Eval("ID") %>' class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" runat="server" Text="View" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

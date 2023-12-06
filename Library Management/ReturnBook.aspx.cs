@@ -18,13 +18,13 @@ namespace Library_Management
 
         protected void Select_Click(object sender, EventArgs e)
         {
-            if (Select_Student.SelectedIndex == 1)
+            if (Select_Student.SelectedIndex == 5)
             {
 
                 ErrorMsg.Text = "Select Student";
                 ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
             }
-            else if (Select_Book.SelectedIndex == 4)
+            else if (Select_Book.SelectedIndex == 5)
             {
                 ErrorMsg.Text = "Select Book";
                 ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;

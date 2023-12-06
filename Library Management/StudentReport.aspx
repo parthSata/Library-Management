@@ -54,8 +54,11 @@
                 <div>
                     <label class="block font-semibold" for="name">Student Name</label>
                     <asp:TextBox ID="text_Search" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                    <asp:Button ID="Btn_Name" runat="server" class=" mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Btn_Name_Click" />
+                    <%--                    <asp:Button ID="Btn_Name" runat="server" class=" mt-2 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Btn_Name_Click" />--%>
                 </div>
+            </div>
+            <div class="flex justify-center">
+                <asp:Button ID="Btn_Name" runat="server" class=" mt-7 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Select" OnClick="Btn_Name_Click" />
             </div>
         </div>
         <asp:Label ID="ErrorMsg" runat="server" ForeColor="Red"></asp:Label>

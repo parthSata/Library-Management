@@ -115,7 +115,7 @@
                 <section class="text-gray-400 bg-white-900 body-font overflow-hidden">
                     <div class="container px-5 py-24 mx-auto">
                         <div class="lg:w-2/3 mx-auto flex flex-wrap">
-                            <img alt="ecommerce" src='<%#Eval("Image","~/Images/{0}") %>' class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" >
+                            <img alt="ecommerce" src="Image/<%#("images") %>" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" >
 <%--                            <asp:Image ID="Image1" runat="server"  alt="ecommerce" class=" rounded-full w-96 h-96 lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" ImageUrl='<%#Eval("Image","~/Images/{0}") %>'  />--%>
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <div class="flex mb-4">

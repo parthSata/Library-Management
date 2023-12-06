@@ -33,8 +33,15 @@ namespace Library_Management
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     show();
-                    Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
-                    clear();
+                    if (text_birthdate.Text != "" && Convert.ToDateTime(text_birthdate.Text) > DateTime.Today)
+                    {
+                        Response.Write("<script LANGUAGE='JavaScript' >alert('Enter Valid Date ')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
+                        clear();
+                    }
                 }
                 else
                 {

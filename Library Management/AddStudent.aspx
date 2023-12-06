@@ -75,7 +75,8 @@
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Mobile No :</label>
-                    <asp:TextBox ID="text_mo" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_mo" runat="server" autofocus="autofocus" MaxLength="10" type="number" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="text_mo" ErrorMessage="Enter Valid Mobile Number" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
                 </div>
 
                 <div>
@@ -98,11 +99,12 @@
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Email :</label>
                     <asp:TextBox ID="text_email" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="text_email" ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
                 </div>
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Password :</label>
-                    <asp:TextBox ID="text_pass" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_pass" runat="server" autofocus="autofocus" type="password" MaxLength="20" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Upload Photo :</label>

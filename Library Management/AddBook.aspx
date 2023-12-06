@@ -79,20 +79,20 @@
                 </div>
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Price</label>
-                    <asp:TextBox ID="text_Price" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_Price" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
 
                 </div>
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Quantity</label>
-                    <asp:TextBox ID="text_Quantity" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_Quantity" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Available Quantity</label>
-                    <asp:TextBox ID="text_Available" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_Available" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Rent Quantity</label>
-                    <asp:TextBox ID="text_Rent" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_Rent" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Book Photo</label>

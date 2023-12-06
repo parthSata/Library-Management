@@ -24,15 +24,6 @@ namespace Library_Management
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Btn_login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_login;
-
-        /// <summary>
         /// btn_logout control.
         /// </summary>
         /// <remarks>
@@ -51,13 +42,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// Select_Branch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList Select_Branch;
 
         /// <summary>
         /// SqlDataSource1 control.
@@ -69,22 +60,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// Button1 control.
+        /// Select_Publication control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// DropDownList2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList Select_Publication;
 
         /// <summary>
         /// SqlDataSource2 control.
@@ -96,13 +78,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
-        /// Button2 control.
+        /// Btn_View control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button Btn_View;
 
         /// <summary>
         /// lblmsg control.
@@ -150,15 +132,6 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// lnkview control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkview;
-
-        /// <summary>
         /// View2 control.
         /// </summary>
         /// <remarks>
@@ -168,102 +141,93 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.View View2;
 
         /// <summary>
-        /// lblbname control.
+        /// Book_nm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblbname;
+        protected global::System.Web.UI.WebControls.Label Book_nm;
 
         /// <summary>
-        /// Image2 control.
+        /// Book_Author control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Label Book_Author;
 
         /// <summary>
-        /// lblauthor control.
+        /// Book_Publication control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblauthor;
+        protected global::System.Web.UI.WebControls.Label Book_Publication;
 
         /// <summary>
-        /// lblpub control.
+        /// Book_Branch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblpub;
+        protected global::System.Web.UI.WebControls.Label Book_Branch;
 
         /// <summary>
-        /// lblbran control.
+        /// Book_Price control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblbran;
+        protected global::System.Web.UI.WebControls.Label Book_Price;
 
         /// <summary>
-        /// lblprice control.
+        /// Book_Total control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblprice;
+        protected global::System.Web.UI.WebControls.Label Book_Total;
 
         /// <summary>
-        /// lblqnt control.
+        /// Book_Available control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblqnt;
+        protected global::System.Web.UI.WebControls.Label Book_Available;
 
         /// <summary>
-        /// lblaqnt control.
+        /// Book_Rent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblaqnt;
+        protected global::System.Web.UI.WebControls.Label Book_Rent;
 
         /// <summary>
-        /// lblrqnt control.
+        /// Book_Detail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblrqnt;
+        protected global::System.Web.UI.WebControls.Label Book_Detail;
 
         /// <summary>
-        /// lbldetail control.
+        /// Btn_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldetail;
-
-        /// <summary>
-        /// Button11 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button11;
+        protected global::System.Web.UI.WebControls.Button Btn_Back;
     }
 }
