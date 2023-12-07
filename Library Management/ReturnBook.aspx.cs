@@ -48,20 +48,19 @@ namespace Library_Management
 
                 //SELECT STUDENT
 
-                string Querry = "select * from Addstudent where SID='" + Select_Student.SelectedValue + "'";
+                string Querry = "select * from AddRent where SID='" + Select_Student.SelectedValue + "'";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(Querry, Class1.cn);
                 DataTable data = new DataTable();
-                da.Fill(dt);
-                Stud_nm.Text = dt.Rows[0]["StudentName"].ToString();
+                dataAdapter.Fill(data);
                 text_days.Text = data.Rows[0]["Days"].ToString();
                 Book_IssueDate.Text = data.Rows[0]["IssueDate"].ToString();
 
 
-
-                string qry = "select * from AddPenalty where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'";
+                string qry = "select * from AddRent where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'";
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
                 DataTable dataTable = new DataTable();
-                da.Fill(dt);
+                sqlDataAdapter.Fill(dataTable);
+                Book_nm.Text = dt.Rows[0]["BookName"].ToString();
                 text_days.Text = dataTable.Rows[0]["Days"].ToString();
                 Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
                 ViewState["RRID"] = dataTable.Rows[0]["rid"].ToString();
@@ -94,18 +93,17 @@ namespace Library_Management
                 da.Fill(dt);
                 if (dt.Rows.Count == 0)
                 {
-                    string qry = "insert into AddPenalty values('" + Select_Student.Text + "','"+Book_nm.Text+"','"+Book_Price.Text+"')";
+                    string qry = "insert into AddRent values('" + Select_Student.Text + "','"+Book_nm.Text+"','"+Book_Price.Text+"')";
                     SqlDataAdapter adapter = new SqlDataAdapter(sql, Class1.cn);
                     DataTable data = new DataTable();
                     adapter.Fill(data);
-                    Response.Write("Inserted");
                 }
                 else
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-
-                        if (dt.Rows[i]["Penalty"].ToString() != "0")
+                        
+                        if (dt.Rows[i]["Panalty"].ToString() != "0")
                         {
                             string qry = "insert into AddPenalty values('" + Select_Student.Text + "','" + Book_nm.Text + "','" + Book_Price.Text + "')";
                             SqlDataAdapter adapter = new SqlDataAdapter(sql, Class1.cn);

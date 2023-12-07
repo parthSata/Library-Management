@@ -49,14 +49,14 @@ namespace Library_Management
                 SqlDataAdapter adapter = new SqlDataAdapter(qry, Class1.cn);
                 DataTable dataTable = new DataTable();
                 da.Fill(dt);
-                Stud_nm.Text = dataTable.Rows[0][0].ToString();
+                Stud_nm.Text = dataTable.Rows[0]["StudentName"].ToString();
 
 
 
 
 
 
-                string Querry= "select * from Addstudent where SID='" + Select_Student.SelectedValue + "' and BookName='"+ Select_Book.SelectedItem + "'";
+                string Querry= "select * from AddRent where SID='" + Select_Student.SelectedValue + "' and BookName='"+ Select_Book.SelectedItem + "'";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(qry, Class1.cn);
                 DataTable data = new DataTable();
                 da.Fill(dt);
