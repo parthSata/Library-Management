@@ -249,13 +249,13 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.DropDownList text_branch;
 
         /// <summary>
-        /// text_student control.
+        /// Select_student control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList text_student;
+        protected global::System.Web.UI.WebControls.DropDownList Select_student;
 
         /// <summary>
         /// SqlDataSource3 control.

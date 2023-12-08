@@ -93,7 +93,7 @@ namespace Library_Management
                 da.Fill(dt);
                 if (dt.Rows.Count == 0)
                 {
-                    string qry = "insert into AddRent values('" + Select_Student.Text + "','"+Book_nm.Text+"','"+Book_Price.Text+"')";
+                    string qry = "insert into AddPenalty values('" + Select_Student.Text + "','"+Book_nm.Text+"','"+Book_Price.Text+"')";
                     SqlDataAdapter adapter = new SqlDataAdapter(sql, Class1.cn);
                     DataTable data = new DataTable();
                     adapter.Fill(data);

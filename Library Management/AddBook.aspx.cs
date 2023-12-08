@@ -19,19 +19,26 @@ namespace Library_Management
 
         protected void Btn_AddBook_Click(object sender, EventArgs e)
         {
-            if (text_BookName.Text != "" && text_Detail.Text != "" && text_Author.Text != "" && text_Publication.Text != "" && text_Branch.Text != "" && text_Price.Text != "" && text_Quantity.Text != "" && text_Available.Text != "" && text_Rent.Text != "" && FileUpload1.FileName != "" )
+            if (text_BookName.Text != "" && text_Detail.Text != "" && text_Author.Text != "" && text_Publication.Text != "" && text_Branch.Text != "" && text_Price.Text != "" && text_Quantity.Text != "" && text_Available.Text != ""  && FileUpload1.FileName != "" && text_Entry.Text != "" )
             {
 
                 string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName);
                 if (fileExtension == ".png" || fileExtension == ".jpg")
                 {
                     FileUpload1.SaveAs(Server.MapPath("Book images/" + FileUpload1.FileName));
-                    string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','" + text_Available.Text + "','"+ text_Rent.Text + "','" + FileUpload1.FileName + "')";
+                    string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" text_Entry.Text+ "','"+ FileUpload1.FileName + "')";
                     SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
-                    clear();
+                    if (text_Entry.Text != "" && Convert.ToDateTime(text_Entry.Text) > DateTime.Today)
+                    {
+                        Response.Write("<script LANGUAGE='JavaScript' >alert('Enter Valid Date ')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
+                        clear();
+                    }
                 }
             }
             else
@@ -49,7 +56,6 @@ namespace Library_Management
             text_Price.Text = "";
             text_Quantity.Text = "";
             text_Available.Text = "";
-            text_Rent.Text = "";
             text_BookName.Focus();
         }
     }

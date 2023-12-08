@@ -13,7 +13,7 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+       
         }
 
 
@@ -24,49 +24,50 @@ namespace Library_Management
             {
                 if (text_days.Text == "")
                 {
-                    ErrorMsg.Text = "Enter Days";
+                    Stud_Detail.Text = "Enter Days";
                 }
                 else
                 {
                     if (Convert.ToInt32(Book_Available.Text) == 0)
                     {
-                        ErrorMsg.Text = "Book Stock Empty";
+                        Stud_Detail.Text = "Book Stock Empty";
                     }
                     else
                     {
-                        string sql = "select * from AddRent where StudentName='" + text_student.SelectedValue + "' and SID='" + text_student.SelectedValue + "'";
+                        string sql = "select * from AddRent where BookName='" + Book_nm.Text+ "' and SID='" + Select_student.SelectedValue + "'";
                         SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
 
                         if (dt.Rows.Count != 0)
                         {
-                            ErrorMsg.Text = "Student can't get copies of same book !!";
+                            Stud_Detail.Text = "Student can't get copies of same book !!";
                         }
                         else
                         {
-                            string querry = "select * from AddRent where StudentName='" + text_student.SelectedValue + "' and SID='" + text_student.SelectedValue + "'";
+                            string querry = "select * from AddRent where  SID='" + Select_student.SelectedValue + "'";
                             SqlDataAdapter adapter = new SqlDataAdapter(querry, Class1.cn);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
                             if (dataTable.Rows.Count == 3)
                             {
-                                ErrorMsg.Text = "A student has maximum 3 books";
+                                Stud_Detail.Text = "A student has maximum 3 books";
                             }
                             else
                             {
-                                string qry = "insert into AddRent values('" + Book_nm.Text + "','" + text_student.SelectedValue + "','" + text_days.Text + "')";
+                                string qry = "insert into AddRent values('" + Book_nm.Text + "','" + Select_student.SelectedValue + "','" + text_days.Text + "')";
                                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
                                 DataTable data = new DataTable();
-                                Response.Write(sql);    
                                 sqlDataAdapter.Fill(data);
-                                Stud_Detail.Text = "Book Issued to " + text_student.SelectedItem;
-                                clear();
+                                Response.Write("<script LANGUAGE='JavaScript' >alert('Your Book Issued')</script>");
+                                Stud_Detail.Text = "Book Issued to " + Select_student.SelectedItem;
+                                Response.Write(qry);
 
 
 
-                                string query = "select * from AddBook wherd ID='" + text_student.SelectedValue + "'";
+                               string query = "select * from AddBook where ID='" + Select_student.SelectedValue + "'";
                                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
+                                Response.Write(query);
                                 DataTable dataTable1 = new DataTable();
                                 dataAdapter.Fill(dataTable1);
                                 ViewState["BBID"] = dataTable1.Rows[0]["ID"].ToString();
@@ -80,6 +81,25 @@ namespace Library_Management
                                 Book_Available.Text = dataTable1.Rows[0]["AvailableQuantity"].ToString();
                                 Book_Rent.Text = dataTable1.Rows[0]["Rent"].ToString();
                                 Image2.ImageUrl = dataTable1.Rows[0]["Image"].ToString();
+
+                                
+                                
+                                
+                                
+                                text_days.Text = "";
+                                text_branch.Items.Clear();
+                                text_branch.Items.Insert(0, "SELECT");
+                                string qry1 = "select * from AddBook where ID='" + Select_student.SelectedValue + "'";
+                                SqlDataAdapter dataAdapter1 = new SqlDataAdapter(qry1, Class1.cn);
+                                DataTable data1 = new DataTable();
+                                dataAdapter1.Fill(data1);
+                                Response.Write(qry1);
+
+                                text_branch.DataSource = data1;
+                                text_branch.DataTextField = "Branch";
+                                text_branch.DataValueField = "ID";
+                                text_branch.DataBind();
+                                text_branch.Items.Insert(0, "SELECT");
                             }
                         }
                     }
@@ -87,7 +107,7 @@ namespace Library_Management
             }
             catch
             {
-                ErrorMsg.Text = "Sorry !!! Error !!!";
+                Stud_Detail.Text = "Sorry !!! Error !!!";
             }
         }
 
@@ -95,14 +115,14 @@ namespace Library_Management
         {
             if (DropDownList2.SelectedIndex == 9)
             {
-                ErrorMsg.Text = "Select Publication";
-                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                Stud_Detail.Text = "Select Publication";
+                Stud_Detail.ForeColor = System.Drawing.Color.Red;
                 MultiView1.ActiveViewIndex = -1;
             }
             else if (DropDownList1.SelectedIndex == 9)
             {
-                ErrorMsg.Text = "Select Book";
-                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                Stud_Detail.Text = "Select Book";
+                Stud_Detail.ForeColor = System.Drawing.Color.Red;
                 MultiView1.ActiveViewIndex = -1;
             }
             else
@@ -125,6 +145,9 @@ namespace Library_Management
                 Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
                 Book_Rent.Text = dt.Rows[0]["Rent"].ToString();
                 Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
+
+                Select_student.Items.Clear();
+                Select_student.Items.Insert(0, "SELECT");
             }
         }
         public void clear()

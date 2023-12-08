@@ -54,7 +54,6 @@
                 <div class="mt-4">
                     <label class="block font-semibold" for="email">Detail</label>
                     <asp:TextBox ID="text_Detail" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-
                 </div>
 
                 <div class="mt-4">
@@ -68,12 +67,10 @@
                     <asp:DropDownList ID="text_Publication" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="Publication" DataValueField="Publication">
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Publication] FROM [AddPublication]"></asp:SqlDataSource>
-                    <%--<asp:TextBox ID="text_Publication" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%>
                 </div>
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Branch</label>
-                    <%--<asp:TextBox ID="text_Branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%><%--<asp:TextBox ID="text_Branch" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>--%>
                     <asp:DropDownList ID="text_Branch" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
                 </div>
@@ -90,19 +87,24 @@
                     <label class="block font-semibold" for="password">Available Quantity</label>
                     <asp:TextBox ID="text_Available" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
+
                 <div class="mt-4">
-                    <label class="block font-semibold" for="password">Rent Quantity</label>
-                    <asp:TextBox ID="text_Rent" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <label class="block font-semibold" for="password">Entry Date :</label>
+                    <asp:TextBox ID="text_Entry" runat="server" type="date" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
+
+
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Book Photo</label>
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </div>
 
+
                 <div class="flex items-center justify-between mt-8">
                     <asp:Button ID="Btn_AddBook" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Add Book" OnClick="Btn_AddBook_Click" />
                 </div>
             </div>
+        </div>
     </form>
 </body>
 </html>

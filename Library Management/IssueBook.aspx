@@ -175,7 +175,7 @@
                             <td class="style15">Select Branch :
                                 <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
                                 &nbsp;Select Student :
-                                <asp:DropDownList ID="text_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
+                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
                                 &nbsp;Days :
                             <asp:TextBox ID="text_days" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>

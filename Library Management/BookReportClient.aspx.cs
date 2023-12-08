@@ -71,7 +71,7 @@ namespace Library_Management
 
        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            string sql = "select * from AddBook where ID='" + e.CommandArgument.ToString()+ "'";
+            string sql = "select * from AddBook where ID='" + Convert.ToInt32(e.CommandArgument.ToString())+ "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             MultiView1.Visible = true;
@@ -85,8 +85,6 @@ namespace Library_Management
             Book_Quantity.Text = dt.Rows[0]["Quantity"].ToString();
             Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
             Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
-
-
         }
 
 
