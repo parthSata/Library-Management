@@ -11,14 +11,8 @@ namespace Library_Management
 {
     public partial class IssueBook : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
        
-        }
-
-
-
-        protected void Btn_Issue_Click(object sender, EventArgs e)
+        protected void Btn_Issue_Click(EventArgs e, object sender)
         {
             try
             {
@@ -111,7 +105,7 @@ namespace Library_Management
             }
         }
 
-        protected void Select_Click(object sender, EventArgs e)
+        protected void Select_Click(EventArgs e, object sender)
         {
             if (DropDownList2.SelectedIndex == 9)
             {

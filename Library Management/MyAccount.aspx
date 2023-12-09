@@ -13,6 +13,8 @@
             hdnfld.value = flag ? '1' : '0';
         }
     </script>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script>
         function ShowPreview() {
             let fileInput = document.getElementById("text_photo");

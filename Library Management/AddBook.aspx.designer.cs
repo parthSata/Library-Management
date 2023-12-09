@@ -105,15 +105,6 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.TextBox text_Quantity;
 
         /// <summary>
-        /// text_Available control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text_Available;
-
-        /// <summary>
         /// text_Entry control.
         /// </summary>
         /// <remarks>

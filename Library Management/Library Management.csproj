@@ -92,7 +92,6 @@
     <Content Include="PenaltyAdmin.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ReturnBook.aspx" />
-    <Content Include="Sample.aspx" />
     <Content Include="StudentReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -231,13 +230,6 @@
     </Compile>
     <Compile Include="ReturnBook.aspx.designer.cs">
       <DependentUpon>ReturnBook.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Sample.aspx.cs">
-      <DependentUpon>Sample.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Sample.aspx.designer.cs">
-      <DependentUpon>Sample.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentReport.aspx.cs">
       <DependentUpon>StudentReport.aspx</DependentUpon>

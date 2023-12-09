@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -83,10 +83,15 @@
                     <label class="block font-semibold" for="password">Quantity</label>
                     <asp:TextBox ID="text_Quantity" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
-                <div class="mt-4">
+               <%-- <div class="mt-4">
                     <label class="block font-semibold" for="password">Available Quantity</label>
                     <asp:TextBox ID="text_Available" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
+
+                <div class="mt-4">
+                    <label class="block font-semibold" for="password">Rent Quantity</label>
+                    <asp:TextBox ID="text_Rent" runat="server" type="number" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                </div>--%>
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Entry Date :</label>
