@@ -19,14 +19,14 @@ namespace Library_Management
 
         protected void Btn_AddBook_Click(object sender, EventArgs e)
         {
-            if (text_BookName.Text != "" && text_Detail.Text != "" && text_Author.Text != "" && text_Publication.Text != "" && text_Branch.Text != "" && text_Price.Text != "" && text_Quantity.Text != "" &&  text_Entry.Text != "" && FileUpload1.FileName != "")
+            if (text_BookName.Text != "" && text_Detail.Text != "" && text_Author.Text != "" && text_Publication.Text != "" && text_Branch.Text != "" && text_Price.Text != "" && text_Quantity.Text != "" && text_Available.Text != "" &&  text_Entry.Text != "" && FileUpload1.FileName != "")
             {
 
                 string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName);
                 if (fileExtension == ".png" || fileExtension == ".jpg")
                 {
                     FileUpload1.SaveAs(Server.MapPath("Book images/" + FileUpload1.FileName));
-                    string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','"+ text_Entry.Text + "','" + FileUpload1.FileName + "')";
+                    string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','"+ text_Available.Text +"','"+0+"','"+ text_Entry.Text + "','" + FileUpload1.FileName + "')";
                     SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -55,7 +55,6 @@ namespace Library_Management
             text_Author.Text = "";
             text_Price.Text = "";
             text_Quantity.Text = "";
-            text_Available.Text = "";
             text_BookName.Focus();
         }
     }

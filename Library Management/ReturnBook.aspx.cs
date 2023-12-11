@@ -119,7 +119,7 @@ namespace Library_Management
             }
             else
             {
-                string sql = "select * from AddRent where BBID='" + Convert.ToInt32(ViewState["BBID"].ToString()) + "' and RRID='" + Convert.ToInt32(ViewState["RRID"].ToString()) + "'";
+                string sql = "SELECT * FROM AddRent WHERE RRID = " + Convert.ToInt32(ViewState["RRID"].ToString()) + " AND BBID = " + Convert.ToInt32(ViewState["BBID"].ToString());
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

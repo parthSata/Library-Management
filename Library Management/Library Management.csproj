@@ -160,6 +160,9 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Image.ashx.cs">
+      <DependentUpon>Image.ashx</DependentUpon>
+    </Compile>
     <Compile Include="IssueBook.aspx.cs">
       <DependentUpon>IssueBook.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,6 +249,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Admin_Master.Master" />
+    <Content Include="Image.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

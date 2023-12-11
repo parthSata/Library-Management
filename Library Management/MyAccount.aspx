@@ -13,7 +13,7 @@
             hdnfld.value = flag ? '1' : '0';
         }
     </script>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script>
         function ShowPreview() {
@@ -61,64 +61,13 @@
             <%--<asp:Button ID="Btn_change" runat="server" Text="Change Password" />--%>
         </div>
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
-            <asp:View ID="View1" runat="server">
-                <table align="center" class="style1" style="border: thin solid #9b9b9b">
-                    <tr>
-                        <td class="tblhead" colspan="2">MY Account Detail</td>
-                    </tr>
-                    <tr>
-                        <td class="lbl">Name :</td>
-                        <td align="left">
-                            <asp:Label ID="lblnam" runat="server"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="lbl">Mobile :</td>
-                        <td align="left">
-                            <asp:Label ID="lblmobile" runat="server"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="lbl">Address :</td>
-                        <td align="left">
-                            <asp:Label ID="lbladd" runat="server"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="lbl">City :</td>
-                        <td align="left">
-                            <asp:Label ID="lblcity" runat="server"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="lbl">Pincode :</td>
-                        <td align="left">
-                            <asp:Label ID="lblpincode" runat="server"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="lbl">Email :
-                        </td>
-                        <td align="left">
-                            <asp:Label ID="lblemail" runat="server"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
-            </asp:View>
+
             <asp:View ID="View2" runat="server">
                 <section class="text-gray-400 bg-white-900 body-font overflow-hidden">
                     <div class="container px-5 py-24 mx-auto">
                         <div class="lg:w-2/3 mx-auto flex flex-wrap">
-                            <img alt="ecommerce" src="Image/<%#("images") %>" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" >
-<%--                            <asp:Image ID="Image1" runat="server"  alt="ecommerce" class=" rounded-full w-96 h-96 lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" ImageUrl='<%#Eval("Image","~/Images/{0}") %>'  />--%>
+                            <%--                            <img alt="ecommerce" src="images/<%#("Image") %>" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" >--%>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("Image","~/images/{0}") %>' class=" rounded-full w-96 h-96 lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <div class="flex mb-4">
                                 </div>
@@ -163,7 +112,7 @@
             </asp:View>
             <asp:View ID="View3" runat="server">
                 <div class="p-10">
-                    <h1 class="mb-8 font-extrabold text-4xl">Add New Student</h1>
+                    <h1 class="mb-8 font-extrabold text-4xl">Update Student Data</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                         <div>
@@ -224,10 +173,8 @@
                             <label class="block font-semibold" for="password">Password :</label>
                             <asp:TextBox ID="text_pass" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                         </div>
-
                         <div class="flex items-center justify-between mt-8">
                             <asp:Button ID="Btn_Update" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Update" OnClick="Btn_Update_Click" />
-
                         </div>
                     </div>
                 </div>

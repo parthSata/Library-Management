@@ -48,7 +48,7 @@
                 <form runat="server" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                     <div class="pb-4 pt-4">
                         <label class="block font-semibold" for="password">Email :</label>
-                        <input runat="server" id="text_username" name="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black">
+                        <input runat="server" id="text_username" name="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black"/>
                     </div>
                     <div class="pb-2 pt-4">
                         <label class="block font-semibold" for="password">Password :</label>

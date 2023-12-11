@@ -46,7 +46,6 @@ namespace Library_Management
                 else
                 {
                     Response.Write("<script LANGUAGE='JavaScript' >alert('No Empty Value Allowed ')</script>");
-                    clear();
                 }
             }
 
@@ -72,7 +71,6 @@ namespace Library_Management
         public void clear()
         {
             text_nm.Text = "";
-
             text_birthdate.Text = "";
             text_mo.Text = "";
             text_address.Text = "";
