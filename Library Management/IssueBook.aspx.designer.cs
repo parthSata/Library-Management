@@ -267,6 +267,15 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
+        /// Select_Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Select_Status;
+
+        /// <summary>
         /// text_days control.
         /// </summary>
         /// <remarks>
@@ -276,12 +285,12 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.TextBox text_days;
 
         /// <summary>
-        /// Btn_Issue control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Issue;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

@@ -15,7 +15,11 @@ namespace Library_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["sid"] == null)
+            {
+                Session.Clear();
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void Add_NewBranch_Click(object sender, EventArgs e)

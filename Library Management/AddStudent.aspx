@@ -93,7 +93,7 @@
 
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Pincode :</label>
-                    <asp:TextBox ID="text_pin" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                    <asp:TextBox ID="text_pin" runat="server" autofocus="autofocus" type="number" MaxLength="6" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
                 </div>
 
                 <div class="mt-4">

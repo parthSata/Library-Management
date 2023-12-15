@@ -13,7 +13,11 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["sid"] == null)
+            {
+                Session.Clear();
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void Select_Click(object sender, EventArgs e)
@@ -33,7 +37,7 @@ namespace Library_Management
             {
                 //SELECT BOOK
 
-                string sql = "select * from AddBook where BookName='" + Select_Book.SelectedItem + "'";
+                string sql = "select * from AddBook where BookName='" + Select_Book.SelectedItem.Text + "'";
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -48,22 +52,22 @@ namespace Library_Management
 
                 //SELECT STUDENT
 
-                string Querry = "select * from AddRent where SID='" + Select_Student.SelectedValue + "'";
+                string Querry = "select * from Addstudent where StudentName='" + Select_Student.SelectedValue + "'";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(Querry, Class1.cn);
                 DataTable data = new DataTable();
                 dataAdapter.Fill(data);
-                text_days.Text = data.Rows[0]["Days"].ToString();
-                Book_IssueDate.Text = data.Rows[0]["IssueDate"].ToString();
+                text_days.Text = data.Rows[0]["StudentName"].ToString();
 
 
                 string qry = "select * from AddRent where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'";
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
-                Book_nm.Text = dt.Rows[0]["BookName"].ToString();
                 text_days.Text = dataTable.Rows[0]["Days"].ToString();
                 Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
-                ViewState["RRID"] = dataTable.Rows[0]["rid"].ToString();
+                ViewState["RRID"] = dataTable.Rows[0]["RID"].ToString();
+
+
                 int iday = Convert.ToDateTime(data.Rows[0]["IssueDate"].ToString()).Day;
                 int rday = System.DateTime.Now.Day;
 
@@ -93,8 +97,8 @@ namespace Library_Management
                 da.Fill(dt);
                 if (dt.Rows.Count == 0)
                 {
-                    string qry = "insert into AddPenalty values('" + Select_Student.Text + "','"+Book_nm.Text+"','"+Book_Price.Text+"')";
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, Class1.cn);
+                    string qry = "insert into AddPenalty values('" + Select_Student.Text + "','" + Book_nm.Text + "','" + Book_Price.Text + "')";
+                    SqlDataAdapter adapter = new SqlDataAdapter(qry, Class1.cn);
                     DataTable data = new DataTable();
                     adapter.Fill(data);
                 }
@@ -102,11 +106,11 @@ namespace Library_Management
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        
+
                         if (dt.Rows[i]["Panalty"].ToString() != "0")
                         {
-                            string qry = "insert into AddPenalty values('" + Select_Student.Text + "','" + Book_nm.Text + "','" + Book_Price.Text + "')";
-                            SqlDataAdapter adapter = new SqlDataAdapter(sql, Class1.cn);
+                            string querry = "insert into AddPenalty values('" + Select_Student.Text + "','" + Book_nm.Text + "','" + Book_Price.Text + "')";
+                            SqlDataAdapter adapter = new SqlDataAdapter(querry, Class1.cn);
                             DataTable data = new DataTable();
                             adapter.Fill(data);
                             Response.Write("Inserted Penalty");
@@ -119,14 +123,28 @@ namespace Library_Management
             }
             else
             {
-                string sql = "SELECT * FROM AddRent WHERE RRID = " + Convert.ToInt32(ViewState["RRID"].ToString()) + " AND BBID = " + Convert.ToInt32(ViewState["BBID"].ToString());
-                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                string query = "SELECT * FROM AddRent WHERE RRID = " + Convert.ToInt32(ViewState["RRID"].ToString()) + " AND BBID = " + Convert.ToInt32(ViewState["BBID"].ToString());
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
+                DataTable data = new DataTable();
+                dataAdapter.Fill(data);
                 lblbook.Text = "Book Return Successfully";
                 lblbook.ForeColor = System.Drawing.Color.Green;
 
             }
         }
+
+        protected void Select_Student_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql = "select * from AddRent where SID='" + Convert.ToInt32(Select_Student.SelectedValue) + "' and Status='" + 0+ "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Select_Book.DataSource = dt;
+            Select_Book.DataTextField = "BookName";
+            Select_Book.DataValueField = "RID";
+            Select_Book.DataBind();
+            Select_Book.Items.Insert(0, "SELECT");
+        }
+    }
     }
 }

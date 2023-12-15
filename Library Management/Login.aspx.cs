@@ -31,7 +31,7 @@ namespace Library_Management
                     da.Fill(dt);
                     if (dt.Rows.Count > 0)
                     {
-                        Session["aid"] = dt.Rows[0]["AID"].ToString();
+                        Session["sid"] = dt.Rows[0]["AID"].ToString();
                         Session["email"] = text_username.Value;
                         Session["name"] = dt.Rows[0]["Name"].ToString();
                         Response.Redirect("AddPublication.aspx");

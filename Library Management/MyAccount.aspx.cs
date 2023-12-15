@@ -41,7 +41,6 @@ namespace Library_Management
                 lbl_City.Text = dt.Rows[0]["City"].ToString();
                 lbl_Pin.Text = dt.Rows[0]["Pincode"].ToString();
                 lbl_Email.Text = dt.Rows[0]["Email"].ToString();
-                Image1.ImageUrl = dt.Rows[0]["Image"].ToString();
             }
         }
 
@@ -54,29 +53,9 @@ namespace Library_Management
 
         protected void Btn_Edit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Response.Write("Hello");
-                string id = Session["sid"].ToString();
-                string sql = "select * from Addstudent where SID='" + Session["sid"].ToString() + "'";
-                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                text_nm.Text = dt.Rows[0][1].ToString();
-                text_mo.Text = dt.Rows[0]["Mobile"].ToString();
-                text_address.Text = dt.Rows[0]["Address"].ToString();
-                text_city.Text = dt.Rows[0]["City"].ToString();
-                text_pin.Text = dt.Rows[0]["Pincode"].ToString();
-                text_email.Text = dt.Rows[0]["Email"].ToString();
-
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script LANGUAGE='JavaScript' >alert('No Data Found')</script>");
-
-            }
-            
+            MultiView1.Visible = true;
+            MultiView1.SetActiveView(View3);
+            SelectData();
         }
 
         protected void Btn_Update_Click(object sender, EventArgs e)
@@ -98,10 +77,6 @@ namespace Library_Management
         }
         public void SelectData()
         {
-            
-            
-            /*Response.Write("Hello");
-
             try
             {
                 string id = Session["sid"].ToString();
@@ -122,7 +97,7 @@ namespace Library_Management
             {
                 Response.Write("<script LANGUAGE='JavaScript' >alert('No Data Found')</script>");
 
-            }*/
+            }
         }
 
 

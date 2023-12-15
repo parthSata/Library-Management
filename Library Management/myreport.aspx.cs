@@ -66,7 +66,7 @@ namespace Library_Management
 
         protected void Btn_login_Click(object sender, EventArgs e)
         {
-            Response.Redirect("LogOut.aspx");
+            Response.Redirect("Login.aspx");
 
         }
     }

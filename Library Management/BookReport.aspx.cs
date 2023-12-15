@@ -13,6 +13,11 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["sid"] == null)
+            {
+                Session.Clear();
+                Response.Redirect("Login.aspx");
+            }
             lblmsg.Text = "";
             lblmsg0.Text = "";
         }

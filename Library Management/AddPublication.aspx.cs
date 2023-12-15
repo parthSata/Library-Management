@@ -14,7 +14,7 @@ namespace Library_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["AID"] == null)
+            if (Session["sid"] == null)
             {
                 Session.Clear();
                 Response.Redirect("Login.aspx");

@@ -15,17 +15,7 @@
     </script>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
-        function ShowPreview() {
-            let fileInput = document.getElementById("text_photo");
-            let filePath = fileInput.value; // Retrieve the file path
-            // Get the image element by ID
-            let imageElement = document.getElementById("text_photo");
-
-            // Set the source attribute of the image element
-            imageElement.src = window.URL.createObjectURL(fileInput.files[0]);
-        }
-    </script>
+   
 </head>
 <body>
     <form id="form1" runat="server">
@@ -67,7 +57,7 @@
                     <div class="container px-5 py-24 mx-auto">
                         <div class="lg:w-2/3 mx-auto flex flex-wrap">
                             <%--                            <img alt="ecommerce" src="images/<%#("Image") %>" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" >--%>
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("Image","~/images/{0}") %>' class=" rounded-full w-96 h-96 lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("Image") %>' class=" rounded-full w-96 h-96 lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />
                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                 <div class="flex mb-4">
                                 </div>

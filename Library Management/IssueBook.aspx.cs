@@ -11,6 +11,14 @@ namespace Library_Management
 {
     public partial class IssueBook : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["sid"] == null)
+            {
+                Session.Clear();
+                Response.Redirect("Login.aspx");
+            }
+        }
         public void clear()
         {
             text_days.Text = "";
@@ -20,13 +28,13 @@ namespace Library_Management
 
         protected void Select_Click1(object sender, EventArgs e)
         {
-            if (DropDownList2.SelectedIndex == 9)
+            if (DropDownList1.SelectedIndex == 9)
             {
                 Stud_Detail.Text = "Select Publication";
                 Stud_Detail.ForeColor = System.Drawing.Color.Red;
                 MultiView1.ActiveViewIndex = -1;
             }
-            else if (DropDownList1.SelectedIndex == 9)
+            else if (DropDownList2.SelectedIndex == 9)
             {
                 Stud_Detail.Text = "Select Book";
                 Stud_Detail.ForeColor = System.Drawing.Color.Red;
@@ -40,7 +48,6 @@ namespace Library_Management
                 MultiView1.Visible = true;
                 MultiView1.SetActiveView(View1);
                 da.Fill(dt);
-
                 Book_Id.Text = dt.Rows[0]["ID"].ToString();
                 Book_nm.Text = dt.Rows[0]["BookName"].ToString();
                 Book_Detail.Text = dt.Rows[0]["Detail"].ToString();
@@ -58,10 +65,8 @@ namespace Library_Management
             }
         }
 
-        protected void Btn_Issue_Click1(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            /*   try
-               {*/
             if (text_days.Text == "")
             {
                 Stud_Detail.Text = "Enter Days";
@@ -74,7 +79,7 @@ namespace Library_Management
                 }
                 else
                 {
-                    string sql = "select * from AddRent where BookName='" + Book_nm.Text + "' and SID='" + Select_student.SelectedValue + "'";
+                    string sql = "select * from AddRent where BookName='" + Book_nm.Text + "' and SID='" + Select_student.SelectedValue + "'and Status='"+Select_Status.SelectedValue+"'";
                     SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -85,7 +90,7 @@ namespace Library_Management
                     }
                     else
                     {
-                        string querry = "select * from AddRent where SID='" + Select_student.SelectedValue + "'";
+                        string querry = "select * from AddRent where SID='" + Select_student.SelectedValue + "' and Status='"+Select_Status.SelectedValue+"'";
                         SqlDataAdapter adapter = new SqlDataAdapter(querry, Class1.cn);
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
@@ -95,14 +100,17 @@ namespace Library_Management
                         }
                         else
                         {
-                            string qry = "insert into AddRent values('" + Book_nm.Text + "','" + Select_student.SelectedValue + "','" + text_days.Text + "',GETDATE())";
+                            string qry = "INSERT INTO AddRent (BookName, SID, Days, IssueDate, Status) VALUES ('" + Book_nm.Text + "','" + Convert.ToInt32(Select_student.SelectedValue) + "','" + text_days.Text + "','" + DateTime.Now.ToShortDateString() + "','"+Select_Status.SelectedValue+"')";
                             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
+                            Response.Write(qry);
                             DataTable data = new DataTable();
                             sqlDataAdapter.Fill(data);
+                            Response.Write("<script LANGUAGE='JavaScript' >alert('Inserted ')</script>");
+
                             Stud_Detail.Text = "Book Issued to " + Select_student.SelectedItem;
 
 
-                            string query = "select * from AddBook where ID='" + Select_student.SelectedValue + "'";
+                            string query = "select * from AddBook where ID='" + Convert.ToInt32(ViewState["BBID"]) + "'";
                             SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
                             Response.Write(query);
                             DataTable dataTable1 = new DataTable();
@@ -122,16 +130,23 @@ namespace Library_Management
 
 
 
-                            
+
                         }
                     }
                 }
             }
-            /* }
-             catch
-             {
-                 Stud_Detail.Text = "Sorry !!! Error !!!";
-             }*/
         }
-    }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql = "select * from AddBook where Publication='" + DropDownList1.SelectedItem.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            DropDownList2.DataSource = dt;
+            DropDownList2.DataTextField = "Bookname";
+            DropDownList2.DataValueField = "Bookid";
+            DropDownList2.DataBind();
+            DropDownList2.Items.Insert(0, "SELECT");
+        }
 }

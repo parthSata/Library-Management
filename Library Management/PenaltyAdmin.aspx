@@ -46,7 +46,7 @@
 
                 <div>
                     <label class="block font-semibold" for="name">Select User For Penalty :</label>
-                    <asp:DropDownList ID="Select_Student" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
+                    <asp:DropDownList ID="Select_Student" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="StudentName" DataValueField="StudentName" OnSelectedIndexChanged="Select_Student_SelectedIndexChanged"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
                 </div>
 

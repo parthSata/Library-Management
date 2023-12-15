@@ -94,6 +94,7 @@
     <Content Include="ReturnBook.aspx" />
     <Content Include="StudentReport.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddBook.aspx.cs">
@@ -159,9 +160,6 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Image.ashx.cs">
-      <DependentUpon>Image.ashx</DependentUpon>
     </Compile>
     <Compile Include="IssueBook.aspx.cs">
       <DependentUpon>IssueBook.aspx</DependentUpon>
@@ -241,6 +239,13 @@
     <Compile Include="StudentReport.aspx.designer.cs">
       <DependentUpon>StudentReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\FontAwesome.otf" />
@@ -249,7 +254,6 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Admin_Master.Master" />
-    <Content Include="Image.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

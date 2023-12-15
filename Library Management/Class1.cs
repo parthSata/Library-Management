@@ -10,6 +10,6 @@ namespace Library_Management
 {
     public class Class1
     {
-        public static SqlConnection cn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Parth Sata\\Library Management\\Library Management\\App_Data\\Library Management.mdf\";Integrated Security=True");
+        public static SqlConnection cn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Parth Sata\\Library Management\\Library Management\\App_Data\\Library Management.mdf;Integrated Security=True");
     }
 }

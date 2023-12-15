@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <body>
@@ -45,9 +45,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <div>
-                    <label class="block font-semibold" for="name">Select Branch</label>
-                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
+                    <label class="block font-semibold" for="name">Select Publication</label>
+                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="Publication" DataValueField="Publication" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [Publication] FROM [AddPublication]"></asp:SqlDataSource>
                 </div>
 
                 <div>
@@ -57,14 +57,14 @@
                 </div>
                 <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
                 <div class="flex items-center justify-between mt-8">
-                    <asp:Button ID="Select" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Select" OnClick="Select_Click1"   />
+                    <asp:Button ID="Select" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Select" OnClick="Select_Click1" />
                 </div>
             </div>
         </div>
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
             <div class="container">
                 <asp:View ID="View1" runat="server">
-                    <table class="tbl">
+                    <table class="flex justify-center border-1">
                         <tr>
                             <td class="text-gray-500 text-center text-4xl font-bold ">View Book Detail </td>
                         </tr>
@@ -81,7 +81,7 @@
                                         </td>
                                         <td class="style8" valign="top">
                                             <div class="flex justify-center">
-                                                <table >
+                                                <table>
 
                                                     <tr>
                                                         <td class="text-xl mb-2" colspan="2">Book Id :
@@ -94,14 +94,14 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Detail :</td>
+                                                        <td class="text-xl mb-2">Detail :</td>
                                                         <td>
                                                             <asp:Label ID="Book_Detail" class="text-xl" runat="server"></asp:Label>
                                                         </td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Author :
+                                                        <td class="text-xl mb-2">Author :
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="Book_Author" class="text-xl" runat="server"></asp:Label>
@@ -109,7 +109,7 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Publication :
+                                                        <td class="text-xl mb-2">Publication :
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="Book_Publication" class="text-xl" runat="server"></asp:Label>
@@ -117,7 +117,7 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Branch :
+                                                        <td class="text-xl mb-2">Branch :
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="Book_Branch" class="text-xl" runat="server"></asp:Label>
@@ -125,7 +125,7 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Price :
+                                                        <td class="text-xl mb-2">Price :
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="Book_Price" class="text-xl" runat="server"></asp:Label>
@@ -133,7 +133,7 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Quantity :
+                                                        <td class="text-xl mb-2">Quantity :
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="Book_Quantity" class="text-xl" runat="server"></asp:Label>
@@ -141,7 +141,7 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Available Quantity :
+                                                        <td class="text-xl mb-2">Available Quantity :
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="Book_Available" class="text-xl" runat="server"></asp:Label>
@@ -149,7 +149,7 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-xl mb-2" >Rent Quantity :
+                                                        <td class="text-xl mb-2">Rent Quantity :
                                                         </td>
                                                         <td>
                                                             <asp:Label ID="Book_Rent" class="text-xl" runat="server"></asp:Label>
@@ -173,19 +173,33 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="style15">Select Branch :
+                            <td class="style15">
+                                <label class="block font-semibold" for="name">Select Branch</label>
                                 <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
-                                &nbsp;Select Student :
+
+
+                                <label class="block font-semibold" for="email">Select_Student</label>
                                 <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
-                                &nbsp;Days :
-                            <asp:TextBox ID="text_days" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                                &nbsp;<asp:Button ID="Btn_Issue" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Book Issue" OnClick="Btn_Issue_Click1"  />
+
+                                <label class="block font-semibold" for="email">Select  Status :</label>
+                                <asp:DropDownList ID="Select_Status" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server">
+                                    <asp:ListItem>Yes</asp:ListItem>
+                                    <asp:ListItem>No</asp:ListItem>
+                                </asp:DropDownList>
+
+
+                                <label class="block font-semibold" for="password">Days :</label>
+                                <asp:TextBox ID="text_days" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                                <br />
+
+
+
+                                <asp:Button ID="Button1" class=" mt-7 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"  runat="server" Text="Button" />
                             </td>
                         </tr>
                     </table>
                 </asp:View>
-            </div>
         </asp:MultiView>
     </form>
 

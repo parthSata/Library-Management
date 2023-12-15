@@ -41,9 +41,7 @@
             </div>
         </header>
         <table class="tbl">
-            <tr>
-                <td class="tblhead">PENATY REPORT</td>
-            </tr>
+            
             <tr>
                 <td style="text-align: center"></td>
             </tr>
