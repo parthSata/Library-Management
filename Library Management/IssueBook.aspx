@@ -46,7 +46,7 @@
 
                 <div>
                     <label class="block font-semibold" for="name">Select Publication</label>
-                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="Publication" DataValueField="Publication" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="Publication" DataValueField="Publication" ></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [Publication] FROM [AddPublication]"></asp:SqlDataSource>
                 </div>
 
@@ -74,7 +74,7 @@
 
                                     <tr>
                                         <td class="text-xl mb-2" rowspan="2">
-                                            <asp:Image ID="Image2" ImageUrl='<%# "Book Images/" + Eval("Images") %>' class="mr-5" runat="server" Height="300px" Width="207px"
+                                            <asp:Image ID="Image2" ImageUrl='<%# Eval("Images","Book Images/{0}") %>' class="mr-5" runat="server" Height="300px" Width="207px"
                                                 BorderColor="#fff0" BorderStyle="Dotted" BorderWidth="1px" />
 
 
@@ -175,18 +175,21 @@
                         <tr>
                             <td class="style15">
                                 <label class="block font-semibold" for="name">Select Branch</label>
-                                <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="BranchName" DataValueField="BranchName"></asp:DropDownList>
+                                <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource4" DataTextField="BranchName" DataValueField="BranchName" ></asp:DropDownList>
+
+
+                                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
 
 
                                 <label class="block font-semibold" for="email">Select_Student</label>
                                 <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
 
-                                <label class="block font-semibold" for="email">Select  Status :</label>
+                              <%--  <label class="block font-semibold" for="email">Select  Status :</label>
                                 <asp:DropDownList ID="Select_Status" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server">
                                     <asp:ListItem>Yes</asp:ListItem>
                                     <asp:ListItem>No</asp:ListItem>
-                                </asp:DropDownList>
+                                </asp:DropDownList>--%>
 
 
                                 <label class="block font-semibold" for="password">Days :</label>
@@ -195,7 +198,7 @@
 
 
 
-                                <asp:Button ID="Button1" class=" mt-7 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"  runat="server" Text="Button" />
+                                <asp:Button ID="Button1" class=" mt-7 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"  runat="server" Text="Book Issue" />
                             </td>
                         </tr>
                     </table>
