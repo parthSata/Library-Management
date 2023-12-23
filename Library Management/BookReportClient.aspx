@@ -161,11 +161,7 @@
                                                 </td>
                                                 <td>&nbsp;</td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-xl mb-2" style="font-size: medium">&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
+                                            
                                             <tr>
                                                 <td class="text-xl mb-2" style="font-size: medium">Total Quantity :
                                                 </td>
@@ -186,11 +182,7 @@
                                         </table>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="style9" valign="top">&nbsp;Detail :
-                                            <asp:Label ID="Book_Detail" class="text-xl" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
+                               
                                 <tr>
                                     <td class="text-xl mb-2" valign="top">&nbsp;</td>
                                 </tr>

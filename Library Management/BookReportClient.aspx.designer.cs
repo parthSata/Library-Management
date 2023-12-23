@@ -222,15 +222,6 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.Label Book_Available;
 
         /// <summary>
-        /// Book_Detail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Book_Detail;
-
-        /// <summary>
         /// Btn_Back control.
         /// </summary>
         /// <remarks>

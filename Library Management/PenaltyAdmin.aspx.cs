@@ -13,11 +13,11 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["sid"] == null)
+           /* if (Session["sid"] == null)
             {
                 Session.Clear();
                 Response.Redirect("Login.aspx");
-            }
+            }*/
         }
 
         protected void Select_Click(object sender, EventArgs e)
@@ -59,7 +59,6 @@ namespace Library_Management
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(Querry, Class1.cn);
                 DataTable data = new DataTable();
                 dataAdapter.Fill(data);
-
 
                 int iday = Convert.ToDateTime(data.Rows[0]["IssueDate"].ToString()).Day;
                 int rday = System.DateTime.Now.Day;

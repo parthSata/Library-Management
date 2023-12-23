@@ -11,123 +11,164 @@ namespace Library_Management
 {
     public partial class IssueBook : System.Web.UI.Page
     {
-        //SqlConnection cn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Parth Sata\\Library Management\\Library Management\\App_Data\\Library Management.mdf;Integrated Security=True;Connect Timeout=30");
 
-        string cn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\Parth Sata\\Library Management\\Library Management\\App_Data\\Library Management.mdf;Integrated Security=True;Connect Timeout=30";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["sid"] == null)
+            /*if (Session["sid"] == null)
             {
                 Session.Clear();
                 Response.Redirect("Login.aspx");
-            }
-
-            if (!IsPostBack)
-            {
-                // Populate the Publication dropdown
-                DropDownList1.DataBind();
-
-                // Populate the Book dropdown based on the selected Publication
-                DropDownList2.DataBind();
-            }
+            }*/
         }
         public void clear()
         {
             text_days.Text = "";
             Response.Write("<script LANGUAGE='JavaScript' >alert('Your Book Issued')</script>");
-
         }
 
         protected void Select_Click1(object sender, EventArgs e)
         {
-            FetchBookDetails(DropDownList2.SelectedValue);
+            if (DropDownList1.SelectedIndex == 9)
+            {
+                ErrorMsg.Text = "Select Publication";
+                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                MultiView1.ActiveViewIndex = -1;
+            }
+            else if (DropDownList2.SelectedIndex == 9)
+            {
+                ErrorMsg.Text = "Select Book";
+                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                MultiView1.ActiveViewIndex = -1;
+            }
+            else
+            {
+                string sql = "select * from AddBook where BookName='" + DropDownList2.SelectedItem + "'";
+                SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+                DataTable dt = new DataTable();
+                MultiView1.Visible = true;
+                MultiView1.SetActiveView(View1);
+                da.Fill(dt);
+                Book_Id.Text = dt.Rows[0]["ID"].ToString();
+                Book_nm.Text = dt.Rows[0]["BookName"].ToString();
+                Book_Detail.Text = dt.Rows[0]["Detail"].ToString();
+                Book_Author.Text = dt.Rows[0]["Author"].ToString();
+                Book_Branch.Text = dt.Rows[0]["Branch"].ToString();
+                Book_Publication.Text = dt.Rows[0]["Publication"].ToString();
+                Book_Price.Text = dt.Rows[0]["Price"].ToString();
+                Book_Quantity.Text = dt.Rows[0]["Quantity"].ToString();
+                Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
+                Book_Rent.Text = dt.Rows[0]["Rent"].ToString();
+                Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
 
-            // Show the second view in the MultiView
-            MultiView1.SetActiveView(View1);
+                Select_student.Items.Clear();
+                Select_student.Items.Insert(0, "SELECT");
+            }
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
-
-            IssueBookToStudent();
-        }
-
-        private void FetchBookDetails(string bookName)
-        {
-            using (SqlConnection con = new SqlConnection(cn))
+            if (text_days.Text == "")
             {
-                string query = "SELECT * FROM AddBook WHERE BookName = @BookName";
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                Stud_Detail.Text = "Enter Days";
+            }
+            else
+            {
+                if (Convert.ToInt32(Book_Available.Text) == 0)
                 {
-                    cmd.Parameters.AddWithValue("@BookName", bookName);
-                    con.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    Stud_Detail.Text = "Book Stock Empty";
+                }
+                else
+                {
+                    string sql = "select * from AddRent where BookName='" + Book_nm.Text + "' and SID='" + Select_student.SelectedValue + "'and Status='" + 0 + "'";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count != 0)
                     {
-                        if (reader.Read())
+                        Stud_Detail.Text = "Student can't get copies of same book !!";
+                    }
+                    else
+                    {
+                        string querry = "select * from AddRent where SID='" + Select_student.SelectedValue + "'and Status='" + 0 + "'";
+                        SqlDataAdapter adapter = new SqlDataAdapter(querry, Class1.cn);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        if (dataTable.Rows.Count == 3)
                         {
-                            // Populate book details in the labels
-                            Book_Id.Text = reader["ID"].ToString();
-                            Book_nm.Text = reader["BookName"].ToString();
-                            // Populate other book details similarly
+                            Stud_Detail.Text = "A student has maximum 3 books";
+                        }
+                        else
+                        {
+                            
+                                string qry = "insert into AddRent values('" + Book_nm.Text + "','" + Convert.ToInt32(Select_student.SelectedValue) + "','" + Convert.ToInt32(text_days.Text) + "')";
+                                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
+                                Response.Write(qry);
+                                DataTable data = new DataTable();
+                                sqlDataAdapter.Fill(data);
+                                Stud_Detail.Text = "Book Issued to " + Select_student.SelectedItem;
+                           
+
+
+                            string query = "select [ID], [BookName], [Detail], [Author], [Branch], [Publication], [Price], [Quantity], [AvailableQuantity], [Rent], [Image] from AddBook ";
+                            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
+                            Response.Write(query);
+                            DataTable dataTable1 = new DataTable();
+                            dataAdapter.Fill(dataTable1);
+                            ViewState["BBID"] = dataTable1.Rows[0]["ID"].ToString();
+                            Book_nm.Text = dataTable1.Rows[0]["BookName"].ToString();
+                            Book_Detail.Text = dataTable1.Rows[0]["Detail"].ToString();
+                            Book_Author.Text = dataTable1.Rows[0]["Author"].ToString();
+                            Book_Branch.Text = dataTable1.Rows[0]["Branch"].ToString();
+                            Book_Publication.Text = dataTable1.Rows[0]["Publication"].ToString();
+                            Book_Price.Text = dataTable1.Rows[0]["Price"].ToString();
+                            Book_Quantity.Text = dataTable1.Rows[0]["Quantity"].ToString();
+                            Book_Available.Text = dataTable1.Rows[0]["AvailableQuantity"].ToString();
+                            Book_Rent.Text = dataTable1.Rows[0]["Rent"].ToString();
+                            Image2.ImageUrl = dataTable1.Rows[0]["Image"].ToString();
+
+                            text_days.Text = "";
+                            Select_student.Items.Clear();
+                            Select_student.Items.Insert(0, "SELECT");
+                            string qry1 = "select * from AddBook where Branch='" + text_branch.SelectedItem + "'";
+                            SqlDataAdapter adapter1 = new SqlDataAdapter(qry1, Class1.cn);
+                            DataTable table = new DataTable();
+                            adapter1.Fill(table);
+                            text_branch.DataSource = table;
+                            text_branch.DataTextField = "Branch";
+                            text_branch.DataValueField = "ID";
+                            text_branch.DataBind();
+                            text_branch.Items.Insert(0, "SELECT");
                         }
                     }
                 }
             }
         }
 
-        private void IssueBookToStudent()
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Get the selected book and student details
-            string bookName = DropDownList2.SelectedValue;
-            string studentName = Select_student.SelectedValue;
-            string branchName = text_branch.SelectedValue;
-            int days = Convert.ToInt32(text_days.Text);
+            string sql = "select * from AddBook where Publication='" + DropDownList1.SelectedItem.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
-            // You may want to perform additional validation here
-
-            using (SqlConnection con = new SqlConnection(cn))
-            {
-                // Start a SQL transaction to ensure atomicity
-                con.Open();
-                SqlTransaction transaction = con.BeginTransaction();
-
-                try
-                {
-                    // Update the Book table to reduce the available quantity
-                    string updateBookQuery = "UPDATE AddBook SET AvailableQuantity = AvailableQuantity - 1 WHERE BookName = @BookName";
-                    using (SqlCommand cmdUpdateBook = new SqlCommand(updateBookQuery, con, transaction))
-                    {
-                        cmdUpdateBook.Parameters.AddWithValue("@BookName", bookName);
-                        cmdUpdateBook.ExecuteNonQuery();
-                    }
-
-                    // Insert a record into the IssuedBooks table
-                    string insertIssuedBookQuery = "INSERT INTO AddRent (BookName, StudentName, BranchName, IssueDate, DueDate) VALUES (@BookName, @StudentName, @BranchName, GETDATE(), DATEADD(day, @Days, GETDATE()))";
-                    using (SqlCommand cmdInsertIssuedBook = new SqlCommand(insertIssuedBookQuery, con, transaction))
-                    {
-                        cmdInsertIssuedBook.Parameters.AddWithValue("@BookName", bookName);
-                        cmdInsertIssuedBook.Parameters.AddWithValue("@StudentName", studentName);
-                        cmdInsertIssuedBook.Parameters.AddWithValue("@BranchName", branchName);
-                        cmdInsertIssuedBook.Parameters.AddWithValue("@Days", days);
-                        cmdInsertIssuedBook.ExecuteNonQuery();
-                    }
-
-                    // Commit the transaction if all operations succeed
-                    transaction.Commit();
-
-                    // Optionally, you can display a success message or redirect the user to a confirmation page
-                    Response.Write("Book issued successfully!");
-                }
-                catch (Exception ex)
-                {
-                    // An error occurred, rollback the transaction
-                    transaction.Rollback();
-
-                    // Log the exception or handle it as needed
-                    Response.Write($"Error issuing book: {ex.Message}");
-                }
-            }
+            DropDownList2.DataSource = dt;
+            DropDownList2.DataTextField = "BookName";
+            DropDownList2.DataValueField = "ID";
+            DropDownList2.DataBind();
+            DropDownList2.Items.Insert(0, "SELECT");
         }
 
+        protected void text_branch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql = "select * from AddStudent where Branch='" + text_branch.SelectedItem.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            Select_student.DataSource = dt;
+            Select_student.DataTextField = "StudentName";
+            Select_student.DataValueField = "SID";
+            Select_student.Items.Insert(0, "SELECT");
+        }
     }
 }

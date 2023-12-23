@@ -22,8 +22,7 @@ namespace Library_Management
 
         protected void Btn_Borrow_Click(object sender, EventArgs e)
         {
-            string id = Session["sid"].ToString();
-            string sql = "select * from AddRent where Status='"+id+"'";
+            string sql = "select * from AddRent where Status='"+ Convert.ToInt32(Session["sid"].ToString()) + "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -36,8 +35,7 @@ namespace Library_Management
 
         protected void Btn_Return_Click(object sender, EventArgs e)
         {
-            string id = Session["sid"].ToString();
-            string sql = "select * from AddRent where Status='"+id+"'";
+            string sql = "select * from AddRent where Status='"+ Convert.ToInt32(Session["sid"].ToString()) + "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);

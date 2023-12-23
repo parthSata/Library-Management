@@ -13,11 +13,20 @@ namespace Library_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["sid"] == null)
+            /*if (Session["sid"] == null)
             {
                 Session.Clear();
                 Response.Redirect("Login.aspx");
-            }
+            }*/
+            string sql = "select * from AddRent where SID='" + Convert.ToInt32(Select_Student.SelectedValue) + "' and Status='" + 0 + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Select_Book.DataSource = dt;
+            Select_Book.DataTextField = "BookName";
+            Select_Book.DataValueField = "RID";
+            Select_Book.DataBind();
+            Select_Book.Items.Insert(0, "SELECT");
         }
 
         protected void Select_Click(object sender, EventArgs e)
@@ -59,7 +68,7 @@ namespace Library_Management
                 text_days.Text = data.Rows[0]["StudentName"].ToString();
 
 
-                string qry = "select * from AddRent where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'";
+                string qry = "select * from AddRent where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'and Status='"+0+"'";
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
@@ -133,18 +142,8 @@ namespace Library_Management
             }
         }
 
-        protected void Select_Student_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sql = "select * from AddRent where SID='" + Convert.ToInt32(Select_Student.SelectedValue) + "' and Status='" + 0+ "'";
-            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            Select_Book.DataSource = dt;
-            Select_Book.DataTextField = "BookName";
-            Select_Book.DataValueField = "RID";
-            Select_Book.DataBind();
-            Select_Book.Items.Insert(0, "SELECT");
-        }
-    }
+
+
+
     }
 }

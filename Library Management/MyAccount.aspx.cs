@@ -33,7 +33,9 @@ namespace Library_Management
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-
+                string imageUrl = dt.Rows[0]["Image"].ToString();
+                Console.WriteLine("Image URL: " + imageUrl);
+                Image1.ImageUrl = ResolveUrl(imageUrl);
                 Label1.Text = dt.Rows[0][1].ToString();
                 lbl_nm.Text = dt.Rows[0]["StudentName"].ToString();
                 lbl_mo.Text = dt.Rows[0]["Mobile"].ToString();
@@ -41,6 +43,10 @@ namespace Library_Management
                 lbl_City.Text = dt.Rows[0]["City"].ToString();
                 lbl_Pin.Text = dt.Rows[0]["Pincode"].ToString();
                 lbl_Email.Text = dt.Rows[0]["Email"].ToString();
+                Image1.ImageUrl = dt.Rows[0]["Image"].ToString();
+                Image1.ImageUrl = ResolveUrl(dt.Rows[0]["Image"].ToString());
+
+
             }
         }
 
@@ -79,18 +85,23 @@ namespace Library_Management
         {
             try
             {
-                string id = Session["sid"].ToString();
-                string sql = "select * from Addstudent where SID='" + Session["sid"].ToString() + "'";
+                string sql = "SELECT * FROM Addstudent WHERE SID='" + Session["sid"].ToString() + "'";
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 text_nm.Text = dt.Rows[0]["StudentName"].ToString();
+                text_branch.Text = dt.Rows[0]["Branch"].ToString();
+                text_gender.Text = dt.Rows[0]["Gender"].ToString();
+                text_birthdate.Text = dt.Rows[0]["Birthdate"].ToString();
                 text_mo.Text = dt.Rows[0]["Mobile"].ToString();
                 text_address.Text = dt.Rows[0]["Address"].ToString();
                 text_city.Text = dt.Rows[0]["City"].ToString();
                 text_pin.Text = dt.Rows[0]["Pincode"].ToString();
                 text_email.Text = dt.Rows[0]["Email"].ToString();
+
+                // Set the ImageUrl property with the correct path
+
 
             }
             catch (Exception ex)
@@ -99,7 +110,12 @@ namespace Library_Management
 
             }
         }
-
+        protected string GetImagePath(object image)
+        {
+            // Assuming "images" is a folder in your web application
+            string imagePath = "~/images/" + image.ToString();
+            return ResolveUrl(imagePath);
+        }
 
     }
 }
