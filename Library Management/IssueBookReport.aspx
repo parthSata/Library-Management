@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <body>
@@ -50,12 +50,13 @@
                 </div>
 
                 <div class="mt-4">
-                    <label class="block font-semibold" for="email">Select Student</label>
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"  DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
-                    <asp:Button ID="Select" class=" mt-3 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" runat="server" Text="Select" OnClick="Select_Click"  />
+                    <label class="block font-semibold" for="email">Select Publication</label>
+                    <asp:DropDownList ID="DropDownList1" runat="server" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource2" DataTextField="Publication" DataValueField="Publication"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [Publication] FROM [AddBook]"></asp:SqlDataSource>
+                    <asp:Button ID="Select" class=" mt-3 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" runat="server" Text="Select" OnClick="Select_Click" />
 
                 </div>
+                <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
 
             </div>
         </div>
@@ -64,12 +65,19 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
                     BackColor="#EAEAEA" BorderColor="#D9D9D9" BorderWidth="1px"
                     CellPadding="2" ForeColor="Black" GridLines="None" Style="text-align: center"
-                    Width="750px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                    Width="750px" OnRowCommand="GridView1_RowCommand">
                     <AlternatingRowStyle BackColor="lightgrey" />
                     <Columns>
-                        <asp:BoundField DataField="bookname" HeaderText="Book Name" />
-                        <asp:BoundField DataField="issuedate" HeaderText="Issue Date" />
-                        <asp:BoundField DataField="days" HeaderText="Days" />
+                        <asp:BoundField DataField="BookName" HeaderText="BookName" />
+                        <asp:BoundField DataField="Price" HeaderText="Price" />
+                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                        <asp:BoundField DataField="AvailableQuantity" HeaderText="AvailableQuantity" />
+                        <asp:BoundField DataField="Rent" HeaderText="Rent" />
+                        <asp:TemplateField HeaderText="View">
+                            <ItemTemplate>
+                                <asp:LinkButton runat="server" ID="lnkview" Text="View" CommandArgument='<%#Eval("ID") %>' CssClass="lnk"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <FooterStyle BackColor="Tan" />
                     <HeaderStyle BackColor="lightgrey" Font-Bold="True" />
@@ -83,6 +91,116 @@
                 </asp:GridView>
             </td>
         </tr>
+
+        <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
+            <asp:View ID="View1" runat="server">
+                <table class="flex justify-center border-1">
+                    <tr>
+                        <td class="text-gray-500 text-center text-4xl font-bold ">View Book Detail </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="style4">
+
+                                <tr>
+                                    <td class="text-xl mb-2" rowspan="2">
+                                        <asp:Image ID="Image2" ImageUrl='<%# Eval("Images","Book Images/{0}") %>' class="mr-5" runat="server" Height="300px" Width="207px"
+                                            BorderColor="#fff0" BorderStyle="Dotted" BorderWidth="1px" />
+
+
+                                    </td>
+                                    <td class="style8" valign="top">
+                                        <div class="flex justify-center">
+                                            <table>
+
+                                                <tr>
+                                                    <td class="text-xl mb-2" colspan="2">Book Id :
+                                 <asp:Label ID="Book_Id" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2" colspan="2">Book Name :
+                                 <asp:Label ID="Book_nm" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Detail :</td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Detail" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Author :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Author" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Publication :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Publication" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Branch :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Branch" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Price :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Price" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Quantity :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Quantity" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Available Quantity :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Available" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-xl mb-2">Rent Quantity :
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="Book_Rent" class="text-xl" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Button ID="Btn_Back" runat="server" class="mb-5 py-2.5 px-5 me-2 mb-2 mt-2 text-xl font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" Text="Back" OnClick="Btn_Back_Click"  />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+            </asp:View>
+        </asp:MultiView>
+
     </form>
 </body>
 </html>

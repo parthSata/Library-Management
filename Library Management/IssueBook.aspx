@@ -46,7 +46,7 @@
 
                 <div>
                     <label class="block font-semibold" for="name">Select Publication</label>
-                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="Publication" DataValueField="Publication" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" ></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownList1" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="Publication" DataValueField="Publication" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [Publication] FROM [AddPublication]"></asp:SqlDataSource>
                 </div>
 
@@ -168,35 +168,44 @@
                             <td style="border-top: 2px solid white; border-bottom: thin solid #FFF; font-weight: 700;"
                                 class="style13">Select Student Detail for Issue Book&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Label ID="Stud_Detail" runat="server" ForeColor="Red"></asp:Label>
-                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="text_days" ErrorMessage="Days in Digit" ForeColor="Red" MaximumValue="999999999" MinimumValue="0" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
-                                &nbsp;<asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="text_days" ErrorMessage="1 to 10 allowed" ForeColor="Red" MaximumValue="10" MinimumValue="1" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
+                               <%-- <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="text_days" ErrorMessage="Days in Digit" ForeColor="Red" MaximumValue="999999999" MinimumValue="0" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
+                                &nbsp;<asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="text_days" ErrorMessage="1 to 10 allowed" ForeColor="Red" MaximumValue="10" MinimumValue="1" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>--%>
                             </td>
                         </tr>
                         <tr>
                             <td class="style15">
                                 <label class="block font-semibold" for="name">Select Branch</label>
-                                <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource4" DataTextField="BranchName" DataValueField="BranchName" OnSelectedIndexChanged="text_branch_SelectedIndexChanged" ></asp:DropDownList>
+                                <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource4" DataTextField="BranchName" DataValueField="BranchName" OnSelectedIndexChanged="text_branch_SelectedIndexChanged"></asp:DropDownList>
 
 
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
 
 
                                 <label class="block font-semibold" for="email">Select_Student</label>
-                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
+                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" ></asp:DropDownList>
+                                <%--<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>--%>
 
-                                <%--<label class="block font-semibold" for="email">Select  Status :</label>
+
+                                <div>
+                                    <label class="block font-semibold" for="name">Issue Date</label>
+                                    <asp:TextBox ID="Book_IssueDate" runat="server" type="date" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                                </div>
+                                <div>
+                                    <label class="block font-semibold" for="name">Return Date</label>
+                                    <asp:TextBox ID="Book_ReturnDate" runat="server" type="date" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
+                                </div>
+
+
+
+
+                                <label class="block font-semibold" for="email">Select  Status :</label>
                                 <asp:DropDownList ID="Select_Status" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server">
                                     <asp:ListItem>Yes</asp:ListItem>
                                     <asp:ListItem>No</asp:ListItem>
-                                </asp:DropDownList>--%>
+                                </asp:DropDownList>
 
 
-                                <label class="block font-semibold" for="password">Days :</label>
-                                <asp:TextBox ID="text_days" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                                <br />
-
-                                <asp:Button ID="Button1" runat="server" class=" mt-7 fex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"   Text="Book Issue" OnClick="Button1_Click"  />
+                                <asp:Button ID="Button1" runat="server" class=" mt-7 fex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Book Issue" OnClick="Button1_Click" />
 
                             </td>
                         </tr>
@@ -207,3 +216,4 @@
 
 </body>
 </html>
+W
