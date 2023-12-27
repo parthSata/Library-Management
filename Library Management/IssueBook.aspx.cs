@@ -14,7 +14,7 @@ namespace Library_Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             /*if (Session["sid"] == null)
             {
                 Session.Clear();
@@ -96,20 +96,27 @@ namespace Library_Management
                     }
                     else
                     {
-
-                        int studentId;
-                        if (int.TryParse(Select_student.SelectedValue, out studentId))
+                        try
                         {
+                            int studentId;
+                            if (int.TryParse(Select_student.SelectedValue, out studentId))
+                            {
 
-                            string qry = "insert into AddRent values('" + Book_nm.Text + "','" + Convert.ToInt32(Select_student.SelectedValue) + "','" + Book_IssueDate.Text + "','" + Book_ReturnDate.Text + "','" + Select_Status.SelectedValue + "')";
-                            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
-                            Response.Write(qry);
-                            DataTable data = new DataTable();
-                            sqlDataAdapter.Fill(data);
-                            Response.Write("Book Inserted");
-                            Stud_Detail.Text = "Book Issued to " + Select_student.SelectedItem;
+                                string qry = "insert into AddRent values('" + Book_nm.Text + "','" + Convert.ToInt32(Select_student.SelectedValue) + "','" + Book_IssueDate.Text + "','" + Book_ReturnDate.Text + "','" + Select_Status.SelectedValue + "')";
+                                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
+                                Response.Write(qry);
+                                DataTable data = new DataTable();
+                                sqlDataAdapter.Fill(data);
+                                Response.Write("Book Inserted");
+                                Stud_Detail.Text = "Book Issued to " + Select_student.SelectedItem;
+                            }
                         }
-                       
+                        catch (Exception ex)
+                        {
+                            // Log the exception or display an error message
+                            Response.Write("An error occurred: " + ex.Message);
+                        }
+
 
                         string query = "select [ID], [BookName], [Detail], [Author], [Branch], [Publication], [Price], [Quantity], [AvailableQuantity], [Rent], [Image] from AddBook ";
                         SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
@@ -127,6 +134,18 @@ namespace Library_Management
                         Book_Rent.Text = dataTable1.Rows[0]["Rent"].ToString();
                         Image2.ImageUrl = dataTable1.Rows[0]["Image"].ToString();
 
+                        /*                        Select_student.Items.Clear();
+                                                Select_student.Items.Insert(0, "SELECT");
+                                                string qry1 = "select * from AddBranch where BranchName='" + text_branch.SelectedValue+ "'";
+                                                SqlDataAdapter sqlData = new SqlDataAdapter(qry1, Class1.cn);
+                                                DataTable table = new DataTable();
+                                                sqlData.Fill(dt);
+                                                text_branch.DataSource = table;
+                                                text_branch.DataTextField = "BranchName";
+                                                text_branch.DataValueField = "Branchid";
+                                                text_branch.DataBind();
+                                                text_branch.Items.Insert(0, "SELECT");*/
+
                     }
                 }
             }
@@ -140,7 +159,7 @@ namespace Library_Management
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            
+
         }
 
         protected void text_branch_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,10 +169,10 @@ namespace Library_Management
             DataTable dt = new DataTable();
             da.Fill(dt);
             Select_student.DataSource = dt;
-            Select_student.DataTextField = "StudentName"; // Change this to the appropriate field in your AddStudent table
-            Select_student.DataValueField = "SID"; // Change this to the appropriate field in your AddStudent table
+            Select_student.DataTextField = "StudentName";
+            Select_student.DataValueField = "SID";
             Select_student.DataBind();
-            
+
         }
     }
 }

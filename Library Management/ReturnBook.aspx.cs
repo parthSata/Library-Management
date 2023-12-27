@@ -159,8 +159,8 @@ namespace Library_Management
                     string query = "SELECT * FROM AddRent WHERE RRID = @RRID AND BBID = @BBID";
                     using (SqlCommand cmd = new SqlCommand(query, Class1.cn))
                     {
-                        cmd.Parameters.AddWithValue("@RRID", Convert.ToInt32(ViewState["RRID"].ToString()));
-                        cmd.Parameters.AddWithValue("@BBID", Convert.ToInt32(ViewState["BBID"].ToString()));
+                        cmd.Parameters.AddWithValue("@RRID", ViewState["RRID"].ToString());
+                        cmd.Parameters.AddWithValue("@BBID", ViewState["BBID"].ToString());
 
                         SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
                         DataTable data = new DataTable();
@@ -186,15 +186,39 @@ namespace Library_Management
 
         protected void Select_Student_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string qry = "select * from AddRent where SID='" + Convert.ToInt32(Select_Student.SelectedValue) + "' and Status='" + 0 + "'";
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            Select_Book.DataSource = dataTable;
-            Select_Book.DataTextField = "BookName";
-            Select_Book.DataValueField = "RID";
-            Select_Book.DataBind();
-            Select_Book.Items.Insert(0, "SELECT");
+            if (string.IsNullOrEmpty(Select_Student.SelectedValue))
+            {
+                // Handle empty case (e.g., clear book selection)
+                return;
+            }
+
+            // Use parameterized query for safety and correct data handling
+            string qry = "select * from AddRent where SID=@SID and Status=@Status";
+            using (SqlConnection connection = Class1.cn)
+            using (SqlCommand command = new SqlCommand(qry, connection))
+            {
+                command.Parameters.AddWithValue("@SID", Select_Student.SelectedValue);
+                command.Parameters.AddWithValue("@Status", 0);
+
+                try
+                {
+                    connection.Open();
+                    DataTable dataTable = new DataTable();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
+                    sqlDataAdapter.Fill(dataTable);
+
+                    Select_Book.DataSource = dataTable;
+                    Select_Book.DataTextField = "BookName";
+                    Select_Book.DataValueField = "RID";
+                    Select_Book.DataBind();
+                    Select_Book.Items.Insert(0, "SELECT");
+                }
+                catch (Exception ex)
+                {
+                    // Handle any remaining errors gracefully
+                    // Log or display the error message
+                }
+            }
         }
     }
 }
