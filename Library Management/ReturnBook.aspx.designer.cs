@@ -114,15 +114,6 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.View View1;
 
         /// <summary>
-        /// Book_nm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Book_nm;
-
-        /// <summary>
         /// Image2 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +121,15 @@ namespace Library_Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image2;
+
+        /// <summary>
+        /// Book_nm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Book_nm;
 
         /// <summary>
         /// Book_Author control.

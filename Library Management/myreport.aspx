@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-   
+
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
@@ -22,6 +22,9 @@
                         <style>
                             svg {
                                 fill: #1b0808
+                            }
+                            .style1 {
+                                width: 574px;
                             }
                         </style><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" /></svg>
                     <span class="ml-3 text-xl">Library Management System 
@@ -43,11 +46,11 @@
 
             </div>
         </header>
-        <div class="flex justify-evenly  align-center  ">
+        <%--<div class="flex justify-evenly  align-center  ">
             <asp:Button ID="Btn_Borrow" class="inline-flex pl-3 items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base  mt-4 md:mt-0" runat="server" Text="Borrow Book" OnClick="Btn_Borrow_Click" />
             <asp:Button ID="Btn_Return" class="inline-flex pl-3 items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base  mt-4 md:mt-0" runat="server" Text="Return Book" OnClick="Btn_Return_Click" />
             <%--<asp:Button ID="Btn_change" runat="server" Text="Change Password" />--%>
-        </div>
+        <%---</div>--%>
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
             <asp:View ID="View1" runat="server">
                 <table align="center" class="style1">
@@ -58,18 +61,26 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
+                                BackColor="#CCCCCC" BorderColor="#999999" BorderWidth="3px"
+                                CellPadding="4" ForeColor="Black" Style="text-align: center"
+                                Width="630px" BorderStyle="Solid" CellSpacing="2">
+                                <Columns>
+                                    <asp:BoundField DataField="BookName" HeaderText="Book Name" />
+                                    <asp:BoundField DataField="IssueDate" HeaderText="Issue Date" />
+                                    <asp:BoundField DataField="ReturnDate" HeaderText="Return Date">
+                                    </asp:BoundField>
+                                </Columns>
+                                <FooterStyle BackColor="#CCCCCC" />
+                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black"
+                                    HorizontalAlign="Left" />
+                                <RowStyle BackColor="White" />
+                                <SelectedRowStyle BackColor="#000099" ForeColor="White" Font-Bold="True" />
+                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                <SortedDescendingHeaderStyle BackColor="#383838" />
                             </asp:GridView>
                         </td>
                     </tr>
@@ -87,18 +98,26 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"
+                                BackColor="#CCCCCC" BorderColor="#999999" BorderWidth="3px"
+                                CellPadding="4" ForeColor="Black" Style="text-align: center"
+                                Width="650px" BorderStyle="Solid" CellSpacing="2">
+                                <Columns>
+                                    <asp:BoundField DataField="BookName" HeaderText="Book Name" />
+                                    <asp:BoundField DataField="IssueDate" HeaderText="Issue Date" />
+                                    
+                                    <asp:BoundField DataField="returndate" HeaderText="Return Date" />
+                                </Columns>
+                                <FooterStyle BackColor="#CCCCCC" />
+                                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#CCCCCC" ForeColor="Black"
+                                    HorizontalAlign="Left" />
+                                <RowStyle BackColor="White" />
+                                <SelectedRowStyle BackColor="#000099" ForeColor="White" Font-Bold="True" />
+                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                <SortedDescendingHeaderStyle BackColor="#383838" />
                             </asp:GridView>
                         </td>
                     </tr>

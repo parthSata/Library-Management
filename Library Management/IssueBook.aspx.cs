@@ -66,12 +66,6 @@ namespace Library_Management
             }
         }
 
-        protected void countIssuedDate()
-        {
-
-        }
-
-
         protected void Button1_Click(object sender, EventArgs e)
         {
 
@@ -115,24 +109,10 @@ namespace Library_Management
                             Response.Write("Book Inserted");
                             Stud_Detail.Text = "Book Issued to " + Select_student.SelectedItem;
                         }
-                        else
-                        {
-                            // Handle invalid input
-                        }
-
-                        /*string qry = "insert into AddRent values('" + Book_nm.Text + "','" + Convert.ToInt32(Select_student.SelectedValue) + "','" + Book_IssueDate.Text + "','" + Book_ReturnDate.Text + "','" + Select_Status.SelectedValue + "')";
-                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
-                        Response.Write(qry);
-                        DataTable data = new DataTable();
-                        sqlDataAdapter.Fill(data);
-                        Response.Write("Book Inserted");
-                        Stud_Detail.Text = "Book Issued to " + Select_student.SelectedItem;*/
-
-
+                       
 
                         string query = "select [ID], [BookName], [Detail], [Author], [Branch], [Publication], [Price], [Quantity], [AvailableQuantity], [Rent], [Image] from AddBook ";
                         SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
-                        Response.Write(query);
                         DataTable dataTable1 = new DataTable();
                         dataAdapter.Fill(dataTable1);
                         ViewState["BBID"] = dataTable1.Rows[0]["ID"].ToString();
@@ -147,18 +127,6 @@ namespace Library_Management
                         Book_Rent.Text = dataTable1.Rows[0]["Rent"].ToString();
                         Image2.ImageUrl = dataTable1.Rows[0]["Image"].ToString();
 
-                        /*  //text_days.Text = "";
-                          Select_student.Items.Clear();
-                          Select_student.Items.Insert(0, "SELECT");
-                          string qry1 = "select * from AddBook where Branch='" + text_branch.SelectedItem + "'";
-                          SqlDataAdapter adapter1 = new SqlDataAdapter(qry1, Class1.cn);
-                          DataTable table = new DataTable();
-                          adapter1.Fill(table);
-                          text_branch.DataSource = table;
-                          text_branch.DataTextField = "Branch";
-                          text_branch.DataValueField = "ID";
-                          text_branch.DataBind();
-                          text_branch.Items.Insert(0, "SELECT");*/
                     }
                 }
             }
@@ -172,11 +140,7 @@ namespace Library_Management
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            DropDownList2.DataSource = dt;
-            DropDownList2.DataTextField = "BookName";
-            DropDownList2.DataValueField = "ID";
-            DropDownList2.DataBind();
-            DropDownList2.Items.Insert(0, "SELECT");
+            
         }
 
         protected void text_branch_SelectedIndexChanged(object sender, EventArgs e)

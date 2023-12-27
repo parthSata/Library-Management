@@ -82,7 +82,6 @@
                                         <td class="style8" valign="top">
                                             <div class="flex justify-center">
                                                 <table>
-
                                                     <tr>
                                                         <td class="text-xl mb-2" colspan="2">Book Id :
                                                 <asp:Label ID="Book_Id" class="text-xl" runat="server"></asp:Label>
@@ -168,7 +167,7 @@
                             <td style="border-top: 2px solid white; border-bottom: thin solid #FFF; font-weight: 700;"
                                 class="style13">Select Student Detail for Issue Book&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Label ID="Stud_Detail" runat="server" ForeColor="Red"></asp:Label>
-                               <%-- <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="text_days" ErrorMessage="Days in Digit" ForeColor="Red" MaximumValue="999999999" MinimumValue="0" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
+                                <%-- <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="text_days" ErrorMessage="Days in Digit" ForeColor="Red" MaximumValue="999999999" MinimumValue="0" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
                                 &nbsp;<asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="text_days" ErrorMessage="1 to 10 allowed" ForeColor="Red" MaximumValue="10" MinimumValue="1" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>--%>
                             </td>
                         </tr>
@@ -182,7 +181,7 @@
 
 
                                 <label class="block font-semibold" for="email">Select_Student</label>
-                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" ></asp:DropDownList>
+                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:DropDownList>
                                 <%--<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>--%>
 
 
@@ -211,9 +210,11 @@
                         </tr>
                     </table>
                 </asp:View>
+            </div>
+
         </asp:MultiView>
+
     </form>
 
 </body>
 </html>
-W

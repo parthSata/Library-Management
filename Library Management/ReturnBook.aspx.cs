@@ -18,15 +18,7 @@ namespace Library_Management
                 Session.Clear();
                 Response.Redirect("Login.aspx");
             }*/
-            string sql = "select * from AddRent where SID='" + Convert.ToInt32(Select_Student.SelectedValue) + "' and Status='" + 0 + "'";
-            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            Select_Book.DataSource = dt;
-            Select_Book.DataTextField = "BookName";
-            Select_Book.DataValueField = "RID";
-            Select_Book.DataBind();
-            Select_Book.Items.Insert(0, "SELECT");
+
         }
 
         protected void Select_Click(object sender, EventArgs e)
@@ -61,34 +53,64 @@ namespace Library_Management
 
                 //SELECT STUDENT
 
-                string Querry = "select * from Addstudent where StudentName='" + Select_Student.SelectedValue + "'";
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(Querry, Class1.cn);
-                DataTable data = new DataTable();
-                dataAdapter.Fill(data);
-                text_days.Text = data.Rows[0]["StudentName"].ToString();
-
-
-                string qry = "select * from AddRent where SID='" + Select_Student.SelectedValue + "' and BookName='" + Book_nm.Text + "'and Status='"+0+"'";
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-                text_days.Text = dataTable.Rows[0]["Days"].ToString();
-                Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
-                ViewState["RRID"] = dataTable.Rows[0]["RID"].ToString();
-
-
-                int iday = Convert.ToDateTime(data.Rows[0]["IssueDate"].ToString()).Day;
-                int rday = System.DateTime.Now.Day;
-
-                int pday = rday - iday;
-                if (pday > Convert.ToInt32(text_days.Text))
+                int selectedSID;
+                if (int.TryParse(Select_Student.SelectedValue, out selectedSID))
                 {
-                    Stud_Penalty.Text = "Yes";
+                    string Querry = "select * from Addstudent where SID='" + selectedSID + "'";
+                    using (SqlCommand cmd = new SqlCommand(Querry, Class1.cn))
+                    {
+                        cmd.Parameters.AddWithValue("@SID", selectedSID);
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                        DataTable data = new DataTable();
+                        dataAdapter.Fill(data);
+                        Stud_nm.Text = data.Rows[0]["StudentName"].ToString();
+                    }
                 }
-                else
 
+                int SelectedSID;
+                if (int.TryParse(Select_Student.SelectedValue, out SelectedSID))
                 {
-                    Stud_Penalty.Text = "NO";
+                    string qry = "SELECT * FROM AddRent WHERE SID = @SID AND BookName = @BookName AND Status = @Status";
+
+                    using (SqlCommand cmd = new SqlCommand(qry, Class1.cn))
+                    {
+                        cmd.Parameters.AddWithValue("@SID", SelectedSID);
+                        cmd.Parameters.AddWithValue("@BookName", Select_Book.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("@Status", 0);
+
+                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        sqlDataAdapter.Fill(dataTable);
+
+                        text_days.Text = dataTable.Rows[0]["Days"].ToString();
+                        Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
+                        ViewState["RRID"] = dataTable.Rows[0]["RID"].ToString();
+
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            text_days.Text = dataTable.Rows[0]["Days"].ToString();
+                            Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
+
+                            DateTime issueDate;
+                            if (DateTime.TryParse(dataTable.Rows[0]["IssueDate"].ToString(), out issueDate))
+                            {
+                                int iday = issueDate.Day;
+                                int rday = DateTime.Now.Day;
+
+                                int pday = rday - iday;
+                                if (pday > Convert.ToInt32(text_days.Text))
+                                {
+                                    Stud_Penalty.Text = "Yes";
+                                }
+                                else
+                                {
+                                    Stud_Penalty.Text = "NO";
+                                }
+                            }
+                        }
+
+                    }
                 }
             }
         }
@@ -132,18 +154,47 @@ namespace Library_Management
             }
             else
             {
-                string query = "SELECT * FROM AddRent WHERE RRID = " + Convert.ToInt32(ViewState["RRID"].ToString()) + " AND BBID = " + Convert.ToInt32(ViewState["BBID"].ToString());
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, Class1.cn);
-                DataTable data = new DataTable();
-                dataAdapter.Fill(data);
-                lblbook.Text = "Book Return Successfully";
-                lblbook.ForeColor = System.Drawing.Color.Green;
+                if (ViewState["RRID"] != null && ViewState["BBID"] != null)
+                {
+                    string query = "SELECT * FROM AddRent WHERE RRID = @RRID AND BBID = @BBID";
+                    using (SqlCommand cmd = new SqlCommand(query, Class1.cn))
+                    {
+                        cmd.Parameters.AddWithValue("@RRID", Convert.ToInt32(ViewState["RRID"].ToString()));
+                        cmd.Parameters.AddWithValue("@BBID", Convert.ToInt32(ViewState["BBID"].ToString()));
+
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                        DataTable data = new DataTable();
+                        dataAdapter.Fill(data);
+
+                        if (data.Rows.Count > 0)
+                        {
+                            lblbook.Text = "Book Return Successfully";
+                            lblbook.ForeColor = System.Drawing.Color.Green;
+                        }
+
+                    }
+                }
+                else
+                {
+                    lblbook.Text = "Invalid RRID or BBID";
+                    lblbook.ForeColor = System.Drawing.Color.Red;
+                }
+
 
             }
         }
 
-
-
-
+        protected void Select_Student_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string qry = "select * from AddRent where SID='" + Convert.ToInt32(Select_Student.SelectedValue) + "' and Status='" + 0 + "'";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(qry, Class1.cn);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            Select_Book.DataSource = dataTable;
+            Select_Book.DataTextField = "BookName";
+            Select_Book.DataValueField = "RID";
+            Select_Book.DataBind();
+            Select_Book.Items.Insert(0, "SELECT");
+        }
     }
 }

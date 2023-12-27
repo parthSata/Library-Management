@@ -33,13 +33,13 @@ namespace Library_Management
                     string sql = "insert into AddBook values('" + text_BookName.Text + "','" + text_Detail.Text + "','" + text_Author.Text + "','" + text_Publication.SelectedValue + "','" + text_Branch.Text + "','" + text_Price.Text + "','" + text_Quantity.Text + "','"+ text_Quantity.Text +"','"+0+"','"+ text_Entry.Text + "','" + FileUpload1.FileName + "')";
                     SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                     DataTable dt = new DataTable();
-                    da.Fill(dt);
                     if (text_Entry.Text != "" && Convert.ToDateTime(text_Entry.Text) > DateTime.Today)
                     {
                         Response.Write("<script LANGUAGE='JavaScript' >alert('Enter Valid Date ')</script>");
                     }
                     else
                     {
+                        da.Fill(dt);
                         Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
                         clear();
                     }
