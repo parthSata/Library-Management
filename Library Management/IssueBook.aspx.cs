@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace Library_Management
 {
@@ -116,6 +117,7 @@ namespace Library_Management
                             // Log the exception or display an error message
                             Response.Write("An error occurred: " + ex.Message);
                         }
+
 
 
                         string query = "select [ID], [BookName], [Detail], [Author], [Branch], [Publication], [Price], [Quantity], [AvailableQuantity], [Rent], [Image] from AddBook ";

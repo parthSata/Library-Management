@@ -35,7 +35,6 @@ namespace Library_Management
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
                 ErrorMsg.Text = GridView1.Rows.Count.ToString() + " - Records Found";

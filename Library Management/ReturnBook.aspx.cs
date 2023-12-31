@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.DynamicData;
 
 namespace Library_Management
 {
@@ -19,6 +20,14 @@ namespace Library_Management
                 Response.Redirect("Login.aspx");
             }*/
 
+            string sql = "select * from AddRent where SID='" + Select_Student.SelectedValue + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+
+            Select_Student.Items.Insert(0, "SELECT");
+            Select_Book.Items.Insert(0, "SELECT");
         }
 
         protected void Select_Click(object sender, EventArgs e)
@@ -27,12 +36,14 @@ namespace Library_Management
             {
 
                 ErrorMsg.Text = "Select Student";
-                ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
+                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                MultiView1.ActiveViewIndex = -1;
             }
             else if (Select_Book.SelectedIndex == 5)
             {
                 ErrorMsg.Text = "Select Book";
-                ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
+                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                MultiView1.ActiveViewIndex = -1;
             }
             else
             {
@@ -66,7 +77,6 @@ namespace Library_Management
                         Stud_nm.Text = data.Rows[0]["StudentName"].ToString();
                     }
                 }
-
                 int SelectedSID;
                 if (int.TryParse(Select_Student.SelectedValue, out SelectedSID))
                 {
@@ -76,41 +86,47 @@ namespace Library_Management
                     {
                         cmd.Parameters.AddWithValue("@SID", SelectedSID);
                         cmd.Parameters.AddWithValue("@BookName", Select_Book.SelectedItem.Text);
-                        cmd.Parameters.AddWithValue("@Status", 0);
+                        cmd.Parameters.AddWithValue("@Status", "Yes");
 
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
                         DataTable dataTable = new DataTable();
                         sqlDataAdapter.Fill(dataTable);
 
-                        text_days.Text = dataTable.Rows[0]["Days"].ToString();
                         Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
                         ViewState["RRID"] = dataTable.Rows[0]["RID"].ToString();
+                        ViewState["BookName"] = dataTable.Rows[0]["BookName"].ToString();
 
+                        //if (dataTable.Rows.Count > 0)
+                        //{
+                        //    Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
 
-                        if (dataTable.Rows.Count > 0)
-                        {
-                            text_days.Text = dataTable.Rows[0]["Days"].ToString();
-                            Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
+                        //    DateTime issueDate;
+                        //    if (DateTime.TryParse(dataTable.Rows[0]["IssueDate"].ToString(), out issueDate))
+                        //    {
+                        //        int iday = issueDate.Day;
+                        //        int rday = DateTime.Now.Day;
 
-                            DateTime issueDate;
-                            if (DateTime.TryParse(dataTable.Rows[0]["IssueDate"].ToString(), out issueDate))
-                            {
-                                int iday = issueDate.Day;
-                                int rday = DateTime.Now.Day;
-
-                                int pday = rday - iday;
-                                if (pday > Convert.ToInt32(text_days.Text))
-                                {
-                                    Stud_Penalty.Text = "Yes";
-                                }
-                                else
-                                {
-                                    Stud_Penalty.Text = "NO";
-                                }
-                            }
-                        }
+                        //        int pday = rday - iday;
+                        //        if (pday > Convert.ToInt32(text_days.Text))
+                        //        {
+                        //            Stud_Penalty.Text = "Yes";
+                        //        }
+                        //        else
+                        //        {
+                        //            Stud_Penalty.Text = "NO";
+                        //        }
+                        //    }
+                        //}
 
                     }
+                    //string qry2 = "SELECT * FROM AddBook WHERE BookName='" + Select_Book.SelectedItem.Text + "'";
+                    //using (SqlCommand cmd = new SqlCommand(qry2, Class1.cn))
+                    //{
+                    //    SqlDataAdapter sqlDataAdapte2 = new SqlDataAdapter(cmd);
+                    //    DataTable dataTabl2 = new DataTable();
+                    //    sqlDataAdapte2.Fill(dataTabl2);
+                    //    ViewState["BBID"] = dataTabl2.Rows[0]["ID"].ToString();
+                    //}
                 }
             }
         }
@@ -154,13 +170,13 @@ namespace Library_Management
             }
             else
             {
-                if (ViewState["RRID"] != null && ViewState["BBID"] != null)
+                if (ViewState["RRID"] != null && ViewState["BookName"] != null)
                 {
-                    string query = "SELECT * FROM AddRent WHERE RRID = @RRID AND BBID = @BBID";
+                    string query = "SELECT * FROM AddRent WHERE RID = @RID AND BookName = @BookName";
                     using (SqlCommand cmd = new SqlCommand(query, Class1.cn))
                     {
-                        cmd.Parameters.AddWithValue("@RRID", ViewState["RRID"].ToString());
-                        cmd.Parameters.AddWithValue("@BBID", ViewState["BBID"].ToString());
+                        cmd.Parameters.AddWithValue("@RID", ViewState["RRID"].ToString());
+                        cmd.Parameters.AddWithValue("@BookName", ViewState["BookName"].ToString());
 
                         SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
                         DataTable data = new DataTable();
@@ -180,7 +196,6 @@ namespace Library_Management
                     lblbook.ForeColor = System.Drawing.Color.Red;
                 }
 
-
             }
         }
 
@@ -198,7 +213,7 @@ namespace Library_Management
             using (SqlCommand command = new SqlCommand(qry, connection))
             {
                 command.Parameters.AddWithValue("@SID", Select_Student.SelectedValue);
-                command.Parameters.AddWithValue("@Status", 0);
+                command.Parameters.AddWithValue("@Status", "Yes");
 
                 try
                 {

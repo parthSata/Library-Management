@@ -18,19 +18,30 @@ namespace Library_Management
                  Session.Clear();
                  Response.Redirect("Login.aspx");
              }*/
+            string sql = "select * from AddRent where SID='" + Select_Student.SelectedValue + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+
+            Select_Student.Items.Insert(0, "SELECT");
+            Select_Book.Items.Insert(0, "SELECT");
         }
 
         protected void Select_Click(object sender, EventArgs e)
         {
             if (Select_Student.SelectedIndex == 5)
             {
+
                 ErrorMsg.Text = "Select Student";
-                ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
+                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                MultiView1.ActiveViewIndex = -1;
             }
             else if (Select_Book.SelectedIndex == 5)
             {
                 ErrorMsg.Text = "Select Book";
-                ErrorMsg.ForeColor = System.Drawing.Color.Red; MultiView1.ActiveViewIndex = -1;
+                ErrorMsg.ForeColor = System.Drawing.Color.Red;
+                MultiView1.ActiveViewIndex = -1;
             }
             else
             {
@@ -38,6 +49,7 @@ namespace Library_Management
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
+
                 ViewState["BBID"] = dt.Rows[0]["ID"].ToString();
                 Book_nm.Text = dt.Rows[0]["BookName"].ToString();
                 Book_Author.Text = dt.Rows[0]["Author"].ToString();
@@ -62,39 +74,32 @@ namespace Library_Management
                         // Continue with your code...
                     }
                 }
-                
 
 
 
+                int  sid = Convert.ToInt32(Select_Student.SelectedValue);
+                string Bookname = Select_Book.SelectedItem.Text;
 
-                string Querry = "select * from AddRent where SID='" + Convert.ToInt32(Select_Student.SelectedValue) + "' and BookName='" + Select_Book.SelectedItem.Text + "' and Status='" + 0 + "'";
+                string Querry = "select * from AddRent where SID='" + sid + "' and BookName='" + Bookname+ "' and Status='Yes' ";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(Querry, Class1.cn);
                 DataTable data = new DataTable();
                 dataAdapter.Fill(data);
+                Book_IssueDate.Text = data.Rows[0]["IssueDate"].ToString();
+                ViewState["RRID"] = data.Rows[0]["rid"].ToString();
 
-                // Check if "IssueDate" is a valid date
-                DateTime issueDate;
-                if (DateTime.TryParse(data.Rows[0]["IssueDate"].ToString(), out issueDate))
+
+                int iday = Convert.ToDateTime(data.Rows[0]["IssueDate"].ToString()).Day;
+                int rday = Convert.ToDateTime(data.Rows[0]["ReturnDate"].ToString()).Day;
+
+                int pday = rday - iday;
+                if (pday > rday)
                 {
-                    int iday = issueDate.Day;
-
-                    // Check if "Days" is a valid integer
-                    int days;
-                    if (int.TryParse(data.Rows[0]["Days"].ToString(), out days))
-                    {
-                        int rday = System.DateTime.Now.Day;
-
-                        int pday = rday - iday;
-                        if (pday > days)
-                        {
-                            Stud_Pay.Text = "Yes";
-                        }
-                        else
-                        {
-                            Stud_Pay.Text = "NO";
-                        }
-                    }
+                    Stud_Pay.Text = "Yes";
                 }
+                else
+                {
+                    Stud_Pay.Text = "NO";
+                } 
             }
         }
 
@@ -127,7 +132,7 @@ namespace Library_Management
                 MultiView1.ActiveViewIndex = -1;
                 Select_Student.DataSource = data;
                 Select_Student.DataTextField = "StudentName";
-                Select_Student.DataValueField = "sid";
+                Select_Student.DataValueField = "SID";
             }
         }
 

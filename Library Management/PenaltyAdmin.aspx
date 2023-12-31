@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <body>
@@ -45,13 +45,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <div>
-                    <label class="block font-semibold" for="name">Select User For Penalty :</label>
-                    <asp:DropDownList ID="Select_Student" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="StudentName" DataValueField="StudentName" OnSelectedIndexChanged="Select_Student_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
+                    <label class="block font-semibold" for="name">Select Student</label>
+
+                    <asp:DropDownList ID="Select_Student" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource1" DataTextField="StudentName" DataValueField="SID" OnSelectedIndexChanged="Select_Student_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName], [SID] FROM [Addstudent]"></asp:SqlDataSource>
                 </div>
 
                 <div>
-                    <label class="block font-semibold" for="name">Select Book :</label>
+                    <label class="block font-semibold" for="name">Select Book</label>
                     <asp:DropDownList ID="Select_Book" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="BookName" DataValueField="BookName"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BookName] FROM [AddBook]"></asp:SqlDataSource>
                 </div>
@@ -59,7 +60,7 @@
                 <div class="flex items-center justify-between mt-8">
                     <asp:Button ID="Select" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Select" OnClick="Select_Click" />
                 </div>
-                                <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
+                <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
 
             </div>
         </div>
