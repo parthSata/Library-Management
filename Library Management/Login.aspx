@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Library_Management.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Library_Management.Login" %>
 
 <!DOCTYPE html>
 
@@ -6,8 +6,7 @@
 <head runat="server">
     <title>Login Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
     <section class="min-h-screen flex items-stretch text-white ">
@@ -48,7 +47,7 @@
                 <form runat="server" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                     <div class="pb-4 pt-4">
                         <label class="block font-semibold" for="password">Email :</label>
-                        <input runat="server" id="text_username" name="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black"/>
+                        <input runat="server" id="text_username" name="email" placeholder="Email" class="block w-full p-4 text-lg rounded-sm bg-black" />
                     </div>
                     <div class="pb-2 pt-4">
                         <label class="block font-semibold" for="password">Password :</label>

@@ -74,7 +74,7 @@
 
                                     <tr>
                                         <td class="text-xl mb-2" rowspan="2">
-                                            <asp:Image ID="Image2" ImageUrl='<%# Eval("Images","Book Images/{0}") %>' class="mr-5" runat="server" Height="300px" Width="207px"
+                                            <asp:Image ID="Image2" ImageUrl='<%# "Book Images/" + Eval("Image") %>' class="mr-5" runat="server" Height="300px" Width="207px"
                                                 BorderColor="#fff0" BorderStyle="Dotted" BorderWidth="1px" />
 
 
@@ -174,14 +174,15 @@
                         <tr>
                             <td class="style15">
                                 <label class="block font-semibold" for="name">Select Branch</label>
-                                <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource4" DataTextField="BranchName" DataValueField="BranchName" OnSelectedIndexChanged="text_branch_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:DropDownList ID="text_branch" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource4" DataTextField="BranchName" DataValueField="BranchName" OnSelectedIndexChanged="text_branch_SelectedIndexChanged1"></asp:DropDownList>
 
 
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BranchName] FROM [AddBranch]"></asp:SqlDataSource>
 
 
                                 <label class="block font-semibold" for="email">Select_Student</label>
-                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:DropDownList>
+                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
                                 <%--<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>--%>
 
 

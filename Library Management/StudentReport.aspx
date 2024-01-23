@@ -74,7 +74,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" OnRowCommand="GridView1_RowCommand" GridLines="None">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                 <EditRowStyle BackColor="#999999" />
                                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -89,7 +89,7 @@
                                 <Columns>
                                     <asp:TemplateField HeaderText="View">
                                         <ItemTemplate>
-                                            <asp:Button ID="Btn_View" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" runat="server" Text="View" OnClick="Btn_View_Click" />
+                                            <asp:Button ID="Btn_View" CommandArgument='<%#Eval("SID") %>'  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" runat="server" Text="View"  />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

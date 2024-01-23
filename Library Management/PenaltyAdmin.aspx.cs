@@ -91,8 +91,8 @@ namespace Library_Management
                 int iday = Convert.ToDateTime(data.Rows[0]["IssueDate"].ToString()).Day;
                 int rday = Convert.ToDateTime(data.Rows[0]["ReturnDate"].ToString()).Day;
 
-                int pday = rday - iday;
-                if (pday > rday)
+                //int pday = rday - iday;
+                if (iday > rday)
                 {
                     Stud_Pay.Text = "Yes";
                 }
@@ -143,11 +143,11 @@ namespace Library_Management
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            Select_Book.DataSource = dt;
+           /* Select_Book.DataSource = dt;
             Select_Book.DataTextField = "BookName";
             Select_Book.DataValueField = "PID";
             Select_Book.DataBind();
-            Select_Book.Items.Insert(0, "SELECT");
+            Select_Book.Items.Insert(0, "SELECT");*/
         }
     }
 }

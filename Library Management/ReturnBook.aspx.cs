@@ -188,7 +188,20 @@ namespace Library_Management
                             lblbook.ForeColor = System.Drawing.Color.Green;
                         }
 
+
                     }
+                    string sql = "delete from AddRent where RID=@RID";
+                    using (SqlCommand command = new SqlCommand(sql, Class1.cn))
+                    {
+                        command.Parameters.AddWithValue("@RID", ViewState["RRID"].ToString());
+                        command.Parameters.AddWithValue("@BookName", ViewState["BookName"].ToString());
+
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                        DataTable data = new DataTable();
+                        dataAdapter.Fill(data);
+                        Response.Write("<script LANGUAGE='JavaScript' >alert('Your data Was deleted ')</script>");
+                    }
+
                 }
                 else
                 {

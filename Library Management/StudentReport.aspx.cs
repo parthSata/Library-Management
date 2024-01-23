@@ -58,10 +58,10 @@ namespace Library_Management
                 lbl.Text = GridView1.Rows.Count.ToString() + " Student Found";
             }
         }
-       
-        protected void Btn_View_Click(object sender, EventArgs e)
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            string sql = "select * from Addstudent where SID='" + Convert.ToInt32(Session["SID"].ToString()) + "' and Branch='" + DropDownList1.SelectedValue + "' ";
+            string sql = "select * from Addstudent where SID='" + e.CommandArgument.ToString() + "' and Branch='" + DropDownList1.SelectedValue + "' ";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -78,5 +78,24 @@ namespace Library_Management
             Stud_Date.Text = dobb.GetDateTimeFormats()[7].ToString();
             Stud_Email.Text = dt.Rows[0]["Email"].ToString();
         }
+       /* protected void Btn_View_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from Addstudent where SID='" + Convert.ToInt32(Session["sid"].ToString()) + "' and Branch='" + DropDownList1.SelectedValue + "' ";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            MultiView1.Visible = true;
+            MultiView1.SetActiveView(View2);
+            Stud_Id.Text = dt.Rows[0]["SID"].ToString();
+            Stud_nm.Text = dt.Rows[0]["StudentName"].ToString();
+            Stud_Branch.Text = dt.Rows[0]["Branch"].ToString();
+            Stud_Mo.Text = dt.Rows[0]["Mobile"].ToString();
+            Stud_Address.Text = dt.Rows[0]["Address"].ToString();
+            Stud_City.Text = dt.Rows[0]["City"].ToString();
+            Stud_Pin.Text = dt.Rows[0]["Pincode"].ToString();
+            DateTime dobb = Convert.ToDateTime(dt.Rows[0]["Birthdate"].ToString());
+            Stud_Date.Text = dobb.GetDateTimeFormats()[7].ToString();
+            Stud_Email.Text = dt.Rows[0]["Email"].ToString();
+        }*/
     }
 }

@@ -29,13 +29,14 @@ namespace Library_Management
                 Label1.Text = "";
                 MultiView1.Visible = true;
                 MultiView1.SetActiveView(View2);
+
                 string sql = "select * from Addstudent where SID='" + id + "'";
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                string imageUrl = dt.Rows[0]["Image"].ToString();
-                Console.WriteLine("Image URL: " + imageUrl);
-                Image1.ImageUrl = ResolveUrl(imageUrl);
+
+                // Set the image URL directly without using ResolveUrl
+
                 Label1.Text = dt.Rows[0][1].ToString();
                 lbl_nm.Text = dt.Rows[0]["StudentName"].ToString();
                 lbl_mo.Text = dt.Rows[0]["Mobile"].ToString();
@@ -43,9 +44,13 @@ namespace Library_Management
                 lbl_City.Text = dt.Rows[0]["City"].ToString();
                 lbl_Pin.Text = dt.Rows[0]["Pincode"].ToString();
                 lbl_Email.Text = dt.Rows[0]["Email"].ToString();
-                Image1.ImageUrl = dt.Rows[0]["Image"].ToString();
-                Image1.ImageUrl = ResolveUrl(dt.Rows[0]["Image"].ToString());
 
+                string sql1 = "select [Image] from Addstudent";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql1, Class1.cn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                Image1.ImageUrl = table.Rows[0]["Image"].ToString();
 
             }
         }
@@ -69,6 +74,7 @@ namespace Library_Management
 
             string sql = "update Addstudent SET [StudentName]='" + text_nm.Text + "',Branch='" + text_branch.SelectedValue + "',Gender='" + text_gender.SelectedValue + "',Birthdate='" + text_birthdate.Text + "',Mobile='" + text_mo.Text + "',Address='" + text_address.Text + "',City='" + text_city.Text + "',Pincode='" + text_pin.Text + "',Email='" + text_email.Text + "',Password='" + text_pass.Text + "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            Response.Write(sql);
             DataTable dt = new DataTable();
             da.Fill(dt);
             Response.Write("updated");
@@ -110,12 +116,7 @@ namespace Library_Management
 
             }
         }
-        protected string GetImagePath(object image)
-        {
-            // Assuming "images" is a folder in your web application
-            string imagePath = "~/images/" + image.ToString();
-            return ResolveUrl(imagePath);
-        }
+
 
     }
 }

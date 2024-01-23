@@ -36,6 +36,7 @@ namespace Library_Management
                 ErrorMsg.ForeColor = System.Drawing.Color.Red;
                 MultiView1.ActiveViewIndex = -1;
             }
+
             else if (DropDownList2.SelectedIndex == 9)
             {
                 ErrorMsg.Text = "Select Book";
@@ -62,8 +63,7 @@ namespace Library_Management
                 Book_Rent.Text = dt.Rows[0]["Rent"].ToString();
                 Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
 
-                Select_student.Items.Clear();
-                Select_student.Items.Insert(0, "SELECT");
+                Select_student.Items.Insert(0, new ListItem("SELECT", ""));
             }
         }
 
@@ -95,7 +95,8 @@ namespace Library_Management
                     {
                         Stud_Detail.Text = "A student has maximum 3 books";
                     }
-                    else
+                    
+
                     {
                         try
                         {
@@ -175,6 +176,18 @@ namespace Library_Management
             Select_student.DataValueField = "SID";
             Select_student.DataBind();
 
+        }
+
+        protected void text_branch_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            string sql = "select * from AddStudent where Branch='" + text_branch.SelectedItem.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Select_student.DataSource = dt; 
+            Select_student.DataTextField = "StudentName";
+            Select_student.DataValueField = "SID";
+            Select_student.DataBind();
         }
     }
 }
