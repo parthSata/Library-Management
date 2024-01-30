@@ -40,7 +40,7 @@ namespace Library_Management
                     else
                     {
                         da.Fill(dt);
-                        Response.Write("<script LANGUAGE='JavaScript' >alert('You Are Now Registered ')</script>");
+                        Response.Write("<script LANGUAGE='JavaScript' >alert('Your Book Inserted')</script>");
                         clear();
                     }
                 }
@@ -62,6 +62,12 @@ namespace Library_Management
             text_Available.Text = "";
             text_Entry.Text = "";
             text_BookName.Focus();
+        }
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+
         }
     }
 }

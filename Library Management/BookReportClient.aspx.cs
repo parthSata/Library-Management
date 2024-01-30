@@ -22,7 +22,7 @@ namespace Library_Management
 
         protected void Btn_ViewBranch_Click(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedIndex == 5)
+            if (DropDownList1.SelectedIndex == 5 && DropDownList2.SelectedIndex == 10)
             {
                 ErrorMsg.Text = "Select Branch";
                 ErrorMsg.ForeColor = System.Drawing.Color.Red;
@@ -32,7 +32,7 @@ namespace Library_Management
             }
             else
             {
-                string sql = "select * from AddBook where Branch='" + DropDownList1.SelectedItem + "'";
+                string sql = "select * from AddBook where Branch='" + DropDownList1.SelectedItem + "' and Publication='" + DropDownList2.SelectedItem + "'";
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 MultiView1.Visible = true;
@@ -44,7 +44,7 @@ namespace Library_Management
             }
         }
 
-        protected void Btn_ViewPublication_Click(object sender, EventArgs e)
+       /* protected void Btn_ViewPublication_Click(object sender, EventArgs e)
         {
             if (DropDownList2.SelectedIndex == 10)
             {
@@ -66,7 +66,7 @@ namespace Library_Management
                 ErrorMsg.Text = GridView1.Rows.Count.ToString() + " - Records Found";
 
             }
-        }
+        }*/
 
         protected void Btn_Back_Click(object sender, EventArgs e)
         {

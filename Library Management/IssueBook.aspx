@@ -64,9 +64,9 @@
         <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" Visible="False">
             <div class="container">
                 <asp:View ID="View1" runat="server">
-                    <table class="flex justify-center border-1">
+                    <table class="flex justify-center ">
                         <tr>
-                            <td class="text-gray-500 text-center text-4xl font-bold ">View Book Detail </td>
+                            <td class="text-gray-500 text-center text-4xl font-bold mb-5">View Book Detail </td>
                         </tr>
                         <tr>
                             <td>
@@ -74,7 +74,7 @@
 
                                     <tr>
                                         <td class="text-xl mb-2" rowspan="2">
-                                            <asp:Image ID="Image2" ImageUrl='<%# "Book Images/" + Eval("Image") %>' class="mr-5" runat="server" Height="300px" Width="207px"
+                                            <asp:Image ID="Image2"  class="mr-5" runat="server" Height="300px" Width="207px"
                                                 BorderColor="#fff0" BorderStyle="Dotted" BorderWidth="1px" />
 
 
@@ -181,8 +181,8 @@
 
 
                                 <label class="block font-semibold" for="email">Select_Student</label>
-                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="StudentName"></asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>
+                                <asp:DropDownList ID="Select_student" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" DataSourceID="SqlDataSource3" DataTextField="StudentName" DataValueField="SID"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName],[SID] FROM [Addstudent]"></asp:SqlDataSource>
                                 <%--<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [StudentName] FROM [Addstudent]"></asp:SqlDataSource>--%>
 
 

@@ -62,6 +62,8 @@ namespace Library_Management
                 Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
                 Book_Rent.Text = dt.Rows[0]["Rent"].ToString();
                 Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
+                string imgPath = "/Book images/";
+                Image2.ImageUrl = imgPath + Image2.ImageUrl;
 
                 Select_student.Items.Insert(0, new ListItem("SELECT", ""));
             }

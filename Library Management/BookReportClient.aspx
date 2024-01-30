@@ -54,7 +54,7 @@
                 <label class="block font-semibold" for="name">Select Publication</label>
                 <asp:DropDownList ID="DropDownList2" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="Publication" DataValueField="Publication"></asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [Publication] FROM [AddPublication]"></asp:SqlDataSource>
-                <asp:Button ID="Btn_ViewPublication" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Btn_ViewPublication_Click" />
+                <%--<asp:Button ID="Btn_ViewPublication" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="View" OnClick="Btn_ViewPublication_Click" />--%>
             </div>
             <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
         </div>

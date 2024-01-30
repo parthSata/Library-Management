@@ -24,8 +24,8 @@ namespace Library_Management
             da.Fill(dt);
 
 
-            Select_Student.Items.Insert(0, "SELECT");
-            Select_Book.Items.Insert(0, "SELECT");
+           /* Select_Student.Items.Insert(0, "SELECT");
+            Select_Book.Items.Insert(0, "SELECT");*/
         }
 
         protected void Select_Click(object sender, EventArgs e)
@@ -138,16 +138,14 @@ namespace Library_Management
 
         protected void Select_Student_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             string sql = "select * from AddPenalty where SID='" + Select_Student.SelectedValue + "'";
             SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
             DataTable dt = new DataTable();
             da.Fill(dt);
-           /* Select_Book.DataSource = dt;
+            Select_Book.DataSource = dt;
             Select_Book.DataTextField = "BookName";
             Select_Book.DataValueField = "PID";
             Select_Book.DataBind();
-            Select_Book.Items.Insert(0, "SELECT");*/
         }
     }
 }

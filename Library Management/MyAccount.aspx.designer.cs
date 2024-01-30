@@ -312,6 +312,15 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.TextBox text_pass;
 
         /// <summary>
+        /// text_photo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload text_photo;
+
+        /// <summary>
         /// Btn_Update control.
         /// </summary>
         /// <remarks>

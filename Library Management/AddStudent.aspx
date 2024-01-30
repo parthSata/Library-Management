@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Add Student</title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -36,10 +36,8 @@
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="ReturnBook.aspx">Return Book</a>
                     <a class="mr-5 hover:text-gray-900 cursor-pointer" href="PenaltyAdmin.aspx">Penalty</a>
                 </nav>
-                <%--<asp:Button ID="Btn_login" runat="server" Text="Login" class="mr-2 inline-flex items-center cursor-pointer  bg-blue-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-black rounded text-base mt-4 md:mt-0" OnClick="Btn_login_Click" />--%>
-
-                <%-- <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-white rounded text-base mt-4 md:mt-0" />
-                <asp:HiddenField ID="HiddenField1" runat="server" />--%>
+                <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClientClick="dialog()" class="inline-flex items-center cursor-pointer  bg-gray-500  border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-white rounded text-base mt-4 md:mt-0" OnClick="btn_logout_Click" />
+                <asp:HiddenField ID="HiddenField1" runat="server" />
             </div>
         </header>
         <div class="p-10">
@@ -76,7 +74,7 @@
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Mobile No :</label>
                     <asp:TextBox ID="text_mo" runat="server" autofocus="autofocus" MaxLength="10" type="number" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="text_mo" ErrorMessage="Enter Valid Mobile Number" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="text_mo" ErrorMessage="Enter Valid Mobile Number" ValidationExpression="[0-9]{10}"  ForeColor="#FF3300"></asp:RegularExpressionValidator>
                 </div>
 
                 <div>
@@ -99,7 +97,7 @@
                 <div class="mt-4">
                     <label class="block font-semibold" for="password">Email :</label>
                     <asp:TextBox ID="text_email" runat="server" autofocus="autofocus" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="text_email" ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="#FF3300" ControlToValidate="text_email" ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
                 </div>
 
                 <div class="mt-4">
@@ -113,7 +111,6 @@
 
                 <div class="flex items-center justify-between mt-8">
                     <asp:Button ID="Add_NewStudent" runat="server" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" Text="Add Student" OnClick="Add_NewStudent_Click" />
-
                 </div>
             </div>
         </div>

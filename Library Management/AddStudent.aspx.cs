@@ -85,5 +85,10 @@ namespace Library_Management
             text_nm.Focus();
         }
 
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+
+        }
     }
 }

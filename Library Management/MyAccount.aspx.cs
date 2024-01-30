@@ -34,9 +34,6 @@ namespace Library_Management
                 SqlDataAdapter da = new SqlDataAdapter(sql, Class1.cn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-
-                // Set the image URL directly without using ResolveUrl
-
                 Label1.Text = dt.Rows[0][1].ToString();
                 lbl_nm.Text = dt.Rows[0]["StudentName"].ToString();
                 lbl_mo.Text = dt.Rows[0]["Mobile"].ToString();
@@ -44,14 +41,9 @@ namespace Library_Management
                 lbl_City.Text = dt.Rows[0]["City"].ToString();
                 lbl_Pin.Text = dt.Rows[0]["Pincode"].ToString();
                 lbl_Email.Text = dt.Rows[0]["Email"].ToString();
-
-                string sql1 = "select [Image] from Addstudent";
-                SqlDataAdapter adapter = new SqlDataAdapter(sql1, Class1.cn);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                Image1.ImageUrl = table.Rows[0]["Image"].ToString();
-
+                Image1.ImageUrl = dt.Rows[0]["Image"].ToString();
+                string imgPath = "/images/";
+                Image1.ImageUrl = imgPath + Image1.ImageUrl;
             }
         }
 
@@ -105,15 +97,10 @@ namespace Library_Management
                 text_city.Text = dt.Rows[0]["City"].ToString();
                 text_pin.Text = dt.Rows[0]["Pincode"].ToString();
                 text_email.Text = dt.Rows[0]["Email"].ToString();
-
-                // Set the ImageUrl property with the correct path
-
-
             }
             catch (Exception ex)
             {
                 Response.Write("<script LANGUAGE='JavaScript' >alert('No Data Found')</script>");
-
             }
         }
 

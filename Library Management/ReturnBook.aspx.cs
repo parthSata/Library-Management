@@ -61,6 +61,8 @@ namespace Library_Management
                 Book_Publication.Text = dt.Rows[0]["Publication"].ToString();
                 Book_Price.Text = dt.Rows[0]["Price"].ToString();
                 Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
+                string imgPath = "/Book images/";
+                Image2.ImageUrl = imgPath + Image2.ImageUrl;
 
                 //SELECT STUDENT
 
@@ -77,6 +79,8 @@ namespace Library_Management
                         Stud_nm.Text = data.Rows[0]["StudentName"].ToString();
                     }
                 }
+                
+
                 int SelectedSID;
                 if (int.TryParse(Select_Student.SelectedValue, out SelectedSID))
                 {
@@ -91,42 +95,10 @@ namespace Library_Management
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
                         DataTable dataTable = new DataTable();
                         sqlDataAdapter.Fill(dataTable);
-
                         Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
                         ViewState["RRID"] = dataTable.Rows[0]["RID"].ToString();
                         ViewState["BookName"] = dataTable.Rows[0]["BookName"].ToString();
-
-                        //if (dataTable.Rows.Count > 0)
-                        //{
-                        //    Book_IssueDate.Text = dataTable.Rows[0]["IssueDate"].ToString();
-
-                        //    DateTime issueDate;
-                        //    if (DateTime.TryParse(dataTable.Rows[0]["IssueDate"].ToString(), out issueDate))
-                        //    {
-                        //        int iday = issueDate.Day;
-                        //        int rday = DateTime.Now.Day;
-
-                        //        int pday = rday - iday;
-                        //        if (pday > Convert.ToInt32(text_days.Text))
-                        //        {
-                        //            Stud_Penalty.Text = "Yes";
-                        //        }
-                        //        else
-                        //        {
-                        //            Stud_Penalty.Text = "NO";
-                        //        }
-                        //    }
-                        //}
-
                     }
-                    //string qry2 = "SELECT * FROM AddBook WHERE BookName='" + Select_Book.SelectedItem.Text + "'";
-                    //using (SqlCommand cmd = new SqlCommand(qry2, Class1.cn))
-                    //{
-                    //    SqlDataAdapter sqlDataAdapte2 = new SqlDataAdapter(cmd);
-                    //    DataTable dataTabl2 = new DataTable();
-                    //    sqlDataAdapte2.Fill(dataTabl2);
-                    //    ViewState["BBID"] = dataTabl2.Rows[0]["ID"].ToString();
-                    //}
                 }
             }
         }
@@ -216,11 +188,9 @@ namespace Library_Management
         {
             if (string.IsNullOrEmpty(Select_Student.SelectedValue))
             {
-                // Handle empty case (e.g., clear book selection)
                 return;
             }
 
-            // Use parameterized query for safety and correct data handling
             string qry = "select * from AddRent where SID=@SID and Status=@Status";
             using (SqlConnection connection = Class1.cn)
             using (SqlCommand command = new SqlCommand(qry, connection))
@@ -243,8 +213,6 @@ namespace Library_Management
                 }
                 catch (Exception ex)
                 {
-                    // Handle any remaining errors gracefully
-                    // Log or display the error message
                 }
             }
         }

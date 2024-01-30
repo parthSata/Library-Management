@@ -53,8 +53,8 @@
 
                 <div>
                     <label class="block font-semibold" for="name">Select Book</label>
-                    <asp:DropDownList ID="Select_Book" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="BookName" DataValueField="BookName"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BookName] FROM [AddBook]"></asp:SqlDataSource>
+                    <asp:DropDownList ID="Select_Book" class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" runat="server" DataSourceID="SqlDataSource2" DataTextField="BookName" DataValueField="ID"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [BookName],[ID] FROM [AddBook]"></asp:SqlDataSource>
                 </div>
 
                 <div class="flex items-center justify-between mt-8">

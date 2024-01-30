@@ -53,6 +53,9 @@ namespace Library_Management
             Book_Available.Text = dt.Rows[0]["AvailableQuantity"].ToString();
             Book_Rent.Text = dt.Rows[0]["Rent"].ToString();
             Book_Detail.Text = dt.Rows[0]["Detail"].ToString();
+            Image2.ImageUrl = dt.Rows[0]["Image"].ToString();
+            string imgPath = "/Book images/";
+            Image2.ImageUrl = imgPath + Image2.ImageUrl;
         }
 
         protected void Btn_Back_Click(object sender, EventArgs e)

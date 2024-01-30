@@ -7,7 +7,6 @@
     <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -68,20 +67,20 @@
                 <asp:View ID="View1" runat="server">
                     <table class="flex justify-center border-1">
                         <tr>
-                            <td class="text-gray-500 text-center text-4xl font-bold ">View Book Detail </td>
+                            <td class="text-gray-500 text-center text-4xl font-bold mb-10">View Book Detail </td>
                         </tr>
                         <tr>
                             <td>
                                 <table class="style4">
                                     <tr>
                                         <td class="text-xl mb-2">
-                                            <asp:Image ID="Image2" runat="server" Height="211px" Width="207px"
+                                            <asp:Image ID="Image2" runat="server" CssClass="mr-5" Height="280px" Width="207px"
                                                 BorderColor="#009933" BorderStyle="Dotted" BorderWidth="1px" />
                                         </td>
                                         <td class="style8" valign="top">
                                             <table class="style7">
                                                 <tr>
-                                                    <td class="style5" colspan="2">Book Name :
+                                                    <td class="text-xl mb-2" colspan="2">Book Name :
                                                         <asp:Label ID="Book_nm" class="text-xl" runat="server"></asp:Label>
                                                     </td>
                                                 </tr>
@@ -123,13 +122,13 @@
                                                     </td>
                                                     <td>&nbsp;</td>
                                                 </tr>
-                                                <tr>
+                                               <%-- <tr>
                                                     <td class="text-xl mb-2 ">Days :</td>
                                                     <td>
                                                         <asp:Label ID="text_days" class="text-xl" runat="server"></asp:Label>
                                                     </td>
                                                     <td>&nbsp;</td>
-                                                </tr>
+                                                </tr>--%>
                                                 <tr>
                                                     <td class="text-xl mb-2 ">Issue Date :
                                                     </td>

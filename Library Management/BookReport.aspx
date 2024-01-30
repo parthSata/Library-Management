@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <body>
@@ -114,8 +114,8 @@
             </asp:View>
             <asp:View ID="View2" runat="server">
                 <table class="flex justify-center text-4xl rounded-lg font-bold text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <tr>
-                        <td class="tblhead">View Book Detail </td>
+                    <tr class="flex justify-center">
+                        <td class="flex items-center">View Book Detail </td>
                     </tr>
                     <tr>
                         <td>
@@ -125,39 +125,39 @@
                                 </tr>
 
                                 <tr>
-                                    <%--<td class="style6" rowspan="3">
-                                        <asp:Image ID="Image2" runat="server"  Height="228px" Width="207px" />
-                                    </td>--%>
+                                    <td class="style6" rowspan="3">
+                                        <asp:Image ID="Image2" class="mr-5" runat="server" Height="228px" Width="207px" />
+                                    </td>
                                     <td class="style8" valign="top">
                                         <table class="style7">
                                             <tr>
-                                                <td class="text-xl mb-2" >Book Name :</td>
+                                                <td class="text-xl mb-2">Book Name :</td>
                                                 <td>
                                                     <asp:Label ID="Book_nm" class="text-xl" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-xl mb-2" >Author :</td>
+                                                <td class="text-xl mb-2">Author :</td>
                                                 <td>
                                                     <asp:Label ID="Book_Author" class="text-xl" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-xl mb-2" >Publication :
+                                                <td class="text-xl mb-2">Publication :
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="Book_Publication" class="text-xl" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-xl mb-2" >Branch :
+                                                <td class="text-xl mb-2">Branch :
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="Book_Branch" class="text-xl" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-xl mb-2" >Price :
+                                                <td class="text-xl mb-2">Price :
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="Book_Price" class="text-xl" runat="server"></asp:Label>
@@ -165,21 +165,21 @@
                                             </tr>
 
                                             <tr>
-                                                <td class="text-xl mb-2" >Total Qnt :
+                                                <td class="text-xl mb-2">Total Qnt :
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="Book_Total" class="text-xl" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-xl mb-2" >Available Qnt :
+                                                <td class="text-xl mb-2">Available Qnt :
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="Book_Available" class="text-xl" runat="server"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-xl mb-2" >Rent Qnt :
+                                                <td class="text-xl mb-2">Rent Qnt :
                                                 </td>
                                                 <td>
                                                     <asp:Label ID="Book_Rent" class="text-xl" runat="server"></asp:Label>
@@ -189,11 +189,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-xl mb-2" >Detail :
+                                    <td class="text-xl mb-2">Detail :
                                         <asp:Label ID="Book_Detail" class="text-xl" runat="server"></asp:Label>
                                     </td>
                                 </tr>
-                               
+
                             </table>
                         </td>
                     </tr>

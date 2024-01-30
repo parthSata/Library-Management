@@ -177,15 +177,6 @@ namespace Library_Management
         protected global::System.Web.UI.WebControls.Label Stud_nm;
 
         /// <summary>
-        /// text_days control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label text_days;
-
-        /// <summary>
         /// Book_IssueDate control.
         /// </summary>
         /// <remarks>
